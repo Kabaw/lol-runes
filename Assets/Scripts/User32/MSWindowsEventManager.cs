@@ -40,13 +40,19 @@ namespace LoLRunes.User32
                 subscribedDelegates.Add(enumValue, new List<MouseEventExtHandler>());
         }
 
-        public void SubscribeFor_MouseDown(MouseEventExtHandler mouseEventExtHandler)
+        public void Subscribe_MouseDown(MouseEventExtHandler mouseEventExtHandler)
         {
             subscribedDelegates[MouseEvent.MOUSE_DOWN].Add(mouseEventExtHandler);
             globalEventProvider.MouseDown += mouseEventExtHandler;
         }
 
-        public void UnsubscribeAll(MouseEventExtHandler mouseEventExtHandler)
+        public void Unsubscribe_MouseDown(MouseEventExtHandler mouseEventExtHandler)
+        {
+            subscribedDelegates[MouseEvent.MOUSE_DOWN].Remove(mouseEventExtHandler);
+            globalEventProvider.MouseDown -= mouseEventExtHandler;
+        }
+
+        public void UnsubscribeAll()
         {
             foreach (KeyValuePair<MouseEvent, List<MouseEventExtHandler>> pair in subscribedDelegates)
                 foreach (MouseEventExtHandler delegateEvent in pair.Value)

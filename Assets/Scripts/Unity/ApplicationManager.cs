@@ -32,7 +32,6 @@ public class ApplicationManager : MonoBehaviour
 
         Process[] process = Process.GetProcesses().Where(p => p.ProcessName.Contains("League")).ToArray();
 
-
         MouseEventExtArgs e = new MouseEventExtArgs(MouseButtons.Left, 0, 0, 0, 0);
     }
 

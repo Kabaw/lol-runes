@@ -44,7 +44,7 @@ public class ApplicationManager : MonoBehaviour
             MSWindowsEventManager.instance.Unsubscribe_MouseDown(HookManager_MouseMove);
         }
 
-        text.text = string.Format("x={0:0000}; y={1:0000}", e.X, e.Y); 
+        text.text = string.Format("x={0:0000}; y={1:0000}", e.X, e.Y);  
     }
 
     public void ButtonFindWindow()
@@ -54,8 +54,6 @@ public class ApplicationManager : MonoBehaviour
 
     public void ButtonPerformClicks()
     {
-        var clickClass = new ClickClass();
-
         WindowController.SetForegroundWindow("League of Legends");
 
         foreach (Point point in positions)

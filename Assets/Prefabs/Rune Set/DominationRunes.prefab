@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 794745731159057208, guid: 9f6621b8eace71444bbadca882756ada,
         type: 3}
       propertyPath: m_Name
-      value: Domination Variant
+      value: DominationRunes
       objectReference: {fileID: 0}
     - target: {fileID: 794745731159057215, guid: 9f6621b8eace71444bbadca882756ada,
         type: 3}
@@ -217,7 +217,7 @@ PrefabInstance:
     - target: {fileID: 3254220286383438423, guid: 9f6621b8eace71444bbadca882756ada,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -174.589
+      value: -150.27
       objectReference: {fileID: 0}
     - target: {fileID: 3628210692468277875, guid: 9f6621b8eace71444bbadca882756ada,
         type: 3}

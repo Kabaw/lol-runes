@@ -2397,7 +2397,7 @@ PrefabInstance:
     - target: {fileID: 1700802485460774214, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1700802485460774214, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
@@ -2968,7 +2968,7 @@ PrefabInstance:
     - target: {fileID: 1700802485460774214, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1700802485460774214, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
@@ -3154,6 +3154,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Precision
       objectReference: {fileID: 0}
+    - target: {fileID: 1710766412956367991, guid: ca0291e1ab412824e8d45a3160ee45a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca0291e1ab412824e8d45a3160ee45a7, type: 3}
 --- !u!1001 &4252332500543672350
@@ -3273,6 +3278,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inspiration
       objectReference: {fileID: 0}
+    - target: {fileID: 3460120115005697709, guid: a93747d1e559ba640919d468919fb538,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a93747d1e559ba640919d468919fb538, type: 3}
 --- !u!1001 &7327584513483547402
@@ -3286,6 +3296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sorcery
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977931313770874506, guid: f9319c9707a6d8e4683269971e66c09d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7977931313770874509, guid: f9319c9707a6d8e4683269971e66c09d,
         type: 3}
@@ -3629,6 +3644,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Resolve
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986142252612248838, guid: 0090f16434d7f9c4ea9fe6232caca8fe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0090f16434d7f9c4ea9fe6232caca8fe, type: 3}

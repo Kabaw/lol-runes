@@ -18,7 +18,38 @@ public class ClickClass
     public static extern int FindWindow(string ClassName, string WindowName);
 
     [DllImport("user32.dll")]
-    public static extern bool SetCursorPos(int X, int Y);
+    public static extern bool SetCursorPos(int X, int Y);[DllImport("user32.dll")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    static extern bool GetWindowPlacement(IntPtr hWnd, ref WINDOWPLACEMENT lpwndpl);
+
+    [DllImport("user32.dll")]
+    static extern bool SetWindowPlacement(IntPtr hWnd, ref WINDOWPLACEMENT lpwndpl);
+
+    private struct POINTAPI
+    {
+        public int x;
+        public int y;
+    }
+
+    private struct RECT
+    {
+        public int left;
+        public int top;
+        public int right;
+        public int bottom;
+    }
+
+    private struct WINDOWPLACEMENT
+    {
+        public int length;
+        public int flags;
+        public int showCmd;
+        public POINTAPI ptMinPosition;
+        public POINTAPI ptMaxPosition;
+        public RECT rcNormalPosition;
+    }
+
+
 
 
     [Flags]
@@ -72,4 +103,13 @@ public class ClickClass
         Thread.Sleep(tempo);
         mouse_event((int)(MouseEventFlags.RIGHTUP), 0, 0, 0, 0);
     }
+
+    public static void MaximizeWindow(IntPtr hWnd)
+    {
+        WINDOWPLACEMENT wp = new WINDOWPLACEMENT();
+        GetWindowPlacement(hWnd, ref wp);
+        wp.showCmd = 3; // 1- Normal; 2 - Minimize; 3 - Maximize;
+        SetWindowPlacement(hWnd, ref wp);
+    }
+
 }

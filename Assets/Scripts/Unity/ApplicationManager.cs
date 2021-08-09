@@ -17,8 +17,10 @@ public class ApplicationManager : MonoBehaviour
 
     [SerializeField] private TMP_Text text;
 
-    private GlobalEventProvider globalEventProvider;
-    private int count = 0;
+    private GlobalEventProvider globalEventProvider;    
+
+    private List<Point> positions;
+    private int count;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +30,10 @@ public class ApplicationManager : MonoBehaviour
         
         IntPtr a = GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName);
 
+        Process[] process = Process.GetProcesses().Where(p => p.ProcessName.Contains("League")).ToArray();
+
 
         MouseEventExtArgs e = new MouseEventExtArgs(MouseButtons.Left, 0, 0, 0, 0);
-
-
-        globalEventProvider.MouseClick += HookManager_MouseMove;        
     }
 
     // Update is called once per frame
@@ -42,9 +43,19 @@ public class ApplicationManager : MonoBehaviour
     }
 
     private void HookManager_MouseMove(object sender, MouseEventExtArgs e)
-    {
-        text.text = string.Format("x={0:0000}; y={1:0000}", e.X, e.Y) + " ------- " + count;
-        count++;        
+    {       
+        if (count < 4)
+        {
+            print(count);
+            positions[count] = new Point(e.X, e.Y);
+            count++;
+        }
+        else
+        {
+            globalEventProvider.MouseDown -= HookManager_MouseMove;
+        }
+
+        text.text = string.Format("x={0:0000}; y={1:0000}", e.X, e.Y); 
     }
 
     public void ButtonFindWindow()
@@ -52,19 +63,42 @@ public class ApplicationManager : MonoBehaviour
         var clickClass = new ClickClass();
 
         int hWnd = ClickClass.FindWindow(null, "League of Legends");
+        //ClickClass.MaximizeWindow((IntPtr)hWnd);
         ClickClass.SetForegroundWindow((IntPtr)hWnd);
-        //ClickClass.SetCursorPos(1250, 540);
+        ClickClass.SetCursorPos(1250, 540);
         //
-        //clickClass.leftClick(new Point());
+        clickClass.leftClick(new Point());
+    }
+
+    public void ButtonPerformClicks()
+    {
+        var clickClass = new ClickClass();
+
+        int hWnd = ClickClass.FindWindow(null, "League of Legends");
+        ClickClass.SetForegroundWindow((IntPtr)hWnd);
+
+        foreach (Point point in positions)
+        {
+            ClickClass.SetCursorPos(point.X, point.Y);
+            clickClass.leftClick(new Point());
+        }
     }
 
     public void ButtonUnsubscribe()
     {
-        globalEventProvider.MouseClick -= HookManager_MouseMove;
+        globalEventProvider.MouseDown -= HookManager_MouseMove;
+    }
+
+    public void ButtonSynchronize()
+    {
+        count = 0;
+        positions = new List<Point>() { Point.Empty, Point.Empty, Point.Empty, Point.Empty };
+
+        globalEventProvider.MouseDown += HookManager_MouseMove;
     }
 
     private void OnDestroy()
     {
-        globalEventProvider.MouseClick -= HookManager_MouseMove;
+        globalEventProvider.MouseDown -= HookManager_MouseMove;
     }
 }

@@ -16,14 +16,16 @@ public class ApplicationManager : MonoBehaviour
     public static extern IntPtr GetModuleHandle(string name);
 
     [SerializeField] private TMP_Text text;
+    [SerializeField] private string numbers;
 
     private List<Point> positions;
     private int count;
+    private string mouseClickLog;        
 
     // Start is called before the first frame update
     void Start()
     {
-
+        string[] breakNumbers = numbers.Split(new char[] { ';' });
     }
 
     // Update is called once per frame
@@ -34,10 +36,12 @@ public class ApplicationManager : MonoBehaviour
 
     private void HookManager_MouseMove(object sender, MouseEventExtArgs e)
     {       
-        if (count < 4)
+        if (count < 10000000)
         {
-            print(count);
-            positions[count] = new Point(e.X, e.Y);
+            //print(count);
+            //positions[count] = new Point(e.X, e.Y);
+            //mouseClickLog += String.Format("{0} {1};", e.X, e.Y);
+            print("X = " + (1133 - e.X) + " --- Y = " + (317 - e.Y));
             count++;
         }
         else
@@ -80,11 +84,14 @@ public class ApplicationManager : MonoBehaviour
         count = 0;
         positions = new List<Point>() { Point.Empty, Point.Empty, Point.Empty, Point.Empty };
 
+        mouseClickLog = "";
+
         MSWindowsEventManager.instance.Subscribe_MouseDown(HookManager_MouseMove);
     }
 
     private void OnDestroy()
     {
+        MSWindowsEventManager.instance.Unsubscribe_MouseDown(HookManager_MouseMove);
         MSWindowsEventManager.instance.UnsubscribeAll();
     }
 }

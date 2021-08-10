@@ -68,7 +68,6 @@ namespace LoLRunes.Enumerators
         RESOLVE_RUNE_SLOT_09,
 
         //Inspiration
-        [PositionReference(1)]
         INPIRATION_PATH,
         INPIRATION_KEYSTONE_01,
         INPIRATION_KEYSTONE_02,

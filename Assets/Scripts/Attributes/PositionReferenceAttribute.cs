@@ -1,17 +1,18 @@
-﻿using System;
+﻿using LoLRunes.Enumerators;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace LoLRunes.CustumAttributes
 {
-    public class PositionReferenceAttribute : Attribute
+    public class RunePositionReferenceAttribute : Attribute
     {
-        public int PositionReference { get; }
+        public RunePositionReferenceEnum RunePositionReference { get; }
 
-        public PositionReferenceAttribute(int positionReference)
+        public RunePositionReferenceAttribute(RunePositionReferenceEnum runePositionReference)
         {
-            PositionReference = positionReference;
+            RunePositionReference = runePositionReference;
         }
     }
 }

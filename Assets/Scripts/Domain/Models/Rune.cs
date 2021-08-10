@@ -1,4 +1,5 @@
 ﻿using LoLRunes.Enumerators;
+using LoLRunes.Enumerators.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,8 +13,6 @@ namespace LoLRunes.Domain.Models
         public Rune(RuneTypeEnum runeType)
         {
             RuneType = runeType;
-
-            runeType.get
         }
     }
 }

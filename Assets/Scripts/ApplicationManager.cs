@@ -9,6 +9,7 @@ using System.Linq;
 using Gma.UserActivityMonitor;
 using LoLRunes.Utils.User32;
 using LoLRunes.Enumerators;
+using LoLRunes.ScriptableObjects;
 
 public class ApplicationManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class ApplicationManager : MonoBehaviour
 
     [SerializeField] private TMP_Text text;
     [SerializeField] private string numbers;
+    [SerializeField] private float clickDelay;
+    [SerializeField] private ResolutionRunePositionConfig resolutionRunePositionConfig;
 
     private List<Point> positions;
     private int count;
@@ -68,10 +71,32 @@ public class ApplicationManager : MonoBehaviour
 
     public void ButtonPerformClicks()
     {
+        //WindowController.SetForegroundWindow("League of Legends");
+        //
+        //foreach (Point point in positions)
+        //    MouseController.LeftClick(point);
+
+        StartCoroutine(PerformClicks());
+    }
+
+    public IEnumerator PerformClicks()
+    {
         WindowController.SetForegroundWindow("League of Legends");
 
-        foreach (Point point in positions)
+        WindowPlacement windowPlacement = WindowController.GetWindowPlacementInfo("League of Legends");
+
+        foreach (string pointText in resolutionRunePositionConfig.Positions.Split(new char[] { ';' }))
+        {
+            string[] pointValueText = pointText.Split(new char[] { ' ' });
+
+            Point point = new Point(
+                windowPlacement.rcNormalPosition.left + (int.Parse(pointValueText[0]) - resolutionRunePositionConfig.WindowX),
+                windowPlacement.rcNormalPosition.top + (int.Parse(pointValueText[1]) - resolutionRunePositionConfig.WindowY));
+
             MouseController.LeftClick(point);
+
+            yield return new WaitForSeconds(clickDelay);
+        }
     }
 
     public void ButtonUnsubscribe()

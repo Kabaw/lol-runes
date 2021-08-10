@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: ResolutionRunePositionConfig_xx
+  m_Name: ResolutionRunePositionConfig_01
   m_EditorClassIdentifier: Assembly-CSharp:LoLRunes.ScriptableObjects:ResolutionRunePositionConfig
   resolutionX: 1280
   resolutionY: 720

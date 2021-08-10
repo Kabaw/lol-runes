@@ -1,13 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "ResolutionRunePositionConfig_xx", menuName = "Scriptable Objects/Positioning/ResolutionRunePositionConfig")]
-public class ResolutionRunePositionConfig : ScriptableObject
+namespace LoLRunes.ScriptableObjects
 {
-    [SerializeField] private int resolutionX;
-    [SerializeField] private int resolutionY;
-    [SerializeField] private int windowX;
-    [SerializeField] private int windowY;
-    [SerializeField] private string positions;
+    [CreateAssetMenu(fileName = "ResolutionRunePositionConfig_xx", menuName = "Scriptable Objects/Positioning/ResolutionRunePositionConfig")]
+    public class ResolutionRunePositionConfig : ScriptableObject
+    {
+        [SerializeField] private int resolutionX;
+        [SerializeField] private int resolutionY;
+        [SerializeField] private int windowX;
+        [SerializeField] private int windowY;
+        [SerializeField] private string positions;
+
+        public int ResolutionX => resolutionX;
+        public int ResolutionY => resolutionY;
+        public int WindowX => windowX;
+        public int WindowY => windowY;
+        public string Positions => positions;
+    }
 }

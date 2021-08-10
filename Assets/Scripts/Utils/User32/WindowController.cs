@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-namespace LoLRunes.User32
+namespace LoLRunes.Utils.User32
 {
     public static class WindowController
     {

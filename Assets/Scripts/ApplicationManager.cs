@@ -7,7 +7,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using Gma.UserActivityMonitor;
-using LoLRunes.User32;
+using LoLRunes.Utils.User32;
 
 public class ApplicationManager : MonoBehaviour
 {

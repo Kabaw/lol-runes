@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using UnityEngine;
 
-namespace LoLRunes.User32
+namespace LoLRunes.Utils.User32
 {
     public static class MouseController
     {

@@ -2013,6 +2013,11 @@ PrefabInstance:
     - target: {fileID: 7797446413346751932, guid: 5cddd2c527baff94fb156ecaa3e46ed3,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797446413503447115, guid: 5cddd2c527baff94fb156ecaa3e46ed3,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7797446413980779710, guid: 5cddd2c527baff94fb156ecaa3e46ed3,
@@ -2245,6 +2250,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7602193497324060117, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602193497686407202, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
       propertyPath: m_IsActive
       value: 1

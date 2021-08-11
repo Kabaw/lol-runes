@@ -45,6 +45,7 @@ public class ApplicationManager : MonoBehaviour
             //positions[count] = new Point(e.X, e.Y);
             //mouseClickLog += String.Format("{0} {1};", e.X, e.Y);
             print("X = " + (1133 - e.X) + " --- Y = " + (317 - e.Y));
+
             count++;
         }
         else
@@ -76,6 +77,8 @@ public class ApplicationManager : MonoBehaviour
         //foreach (Point point in positions)
         //    MouseController.LeftClick(point);
 
+        mouseClickLog = "";
+
         StartCoroutine(PerformClicks());
     }
 
@@ -85,18 +88,23 @@ public class ApplicationManager : MonoBehaviour
 
         WindowPlacement windowPlacement = WindowController.GetWindowPlacementInfo("League of Legends");
 
-        foreach (string pointText in resolutionRunePositionConfig.Positions.Split(new char[] { ';' }))
+        foreach (string pointText in resolutionRunePositionConfig.RelativePositions.Split(new char[] { ';' }))
         {
             string[] pointValueText = pointText.Split(new char[] { ' ' });
+            int x = windowPlacement.rcNormalPosition.left + (int.Parse(pointValueText[0]));
+            int y = windowPlacement.rcNormalPosition.top + (int.Parse(pointValueText[1]));
 
-            Point point = new Point(
-                windowPlacement.rcNormalPosition.left + (int.Parse(pointValueText[0]) - resolutionRunePositionConfig.WindowX),
-                windowPlacement.rcNormalPosition.top + (int.Parse(pointValueText[1]) - resolutionRunePositionConfig.WindowY));
+            Point point = new Point(x, y);
+
+            mouseClickLog += String.Format("{0} {1};", x, y);
+            //print("X = " + windowPlacement.rcNormalPosition.left + (int.Parse(pointValueText[0]) - resolutionRunePositionConfig.WindowX + " --- Y = " + windowPlacement.rcNormalPosition.top + (int.Parse(pointValueText[1]) - resolutionRunePositionConfig.WindowY)));
 
             MouseController.LeftClick(point);
 
             yield return new WaitForSeconds(clickDelay);
         }
+
+        print(mouseClickLog);
     }
 
     public void ButtonUnsubscribe()

@@ -96,7 +96,7 @@ public class ApplicationManager : MonoBehaviour
 
             Point point = new Point(x, y);
 
-            mouseClickLog += String.Format("{0} {1};", x, y);
+            mouseClickLog += String.Format("{0} {1};", (int.Parse(pointValueText[0])) - 1133, (int.Parse(pointValueText[1])) - 317);
             //print("X = " + windowPlacement.rcNormalPosition.left + (int.Parse(pointValueText[0]) - resolutionRunePositionConfig.WindowX + " --- Y = " + windowPlacement.rcNormalPosition.top + (int.Parse(pointValueText[1]) - resolutionRunePositionConfig.WindowY)));
 
             MouseController.LeftClick(point);

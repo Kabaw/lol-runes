@@ -206,7 +206,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d28c68091b8e942ab15e1dfc0211b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathType: 0
+  _pathType: 0
+  _pathRunesRadio: {fileID: 6420842969068903994}
+  pathButtons:
+  - {fileID: 1530085503796634378}
+  - {fileID: 8562626673890041257}
+  - {fileID: 8562626673456646841}
+  - {fileID: 8562626672599766563}
+  - {fileID: 5682448738771166695}
   keyStones: []
   runeSets: []
 --- !u!1001 &4189867095744344052
@@ -534,6 +541,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4189867095744344052}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6420842969068903994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7151170051366384078, guid: b9a693b1b5da3b943a9dfd4e07b797c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4189867095744344052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8260155d46012e245b9774a1dfb02221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1530085503796634378 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3395310890465463550, guid: b9a693b1b5da3b943a9dfd4e07b797c0,

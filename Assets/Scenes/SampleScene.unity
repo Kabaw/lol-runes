@@ -1224,7 +1224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 880669577353489547, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
-      propertyPath: pathType
+      propertyPath: _pathType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 880669577353489547, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
@@ -1891,11 +1891,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Path_01
       objectReference: {fileID: 0}
-    - target: {fileID: 1700802485460774209, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
-        type: 3}
-      propertyPath: m_TagString
-      value: PathRoot
-      objectReference: {fileID: 0}
     - target: {fileID: 1700802485460774214, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2184,6 +2179,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1585088543}
     m_Modifications:
+    - target: {fileID: 2115737075411419074, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4120195526826256962, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r

@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 794745731159057208, guid: 9f6621b8eace71444bbadca882756ada,
         type: 3}
       propertyPath: m_Name
-      value: PrecisionRunes Variant
+      value: PrecisionRunes
+      objectReference: {fileID: 0}
+    - target: {fileID: 794745731159057208, guid: 9f6621b8eace71444bbadca882756ada,
+        type: 3}
+      propertyPath: m_TagString
+      value: Precision
       objectReference: {fileID: 0}
     - target: {fileID: 794745731159057215, guid: 9f6621b8eace71444bbadca882756ada,
         type: 3}

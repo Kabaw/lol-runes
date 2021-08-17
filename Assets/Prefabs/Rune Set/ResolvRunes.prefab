@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResolvRunes
       objectReference: {fileID: 0}
+    - target: {fileID: 794745731159057208, guid: 9f6621b8eace71444bbadca882756ada,
+        type: 3}
+      propertyPath: m_TagString
+      value: Resolve
+      objectReference: {fileID: 0}
     - target: {fileID: 794745731159057215, guid: 9f6621b8eace71444bbadca882756ada,
         type: 3}
       propertyPath: m_LocalPosition.x

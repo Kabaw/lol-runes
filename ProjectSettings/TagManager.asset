@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - PathRoot
+  - Precision
+  - Domination
+  - Sorcery
+  - Resolve
+  - Inspiration
   layers:
   - Default
   - TransparentFX

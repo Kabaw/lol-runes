@@ -10,6 +10,7 @@ using Gma.UserActivityMonitor;
 using LoLRunes.Utils.User32;
 using LoLRunes.Enumerators;
 using LoLRunes.ScriptableObjects;
+using System.Diagnostics;
 
 public class ApplicationManager : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class ApplicationManager : MonoBehaviour
     void Start()
     {
         string[] breakNumbers = numbers.Split(new char[] { ';' });
+
+        Process[] processes = Process.GetProcesses().Where(p => p.ProcessName.Contains("League")).ToArray();
     }
 
     // Update is called once per frame
@@ -58,16 +61,17 @@ public class ApplicationManager : MonoBehaviour
 
     public void ButtonFindWindow()
     {
-        foreach (var item in Enum.GetValues(typeof(RuneTypeEnum)))
-        {
-            print(item.ToString());
-        }
+        //foreach (var item in Enum.GetValues(typeof(RuneTypeEnum)))
+        //{
+        //    print(item.ToString());
+        //}
 
-        WindowController.SetForegroundWindow("League of Legends");
+        WindowPlacement windowPlacement = new WindowPlacement();
 
-        WindowPlacement windowPlacement = WindowController.GetWindowPlacementInfo("League of Legends");
+        WindowController.SetFrontWindow("LeagueClientUx", "League of Legends");
+        //WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
 
-        text.text = string.Format("top={0}; bottom={1}; left={2}; right={3}", windowPlacement.rcNormalPosition.top, windowPlacement.rcNormalPosition.bottom, windowPlacement.rcNormalPosition.left, windowPlacement.rcNormalPosition.right);
+        //text.text = string.Format("top={0}; bottom={1}; left={2}; right={3}", windowPlacement.rcNormalPosition.top, windowPlacement.rcNormalPosition.bottom, windowPlacement.rcNormalPosition.left, windowPlacement.rcNormalPosition.right);
     }
 
     public void ButtonPerformClicks()
@@ -84,9 +88,10 @@ public class ApplicationManager : MonoBehaviour
 
     public IEnumerator PerformClicks()
     {
-        WindowController.SetForegroundWindow("League of Legends");
+        WindowPlacement windowPlacement = new WindowPlacement();
 
-        WindowPlacement windowPlacement = WindowController.GetWindowPlacementInfo("League of Legends");
+        WindowController.SetFrontWindow("LeagueClientUx", "League of Legends");
+        WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
 
         foreach (string pointText in resolutionRunePositionConfig.RelativePositions.Split(new char[] { ';' }))
         {

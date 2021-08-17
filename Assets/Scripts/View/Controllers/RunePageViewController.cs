@@ -7,14 +7,11 @@ namespace LoLRunes.View.Controllers
 {
     public class RunePageViewController : MonoBehaviour
     {
+        [SerializeField] private Transform mainPathTransf;
+        [SerializeField] private Transform sidePathTransf;
+
         // Start is called before the first frame update
         void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
         {
 
         }

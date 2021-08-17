@@ -10,11 +10,6 @@ public class RadioButton : MonoBehaviour
     [SerializeField] private Color unselectedTint;
     [SerializeField] private Button[] buttons;
 
-    private void Start()
-    {
-
-    }
-
     public void ButtonClick(Button button)
     {
         ColorBlock colors;
@@ -39,5 +34,17 @@ public class RadioButton : MonoBehaviour
     private void DefineSelectedButton(Button button)
     {
         ButtonClick(button);
+    }
+
+    private void OnEnable()
+    {
+        ColorBlock colors;
+
+        foreach (Button b in buttons)
+        {
+            colors = b.colors;
+            colors.normalColor = selectedTint;
+            b.colors = colors;
+        }
     }
 }

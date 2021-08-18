@@ -48,6 +48,8 @@ public class RadioButton : MonoBehaviour
 
         foreach (Button b in buttons)
         {
+            b.interactable = true;
+
             colors = b.colors;
             colors.normalColor = selectedTint;
             b.colors = colors;

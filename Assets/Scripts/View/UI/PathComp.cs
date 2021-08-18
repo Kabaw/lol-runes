@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Serialization;
+using LoLRunes.LiteralIdentifiers;
 
 namespace LoLRunes.View.UI
 {
@@ -41,6 +42,17 @@ namespace LoLRunes.View.UI
             _onPathChanged?.Invoke(this);
         }
 
+        public void ResetPath()
+        {
+            DeactivateAll(keyStones);
+            DeactivateAll(runeSets);
+            pathRunesRadio.gameObject.SetActive(false);
+
+            ActivateByTag(keyStones, TagName.Precision);
+            ActivateByTag(runeSets, TagName.Precision);
+            pathRunesRadio.gameObject.SetActive(true);
+        }
+
         private void ActivateByTag(List<GameObject> gameObjects, string tag)
         {
             foreach (GameObject go in gameObjects)
@@ -52,13 +64,19 @@ namespace LoLRunes.View.UI
             }
         }
 
-        public void OnPathChanged(PathComp pathComp)
+        private void DeactivateAll(List<GameObject> gameObjects)
+        {
+            foreach (GameObject go in gameObjects)
+                go.SetActive(false);
+        }
+
+        private void OnPathChanged(PathComp pathComp)
         {
             ValidateCurrentPathChange(pathComp);
             DisableSelectedMainPath(pathComp, pathComp.pathRunesRadio.selectedButton);
         }
 
-        public void ValidateCurrentPathChange(PathComp pathComp)
+        private void ValidateCurrentPathChange(PathComp pathComp)
         {
             if (pathComp.pathType == PathTypeEnum.SIDE) return;
 
@@ -77,7 +95,7 @@ namespace LoLRunes.View.UI
             }
         }
 
-        public void DisableSelectedMainPath(PathComp pathComp, Button button)
+        private void DisableSelectedMainPath(PathComp pathComp, Button button)
         {
             if (pathComp.pathType == PathTypeEnum.SIDE) return;
 

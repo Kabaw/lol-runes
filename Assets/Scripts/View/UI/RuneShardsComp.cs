@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RuneShardsComp : MonoBehaviour
+namespace LoLRunes.View.UI
 {
-    [SerializeField] private List<GameObject> RuneShardSets;
-
-    public void ResetShards()
+    public class RuneShardsComp : MonoBehaviour
     {
-        DeactivateAll(RuneShardSets);
-        ActivateAll(RuneShardSets);
-    }
+        [SerializeField] private List<GameObject> RuneShardSets;
 
-    private void ActivateAll(List<GameObject> gameObjects)
-    {
-        foreach (GameObject go in gameObjects)
-            go.SetActive(true);
-    }
+        public void ResetShards()
+        {
+            DeactivateAll(RuneShardSets);
+            ActivateAll(RuneShardSets);
+        }
 
-    private void DeactivateAll(List<GameObject> gameObjects)
-    {
-        foreach (GameObject go in gameObjects)
-            go.SetActive(false);
+        private void ActivateAll(List<GameObject> gameObjects)
+        {
+            foreach (GameObject go in gameObjects)
+                go.SetActive(true);
+        }
+
+        private void DeactivateAll(List<GameObject> gameObjects)
+        {
+            foreach (GameObject go in gameObjects)
+                go.SetActive(false);
+        }
     }
 }

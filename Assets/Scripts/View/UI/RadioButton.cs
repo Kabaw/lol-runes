@@ -4,60 +4,63 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RadioButton : MonoBehaviour
+namespace LoLRunes.View.UI
 {
-    [SerializeField] private Color selectedTint;
-    [SerializeField] private Color unselectedTint;
-    [SerializeField] private Button[] buttons;
-
-    public Button selectedButton { get; private set; }
-
-    public void ButtonClick(Button button)
+    public class RadioButton : MonoBehaviour
     {
-        ColorBlock colors;
+        [SerializeField] private Color selectedTint;
+        [SerializeField] private Color unselectedTint;
+        [SerializeField] private Button[] buttons;
 
-        foreach (Button b in buttons)
+        public Button selectedButton { get; private set; }
+
+        public void ButtonClick(Button button)
         {
-            if (b == button)
+            ColorBlock colors;
+
+            foreach (Button b in buttons)
             {
+                if (b == button)
+                {
+                    colors = b.colors;
+                    colors.normalColor = selectedTint;
+                    b.colors = colors;
+
+                    selectedButton = b;
+                }
+                else
+                {
+                    colors = b.colors;
+                    colors.normalColor = unselectedTint;
+                    b.colors = colors;
+                }
+            }
+        }
+
+        private void DefineSelectedButton(Button button)
+        {
+            ButtonClick(button);
+        }
+
+        private void ResetRadio()
+        {
+            ColorBlock colors;
+
+            selectedButton = null;
+
+            foreach (Button b in buttons)
+            {
+                b.interactable = true;
+
                 colors = b.colors;
                 colors.normalColor = selectedTint;
                 b.colors = colors;
-
-                selectedButton = b;
-            }                
-            else
-            {
-                colors = b.colors;
-                colors.normalColor = unselectedTint;
-                b.colors = colors;
             }
         }
-    }
-    
-    private void DefineSelectedButton(Button button)
-    {
-        ButtonClick(button);
-    }
 
-    private void ResetRadio()
-    {
-        ColorBlock colors;
-
-        selectedButton = null;
-
-        foreach (Button b in buttons)
+        private void OnEnable()
         {
-            b.interactable = true;
-
-            colors = b.colors;
-            colors.normalColor = selectedTint;
-            b.colors = colors;
+            ResetRadio();
         }
-    }
-
-    private void OnEnable()
-    {
-        ResetRadio();
     }
 }

@@ -19,6 +19,7 @@ namespace LoLRunes.View.Controllers
         [SerializeField] private Transform mainPathRunesRoot;
         [SerializeField] private Transform sidePathRunesRoot;
 
+        private RuneViewModel lastAssignedSidePathRune = null;
         private RunePageViewModel runePage;
 
         // Start is called before the first frame update
@@ -62,21 +63,53 @@ namespace LoLRunes.View.Controllers
                 case RuneGroupEnum.RUNE_03:
                     runePage.MainPathRune_03 = rune;
                     break;
-
-                default:
-                    runePage.MainPath = rune;
-                    break;
             }
         }
 
         private void SelectSidePathRune(RuneViewModel rune)
         {
+            if(rune.RuneType.GetGroup() == RuneGroupEnum.PATH)
+            {
+                runePage.SidePath = rune;
+                return;
+            }
 
+            if(rune.RuneType.GetGroup() == RuneGroupEnum.RUNE_01 ||
+               rune.RuneType.GetGroup() == RuneGroupEnum.RUNE_02 ||
+               rune.RuneType.GetGroup() == RuneGroupEnum.RUNE_03)
+            {
+                if(lastAssignedSidePathRune == null)
+                {
+                    runePage.SidePathRune_01 = rune;                    
+                }
+                else
+                {
+                    if(lastAssignedSidePathRune == runePage.SidePathRune_01)
+                        runePage.SidePathRune_02 = rune;
+                    else
+                        runePage.SidePathRune_01 = rune;
+                }
+
+                lastAssignedSidePathRune = rune;
+            }
         }
 
         private void SelectRuneShard(RuneViewModel rune)
         {
+            switch (rune.RuneType.GetGroup())
+            {
+                case RuneGroupEnum.SHARDS_ATTACK:
+                    runePage.RuneShardAttack = rune;
+                    break;
 
+                case RuneGroupEnum.SHARDS_FLEX:
+                    runePage.RuneShardFlex = rune;
+                    break;
+
+                case RuneGroupEnum.SHARDS_DEFENCE:
+                    runePage.RuneShardDefence = rune;
+                    break;
+            }
         }
 
         private void NewRunePage()

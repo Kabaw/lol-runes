@@ -11,6 +11,7 @@ namespace LoLRunes.View.Controllers
         [Header("Path Components")]
         [SerializeField] private PathComp mainPath;
         [SerializeField] private PathComp sidePath;
+        [SerializeField] private RuneShardsComp runeShardsComp; 
 
         [Header("Path Runes Roots")]
         [SerializeField] private Transform mainPathRunesRoot;
@@ -31,6 +32,7 @@ namespace LoLRunes.View.Controllers
         {
             mainPath.ResetPath();
             sidePath.ResetPath();
+            runeShardsComp.ResetShards();
             //create new rune page ViewModel
         }
     }

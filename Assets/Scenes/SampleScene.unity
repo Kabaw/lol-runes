@@ -225,6 +225,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 419597138}
+        m_MethodName: ResetShards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &144584910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,8 +506,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 419597137}
+  - component: {fileID: 419597138}
   m_Layer: 5
-  m_Name: Rune Shards
+  m_Name: RuneShards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -524,6 +536,22 @@ RectTransform:
   m_AnchoredPosition: {x: 19.000122, y: -204.08969}
   m_SizeDelta: {x: 250, y: 127.9223}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &419597138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419597136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb44492ecc2e5d46a5285a8367e4471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RuneShardSets:
+  - {fileID: 1712615320}
+  - {fileID: 1353866012}
+  - {fileID: 1858135984}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1550,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1353866010}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1353866012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6123750173013179195, guid: a9fcce2420bcfed4784f3345cd7c862a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1353866010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1584855341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,10 +1668,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2dd835178374245b10af0355b19398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPath: {fileID: 0}
-  sidePath: {fileID: 0}
-  mainPathRunesRoot: {fileID: 0}
-  sidePathRunesRoot: {fileID: 0}
+  mainPath: {fileID: 1985235536}
+  sidePath: {fileID: 1788067818}
+  runeShardsComp: {fileID: 419597138}
+  mainPathRunesRoot: {fileID: 1615155826}
+  sidePathRunesRoot: {fileID: 1273818188}
 --- !u!1 &1585088542
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,6 +2075,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1712615318}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1712615320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6123750173013179195, guid: a9fcce2420bcfed4784f3345cd7c862a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1712615318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1747391595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,6 +2429,12 @@ PrefabInstance:
 --- !u!224 &1858135983 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6123750173013179194, guid: a9fcce2420bcfed4784f3345cd7c862a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1858135982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1858135984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6123750173013179195, guid: a9fcce2420bcfed4784f3345cd7c862a,
     type: 3}
   m_PrefabInstance: {fileID: 1858135982}
   m_PrefabAsset: {fileID: 0}

@@ -3073,6 +3073,16 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3864325909337429933, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864325909767060099, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 3864325909785601189, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
       propertyPath: runeType
@@ -3087,6 +3097,11 @@ PrefabInstance:
         type: 3}
       propertyPath: runeType
       value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864325910232655271, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 4120195526826256962, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
@@ -3128,10 +3143,35 @@ PrefabInstance:
       propertyPath: runeType
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 6219379618156419844, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379618334419214, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379618504573984, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 37
+      objectReference: {fileID: 0}
     - target: {fileID: 6219379618522995206, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
       propertyPath: runeType
       value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379618903473694, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379619010581296, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 6219379619027815702, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
@@ -3152,6 +3192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: runeType
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379619669183508, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 6721672779241166343, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}

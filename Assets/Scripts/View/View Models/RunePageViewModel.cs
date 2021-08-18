@@ -6,17 +6,20 @@ namespace LoLRunes.View.ViewModel
 {
     public class RunePageViewModel
     {
+        public RuneViewModel MainPath { get; set; }
+        public RuneViewModel SidePath { get; set; }
+
         public RuneViewModel KeyStone { get; set; }
 
-        public RuneViewModel mainPathRune_01 { get; set; }
-        public RuneViewModel mainPathRune_02 { get; set; }
-        public RuneViewModel mainPathRune_03 { get; set; }
+        public RuneViewModel MainPathRune_01 { get; set; }
+        public RuneViewModel MainPathRune_02 { get; set; }
+        public RuneViewModel MainPathRune_03 { get; set; }
 
-        public RuneViewModel sidePathRune_01 { get; set; }
-        public RuneViewModel sidePathRune_02 { get; set; }
+        public RuneViewModel SidePathRune_01 { get; set; }
+        public RuneViewModel SidePathRune_02 { get; set; }
 
-        public RuneViewModel runeShardAttack { get; set; }
-        public RuneViewModel runeShardFlex { get; set; }
-        public RuneViewModel runeShardDefence { get; set; }        
+        public RuneViewModel RuneShardAttack { get; set; }
+        public RuneViewModel RuneShardFlex { get; set; }
+        public RuneViewModel RuneShardDefence { get; set; }        
     }
 }

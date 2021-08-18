@@ -3078,6 +3078,21 @@ PrefabInstance:
       propertyPath: runeType
       value: 33
       objectReference: {fileID: 0}
+    - target: {fileID: 3864325909476147060, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864325909646168666, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864325909650161300, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 65
+      objectReference: {fileID: 0}
     - target: {fileID: 3864325909767060099, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
       propertyPath: runeType
@@ -3087,6 +3102,16 @@ PrefabInstance:
         type: 3}
       propertyPath: runeType
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864325909845445790, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864325909857722448, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 3864325909980894895, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
@@ -3102,6 +3127,11 @@ PrefabInstance:
         type: 3}
       propertyPath: runeType
       value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864325910350569904, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 62
       objectReference: {fileID: 0}
     - target: {fileID: 4120195526826256962, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
@@ -3138,6 +3168,21 @@ PrefabInstance:
       propertyPath: runeType
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6219379617777119805, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379617781620467, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379618005999379, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 63
+      objectReference: {fileID: 0}
     - target: {fileID: 6219379618141406498, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
       propertyPath: runeType
@@ -3147,6 +3192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: runeType
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379618213528023, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6219379618334419214, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
@@ -3163,6 +3213,21 @@ PrefabInstance:
       propertyPath: runeType
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 6219379618643291385, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379618656075831, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379618781533895, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 51
+      objectReference: {fileID: 0}
     - target: {fileID: 6219379618903473694, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
       propertyPath: runeType
@@ -3178,6 +3243,16 @@ PrefabInstance:
       propertyPath: runeType
       value: 27
       objectReference: {fileID: 0}
+    - target: {fileID: 6219379619148250089, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379619161167655, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 67
+      objectReference: {fileID: 0}
     - target: {fileID: 6219379619242840460, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}
       propertyPath: runeType
@@ -3187,6 +3262,21 @@ PrefabInstance:
         type: 3}
       propertyPath: runeType
       value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379619485967661, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379619490335203, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219379619517581315, guid: bf79684c59294cc4aa8d333d353edda2,
+        type: 3}
+      propertyPath: runeType
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 6219379619652735538, guid: bf79684c59294cc4aa8d333d353edda2,
         type: 3}

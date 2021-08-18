@@ -2885,6 +2885,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5682448738771166695, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: runeType
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562626672599766563, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: runeType
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562626673456646841, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: runeType
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562626673890041257, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: runeType
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7, type: 3}
 --- !u!1001 &2139556177305636324

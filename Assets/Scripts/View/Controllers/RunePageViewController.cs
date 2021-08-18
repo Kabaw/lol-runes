@@ -22,10 +22,9 @@ namespace LoLRunes.View.Controllers
         private RuneViewModel lastAssignedSidePathRune = null;
         private RunePageViewModel runePage;
 
-        // Start is called before the first frame update
-        void Start()
+        private void Awake()
         {
-
+            runePage = new RunePageViewModel();
         }
 
         public void SelectRune(RuneTypeEnum runeType, Transform runePathRoot)

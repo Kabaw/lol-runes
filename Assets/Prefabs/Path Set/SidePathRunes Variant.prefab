@@ -7,6 +7,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7359323655440455042, guid: 08c8db59a17e55a4eb060c85de0fc9d4,
+        type: 3}
+      propertyPath: maxSelectionQtd
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864992317222541441, guid: 08c8db59a17e55a4eb060c85de0fc9d4,
+        type: 3}
+      propertyPath: maxSelectionQtd
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864992317463125366, guid: 08c8db59a17e55a4eb060c85de0fc9d4,
+        type: 3}
+      propertyPath: maxSelectionQtd
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864992317669857667, guid: 08c8db59a17e55a4eb060c85de0fc9d4,
+        type: 3}
+      propertyPath: maxSelectionQtd
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864992317805003698, guid: 08c8db59a17e55a4eb060c85de0fc9d4,
+        type: 3}
+      propertyPath: maxSelectionQtd
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8180545949065585937, guid: 08c8db59a17e55a4eb060c85de0fc9d4,
         type: 3}
       propertyPath: m_IsActive

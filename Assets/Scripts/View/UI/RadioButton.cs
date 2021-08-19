@@ -7,8 +7,18 @@ using LoLRunes.Enumerators;
 
 namespace LoLRunes.View.UI
 {
+    public delegate void OnRadioSelectionChange(RadioButton radioButton);
+
     public class RadioButton : MonoBehaviour
     {
+        private static OnRadioSelectionChange _onRadioSelectionChange;
+
+        public static event OnRadioSelectionChange onRadioSelectionChange
+        {
+            add { _onRadioSelectionChange += value; }
+            remove { _onRadioSelectionChange -= value; }
+        }
+
         [SerializeField] private Color selectedTint;
         [SerializeField] private Color unselectedTint;
         [SerializeField] private Button[] buttons;
@@ -27,7 +37,11 @@ namespace LoLRunes.View.UI
                     colors.normalColor = selectedTint;
                     b.colors = colors;
 
-                    selectedButton = b;
+                    if(selectedButton != b)
+                    {
+                        _onRadioSelectionChange?.Invoke(this);
+                        selectedButton = b;
+                    }                    
                 }
                 else
                 {
@@ -49,7 +63,7 @@ namespace LoLRunes.View.UI
                 b.interactable = true;
 
                 colors = b.colors;
-                colors.normalColor = selectedTint;
+                colors.normalColor = startTint == ButtonTintEnum.SELECTED_TINT ? selectedTint : unselectedTint;
                 b.colors = colors;
             }
         }

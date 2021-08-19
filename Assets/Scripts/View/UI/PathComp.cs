@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Serialization;
 using LoLRunes.LiteralIdentifiers;
+using System.Linq;
 
 namespace LoLRunes.View.UI
 {
@@ -51,6 +52,11 @@ namespace LoLRunes.View.UI
             ActivateByTag(keyStones, TagName.Precision);
             ActivateByTag(runeSets, TagName.Precision);
             pathRunesRadio.gameObject.SetActive(true);
+            
+            if(pathType == PathTypeEnum.MAIN)
+                pathButtons.Where(b => b.runeType == RuneTypeEnum.PRECISION_PATH).First().button.onClick.Invoke();
+            else
+                pathButtons.Where(b => b.runeType == RuneTypeEnum.DOMINATION_PATH).First().button.onClick.Invoke();
         }
 
         private void ActivateByTag(List<GameObject> gameObjects, string tag)

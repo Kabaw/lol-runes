@@ -22,13 +22,15 @@ namespace LoLRunes.View.Controllers
         private RuneViewModel lastAssignedSidePathRune = null;
         private RunePageViewModel runePage;
 
-        private void Awake()
+        private void Start()
         {
-            runePage = new RunePageViewModel();
+            NewRunePage();
         }
 
         public void SelectRune(RuneTypeEnum runeType, Transform runePathRoot)
         {
+            print(runeType.ToString());
+
             RuneViewModel rune = new RuneViewModel() { RuneType = runeType };
 
             if (runePathRoot == mainPathRunesRoot)
@@ -37,6 +39,18 @@ namespace LoLRunes.View.Controllers
                 SelectSidePathRune(rune);
             else
                 SelectRuneShard(rune);
+        }
+
+
+        public void NewRunePage()
+        {
+            runePage = new RunePageViewModel();
+
+            mainPath.ResetPath();
+            sidePath.ResetPath();
+            runeShardsComp.ResetShards();
+
+            runePage = new RunePageViewModel();
         }
 
         private void SelectMainPathRune(RuneViewModel rune)
@@ -133,16 +147,6 @@ namespace LoLRunes.View.Controllers
                     runePage.RuneShardDefence = rune;
                     break;
             }
-        }
-
-        private void NewRunePage()
-        {
-            runePage = new RunePageViewModel();
-
-            mainPath.ResetPath();
-            sidePath.ResetPath();
-            runeShardsComp.ResetShards();
-            //create new rune page ViewModel
         }
     }
 }

@@ -7,19 +7,21 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Serialization;
 
 namespace LoLRunes.View.UI
 {
     public class RuneButton : MonoBehaviour
     {
-        [SerializeField] private RuneTypeEnum runeType;
+        [SerializeField, FormerlySerializedAs("runeType")] private RuneTypeEnum _runeType;
         
         private Transform pathRoot;
         private RunePageViewController runePageViewController;
 
+        public RuneTypeEnum runeType => _runeType;
         public Button button { get; private set; }
 
-        private void Start()
+        private void Awake()
         {
             button = GetComponent<Button>();
             pathRoot = TransformUtility.FindParentByTag(transform, TagName.PathRoot);

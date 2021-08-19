@@ -33,14 +33,19 @@ namespace LoLRunes.View.Controllers
 
             RuneViewModel rune = new RuneViewModel() { RuneType = runeType };
 
-            if (runePathRoot == mainPathRunesRoot)
+            if (EvaluatePath(runePathRoot) == PathTypeEnum.MAIN)
+            {
                 SelectMainPathRune(rune);
-            else if (runePathRoot == sidePathRunesRoot)
+            }
+            else if (EvaluatePath(runePathRoot) == PathTypeEnum.SIDE)
+            {
                 SelectSidePathRune(rune);
-            else
+            }
+            if (runePathRoot == null)
+            {
                 SelectRuneShard(rune);
+            }
         }
-
 
         public void NewRunePage()
         {
@@ -48,9 +53,7 @@ namespace LoLRunes.View.Controllers
 
             mainPath.ResetPath();
             sidePath.ResetPath();
-            runeShardsComp.ResetShards();
-
-            runePage = new RunePageViewModel();
+            runeShardsComp.ResetShards();            
         }
 
         private void SelectMainPathRune(RuneViewModel rune)
@@ -58,7 +61,7 @@ namespace LoLRunes.View.Controllers
             switch (rune.RuneType.GetGroup())
             {
                 case RuneGroupEnum.PATH:
-                    if (runePage.MainPath.RuneType != rune.RuneType)
+                    if (runePage.MainPath != null &&runePage.MainPath.RuneType != rune.RuneType)
                         ClearRunePageModelPath(PathTypeEnum.MAIN);
 
                     runePage.MainPath = rune;                    
@@ -104,7 +107,7 @@ namespace LoLRunes.View.Controllers
         {
             if(rune.RuneType.GetGroup() == RuneGroupEnum.PATH)
             {
-                if (runePage.SidePath.RuneType != rune.RuneType)
+                if (runePage.SidePath != null && runePage.SidePath.RuneType != rune.RuneType)
                     ClearRunePageModelPath(PathTypeEnum.SIDE);
 
                 runePage.SidePath = rune;
@@ -128,6 +131,19 @@ namespace LoLRunes.View.Controllers
                 }
 
                 lastAssignedSidePathRune = rune;
+            }
+        }
+
+        private PathTypeEnum EvaluatePath(Transform runePathRoot)
+        {
+            if (runePathRoot == mainPathRunesRoot ||
+                runePathRoot == mainPath.transform)
+            {
+                return PathTypeEnum.MAIN;
+            }
+            else
+            {
+                return PathTypeEnum.SIDE;
             }
         }
 

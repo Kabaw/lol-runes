@@ -44,7 +44,10 @@ namespace LoLRunes.View.Controllers
             switch (rune.RuneType.GetGroup())
             {
                 case RuneGroupEnum.PATH:
-                    runePage.MainPath = rune;
+                    if (runePage.MainPath.RuneType != rune.RuneType)
+                        ClearRunePageModelPath(PathTypeEnum.MAIN);
+
+                    runePage.MainPath = rune;                    
                     break;
 
                 case RuneGroupEnum.KEYSTONE:
@@ -65,10 +68,31 @@ namespace LoLRunes.View.Controllers
             }
         }
 
+        private void ClearRunePageModelPath(PathTypeEnum pathType)
+        {
+            if(pathType == PathTypeEnum.MAIN)
+            {
+                runePage.MainPath = null;
+                runePage.KeyStone = null;
+                runePage.MainPathRune_01 = null;
+                runePage.MainPathRune_02 = null;
+                runePage.MainPathRune_03 = null;
+            }
+            else
+            {
+                runePage.SidePath = null;
+                runePage.SidePathRune_01 = null;
+                runePage.SidePathRune_02 = null;
+            }
+        }
+
         private void SelectSidePathRune(RuneViewModel rune)
         {
             if(rune.RuneType.GetGroup() == RuneGroupEnum.PATH)
             {
+                if (runePage.SidePath.RuneType != rune.RuneType)
+                    ClearRunePageModelPath(PathTypeEnum.SIDE);
+
                 runePage.SidePath = rune;
                 return;
             }

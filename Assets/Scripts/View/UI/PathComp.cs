@@ -47,13 +47,13 @@ namespace LoLRunes.View.UI
         {
             DeactivateAll(keyStones);
             DeactivateAll(runeSets);
-            pathRunesRadio.gameObject.SetActive(false);
 
             ActivateByTag(keyStones, TagName.Precision);
             ActivateByTag(runeSets, TagName.Precision);
-            pathRunesRadio.gameObject.SetActive(true);
-            
-            if(pathType == PathTypeEnum.MAIN)
+
+            pathRunesRadio.ResetRadio(ButtonTintEnum.UNSELECTED_TINT);
+
+            if (pathType == PathTypeEnum.MAIN)
                 pathButtons.Where(b => b.runeType == RuneTypeEnum.PRECISION_PATH).First().button.onClick.Invoke();
             else
                 pathButtons.Where(b => b.runeType == RuneTypeEnum.DOMINATION_PATH).First().button.onClick.Invoke();

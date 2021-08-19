@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using LoLRunes.Enumerators;
 
 namespace LoLRunes.View.UI
 {
@@ -37,12 +38,7 @@ namespace LoLRunes.View.UI
             }
         }
 
-        private void DefineSelectedButton(Button button)
-        {
-            ButtonClick(button);
-        }
-
-        private void ResetRadio()
+        public void ResetRadio(ButtonTintEnum startTint = ButtonTintEnum.SELECTED_TINT)
         {
             ColorBlock colors;
 
@@ -56,6 +52,11 @@ namespace LoLRunes.View.UI
                 colors.normalColor = selectedTint;
                 b.colors = colors;
             }
+        }
+
+        private void DefineSelectedButton(Button button)
+        {
+            ButtonClick(button);
         }
 
         private void OnEnable()

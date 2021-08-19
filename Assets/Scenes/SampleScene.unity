@@ -2810,6 +2810,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Path_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1700802485460774209, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_TagString
+      value: PathRoot
+      objectReference: {fileID: 0}
     - target: {fileID: 1700802485460774214, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
       propertyPath: m_LocalPosition.x

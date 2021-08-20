@@ -29,8 +29,6 @@ namespace LoLRunes.View.Controllers
 
         public void SelectRune(RuneTypeEnum runeType, Transform runePathRoot)
         {
-            print(runeType.ToString());
-
             RuneViewModel rune = new RuneViewModel() { RuneType = runeType };
 
             if (EvaluatePath(runePathRoot) == PathTypeEnum.MAIN)

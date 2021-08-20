@@ -12,7 +12,7 @@ using LoLRunes.Enumerators;
 using LoLRunes.ScriptableObjects;
 using System.Diagnostics;
 
-public class ApplicationManager : MonoBehaviour
+public class ApplicationTestManager : MonoBehaviour
 {
     [DllImport("kernel32.dll")]
     public static extern IntPtr GetModuleHandle(string name);
@@ -20,11 +20,13 @@ public class ApplicationManager : MonoBehaviour
     [SerializeField] private TMP_Text text;
     [SerializeField] private string numbers;
     [SerializeField] private float clickDelay;
-    [SerializeField] private ResolutionRunePositionConfig resolutionRunePositionConfig;
+    [SerializeField] private ResolutionRunePositionConfig _resolutionRunePositionConfig;
 
     private List<Point> positions;
     private int count;
-    private string mouseClickLog;        
+    private string mouseClickLog;
+
+    public ResolutionRunePositionConfig resolutionRunePositionConfig => _resolutionRunePositionConfig;
 
     // Start is called before the first frame update
     void Start()
@@ -93,7 +95,7 @@ public class ApplicationManager : MonoBehaviour
         WindowController.SetFrontWindow("LeagueClientUx", "League of Legends");
         WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
 
-        foreach (string pointText in resolutionRunePositionConfig.RelativePositions.Split(new char[] { ';' }))
+        foreach (string pointText in _resolutionRunePositionConfig.RelativePositions.Split(new char[] { ';' }))
         {
             string[] pointValueText = pointText.Split(new char[] { ' ' });
             int x = windowPlacement.rcNormalPosition.left + (int.Parse(pointValueText[0]));

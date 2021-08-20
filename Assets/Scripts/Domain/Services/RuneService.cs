@@ -1,21 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using LoLRunes.Domain.Models;
+using LoLRunes.Enumerators;
 
 namespace LoLRunes.Domain.Services
 {
-    public class RunePageService : MonoBehaviour
+    public class RuneService
     {
-        // Start is called before the first frame update
-        void Start()
+        private RunePage Instantiate(RuneTypeEnum runeType)
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            return null;
         }
     }
 }

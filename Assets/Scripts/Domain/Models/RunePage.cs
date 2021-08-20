@@ -38,7 +38,9 @@ namespace LoLRunes.Domain.Models
 
             RuneShardAttack = runeShardAttack;
             RuneShardFlex = runeShardFlex;
-            RuneShardDefence = runeShardDefence;            
+            RuneShardDefence = runeShardDefence;
+
+            EvaluateModel();
         }
 
         private void EvaluateModel()

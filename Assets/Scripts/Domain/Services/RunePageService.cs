@@ -12,12 +12,6 @@ namespace LoLRunes.Domain.Services
             
         }
 
-        //Aplica a configuração de runas na janela do LOL
-        public void ApplyRunePage(RunePage runePage)
-        {
-
-        }
-
         public RunePage Instantiate(CreateRunePageCommand command)
         {
             return new RunePage(command.MainPath, command.SidePath, command.KeyStone, command.MainPathRune_01,

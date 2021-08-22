@@ -20,7 +20,11 @@ namespace LoLRunes.ScriptableObjects
         public int ResolutionX => resolutionX;
         public int ResolutionY => resolutionY;
         public string RelativePositions => relativePositions;
-        public Vector2 ChampionScreenOffSet => championScreenOffSet;
+
+        public Point ChampionScreenOffSet
+        {
+            get { return new Point( (int)championScreenOffSet.x, (int)championScreenOffSet.y); }
+        }
 
         public Point GetRuneRelativePosition(RunePositionReferenceEnum runePositionReferenceEnum)
         {

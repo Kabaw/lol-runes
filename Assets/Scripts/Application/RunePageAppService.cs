@@ -9,11 +9,13 @@ namespace LoLRunes.Application.Services
     {
         private RuneService runeService;
         private RunePageService runePageService;
+        private WindowInteractionService windowInteraction;
 
         public RunePageAppService()
         {           
             runeService = new RuneService();
             runePageService = new RunePageService();
+            windowInteraction = new WindowInteractionService();
         }
 
         public void ApplyRunePage(RunePageViewModel runePageViewModel)
@@ -22,7 +24,7 @@ namespace LoLRunes.Application.Services
 
             RunePage runePage = runePageService.Instantiate(command);
 
-            runePageService.ApplyRunePage(runePage);
+            windowInteraction.ApplyRunePage(runePage);
         }
 
         private CreateRunePageCommand InstanciaCreateRunePageCommand(RunePageViewModel runePageViewModel)

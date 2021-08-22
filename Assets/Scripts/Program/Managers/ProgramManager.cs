@@ -1,4 +1,5 @@
 ﻿using LoLRunes.ScriptableObjects;
+using System.Collections;
 using UnityEngine;
 
 namespace LoLRunes.Program.Managers
@@ -22,6 +23,11 @@ namespace LoLRunes.Program.Managers
             }
 
             instance = this;
+        }
+
+        public void RunAsync(IEnumerator enumerator)
+        {
+            StartCoroutine(enumerator);
         }
     }
 }

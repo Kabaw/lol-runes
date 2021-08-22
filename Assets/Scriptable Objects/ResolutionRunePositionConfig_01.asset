@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 70c288115b8b12e4ca49806b8bdb09e5, type: 3}
   m_Name: ResolutionRunePositionConfig_01
-  m_EditorClassIdentifier: Assembly-CSharp:LoLRunes.ScriptableObjects:ResolutionRunePositionConfig
+  m_EditorClassIdentifier: 
   resolutionX: 1280
   resolutionY: 720
   relativePositions: 135 217;137 335;187 335;235 336;283 335;145 430;212 428;274

@@ -1,4 +1,5 @@
-﻿using LoLRunes.Enumerators;
+﻿using LoLRunes.CustumData;
+using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,17 @@ namespace LoLRunes.ScriptableObjects
         [SerializeField] private Vector2 championScreenOffSet;
 
         [Header("Relative Positions")]
-        [SerializeField] private Vector2 ;
+        [SerializeField] private Point2D mainPath_Position;
+        [SerializeField] private Point2D sidePath_Position;
+        [SerializeField] private Point2D keyStone_Position;
+        [SerializeField] private Point2D mainRuneSlot01_Position;
+        [SerializeField] private Point2D mainRuneSlot02_Position;
+        [SerializeField] private Point2D mainRuneSlot03_Position;
+        [SerializeField] private Point2D sideRuneSlot01_Position;
+        [SerializeField] private Point2D sideRuneSlot02_Position;
+        [SerializeField] private Point2D shardAttack;
+        [SerializeField] private Point2D shardFlex;
+        [SerializeField] private Point2D shardDefence;
 
 
         public int ResolutionX => resolutionX;

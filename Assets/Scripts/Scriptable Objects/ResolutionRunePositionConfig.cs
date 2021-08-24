@@ -17,6 +17,7 @@ namespace LoLRunes.ScriptableObjects
         [SerializeField] private Vector2 championScreenOffSet;
 
         [Header("Relative Positions")]
+        [SerializeField] private Vector2 ;
 
 
         public int ResolutionX => resolutionX;

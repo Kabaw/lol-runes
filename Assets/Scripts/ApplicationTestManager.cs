@@ -91,8 +91,8 @@ public class ApplicationTestManager : MonoBehaviour
     public IEnumerator PerformClicks()
     {
         WindowPlacement windowPlacement = new WindowPlacement();
-
-        WindowController.SetFrontWindow("LeagueClientUx", "League of Legends");
+        
+        //WindowController.SetFrontWindow("LeagueClientUx", "League of Legends");
         WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
 
         foreach (string pointText in _resolutionRunePositionConfig.RelativePositions.Split(new char[] { ';' }))
@@ -103,7 +103,7 @@ public class ApplicationTestManager : MonoBehaviour
 
             Point point = new Point(x, y);
 
-            mouseClickLog += String.Format("{0} {1};", (int.Parse(pointValueText[0])) - 1133, (int.Parse(pointValueText[1])) - 317);
+            mouseClickLog += String.Format("{0} {1};", (int.Parse(pointValueText[0])) - windowPlacement.rcNormalPosition.left, (int.Parse(pointValueText[1])) - windowPlacement.rcNormalPosition.top);
             //print("X = " + windowPlacement.rcNormalPosition.left + (int.Parse(pointValueText[0]) - resolutionRunePositionConfig.WindowX + " --- Y = " + windowPlacement.rcNormalPosition.top + (int.Parse(pointValueText[1]) - resolutionRunePositionConfig.WindowY)));
 
             MouseController.LeftClick(point);
@@ -125,6 +125,10 @@ public class ApplicationTestManager : MonoBehaviour
         positions = new List<Point>() { Point.Empty, Point.Empty, Point.Empty, Point.Empty };
 
         mouseClickLog = "";
+
+        WindowPlacement windowPlacement = new WindowPlacement();
+
+        WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
 
         MSWindowsEventManager.instance.Subscribe_MouseDown(HookManager_MouseMove);
     }

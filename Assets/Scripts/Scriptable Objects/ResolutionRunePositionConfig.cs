@@ -1,11 +1,10 @@
-﻿using System.Drawing;
-using UnityEngine;
-using LoLRunes.Enumerators;
-using System.Collections;
-using System.Collections.Generic;
-using System;
-using System.Linq;
+﻿using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using UnityEngine;
 
 namespace LoLRunes.ScriptableObjects
 {
@@ -16,6 +15,9 @@ namespace LoLRunes.ScriptableObjects
         [SerializeField] private int resolutionY;
         [SerializeField] private string relativePositions;
         [SerializeField] private Vector2 championScreenOffSet;
+
+        [Header("Relative Positions")]
+
 
         public int ResolutionX => resolutionX;
         public int ResolutionY => resolutionY;

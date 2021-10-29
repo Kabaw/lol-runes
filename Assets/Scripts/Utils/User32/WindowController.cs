@@ -77,21 +77,15 @@ namespace LoLRunes.Utils.User32
             GetWindowPlacement(hWnd, ref placement);
 
             // Check if window is minimized
-            if (placement.showCmd != 2)
+            if (placement.showCmd == 2)
             {
                 //the window is hidden so we restore it
-                ShowWindow(hWnd, ShowWindowEnum.Hide);
                 ShowWindow(hWnd, ShowWindowEnum.Restore);
             }
-
-            //ShowWindow(hWnd, ShowWindowEnum.Maximize);
-            //SetForegroundWindow(hWnd);
-            //
-            //ShowWindow(hWnd, ShowWindowEnum.Show);
-            //SetForegroundWindow(hWnd);
-            //
-            //ShowWindow(hWnd, ShowWindowEnum.ShowMaximized);
-            //SetForegroundWindow(hWnd);
+            else
+            {
+                hWnd = (IntPtr)FindWindow(null, windowName);
+            }            
 
             //set user's focus to the window
             SetForegroundWindow(hWnd);

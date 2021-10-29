@@ -92,7 +92,7 @@ public class ApplicationTestManager : MonoBehaviour
     {
         WindowPlacement windowPlacement = new WindowPlacement();
                 
-        WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
+        //WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
 
         foreach (string pointText in _resolutionRunePositionConfig.RelativePositions.Split(new char[] { ';' }))
         {
@@ -122,7 +122,7 @@ public class ApplicationTestManager : MonoBehaviour
     {
         WindowPlacement windowPlacement = new WindowPlacement();
 
-        WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
+        //WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
     }
 
     public void ButtonUnsubscribe()
@@ -139,7 +139,7 @@ public class ApplicationTestManager : MonoBehaviour
 
         WindowPlacement windowPlacement = new WindowPlacement();
 
-        WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
+        //WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
 
         MSWindowsEventManager.instance.Subscribe_MouseDown(HookManager_MouseMove);
     }

@@ -44,34 +44,93 @@ namespace LoLRunes.Utils.User32
         private const int SW_SHOWMINIMIZED = 2;
         private const int SW_SHOWMAXIMIZED = 3;
 
+        private enum ShowWindowEnum
+        {
+            Hide = 0,
+            ShowNormal = 1, ShowMinimized = 2, ShowMaximized = 3,
+            Maximize = 3, ShowNormalNoActivate = 4, Show = 5,
+            Minimize = 6, ShowMinNoActivate = 7, ShowNoActivate = 8,
+            Restore = 9, ShowDefault = 10, ForceMinimized = 11
+        };
+
+        private struct WindowPlacement
+        {
+            public int length;
+            public int flags;
+            public int showCmd;
+            public System.Drawing.Point ptMinPosition;
+            public System.Drawing.Point ptMaxPosition;
+            public System.Drawing.Rectangle rcNormalPosition;
+        }
+
         public static bool SetFrontWindow(string processName, string windowName)
         {
             Process processe = Process.GetProcessesByName(processName).FirstOrDefault();
-                            
+
             if (processe == null)
                 return false;
 
             IntPtr hWnd = FindWindowByProcessID(processe.Id, windowName);
-            
-            ShowWindow(hWnd, SW_SHOWMAXIMIZED);
+
+            //get the hWnd of the process
+            WindowPlacement placement = new WindowPlacement();
+            GetWindowPlacement(hWnd, ref placement);
+
+            // Check if window is minimized
+            if (placement.showCmd != 2)
+            {
+                //the window is hidden so we restore it
+                ShowWindow(hWnd, ShowWindowEnum.Hide);
+                ShowWindow(hWnd, ShowWindowEnum.Restore);
+            }
+
+            //ShowWindow(hWnd, ShowWindowEnum.Maximize);
+            //SetForegroundWindow(hWnd);
+            //
+            //ShowWindow(hWnd, ShowWindowEnum.Show);
+            //SetForegroundWindow(hWnd);
+            //
+            //ShowWindow(hWnd, ShowWindowEnum.ShowMaximized);
+            //SetForegroundWindow(hWnd);
+
+            //set user's focus to the window
             SetForegroundWindow(hWnd);
 
             return true;
         }
 
-        public static bool GetWindowPlacementInfo(string processName, string windowName, ref WindowPlacement windowPlacement)
-        {
-            Process processe = Process.GetProcessesByName(processName).FirstOrDefault();
+        //public static void BringWindowToFront(string title)
+        //{
+        //    IntPtr wdwIntPtr = FindWindow(null, "Put_your_window_title_here");
+        //
+        //    //get the hWnd of the process
+        //    WindowPlacement placement = new WindowPlacement();
+        //    GetWindowPlacement(wdwIntPtr, ref placement);
+        //
+        //    // Check if window is minimized
+        //    if (placement.showCmd == 2)
+        //    {
+        //        //the window is hidden so we restore it
+        //        ShowWindow(wdwIntPtr, ShowWindowEnum.Restore);
+        //    }
+        //
+        //    //set user's focus to the window
+        //    SetForegroundWindow(wdwIntPtr);
+        //}
 
-            if (processe == null)
-                return false;
-
-            IntPtr hWnd = FindWindowByProcessID(processe.Id, windowName);
-
-            GetWindowPlacement(hWnd, ref windowPlacement);
-
-            return true;
-        }
+        //public static bool GetWindowPlacementInfo(string processName, string windowName, ref WindowPlacement windowPlacement)
+        //{
+        //    Process processe = Process.GetProcessesByName(processName).FirstOrDefault();
+        //
+        //    if (processe == null)
+        //        return false;
+        //
+        //    IntPtr hWnd = FindWindowByProcessID(processe.Id, windowName);
+        //
+        //    GetWindowPlacement(hWnd, ref windowPlacement);
+        //
+        //    return true;
+        //}
 
         private static IntPtr FindWindowByProcessID(int processID, string windowName)
         {
@@ -127,7 +186,7 @@ namespace LoLRunes.Utils.User32
 
         #region ExternalDlls
         [DllImport("user32.dll")]
-        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        private static extern bool ShowWindow(IntPtr hWnd, ShowWindowEnum nCmdShow);
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);

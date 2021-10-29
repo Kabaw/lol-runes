@@ -91,8 +91,7 @@ public class ApplicationTestManager : MonoBehaviour
     public IEnumerator PerformClicks()
     {
         WindowPlacement windowPlacement = new WindowPlacement();
-        
-        //WindowController.SetFrontWindow("LeagueClientUx", "League of Legends");
+                
         WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
 
         foreach (string pointText in _resolutionRunePositionConfig.RelativePositions.Split(new char[] { ';' }))
@@ -112,6 +111,18 @@ public class ApplicationTestManager : MonoBehaviour
         }
 
         print(mouseClickLog);
+    }
+
+    public void SetFrontWindow()
+    {
+        WindowController.SetFrontWindow("LeagueClientUx", "League of Legends");
+    }
+
+    public void GetWindowPlacement()
+    {
+        WindowPlacement windowPlacement = new WindowPlacement();
+
+        WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
     }
 
     public void ButtonUnsubscribe()

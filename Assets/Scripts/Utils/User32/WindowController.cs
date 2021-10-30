@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace LoLRunes.Utils.User32
 {
-    #region Window Structs
+    #region Window Data Resources
     public struct PointApi
     {
         public int x;
@@ -32,45 +32,25 @@ namespace LoLRunes.Utils.User32
         public PointApi ptMaxPosition;
         public Rect rcNormalPosition;
     }
+
+    public enum ShowWindowEnum
+    {
+        Hide = 0,
+        ShowNormal = 1, ShowMinimized = 2, ShowMaximized = 3,
+        Maximize = 3, ShowNormalNoActivate = 4, Show = 5,
+        Minimize = 6, ShowMinNoActivate = 7, ShowNoActivate = 8,
+        Restore = 9, ShowDefault = 10, ForceMinimized = 11
+    };
     #endregion
 
     public static class WindowController
     {
-        private static string valor = "";
 
         private delegate bool EnumWindowsProc(IntPtr hWnd, int lParam);
 
-        private const int SW_SHOWNORMAL = 1;
-        private const int SW_SHOWMINIMIZED = 2;
-        private const int SW_SHOWMAXIMIZED = 3;
-
-        private enum ShowWindowEnum
-        {
-            Hide = 0,
-            ShowNormal = 1, ShowMinimized = 2, ShowMaximized = 3,
-            Maximize = 3, ShowNormalNoActivate = 4, Show = 5,
-            Minimize = 6, ShowMinNoActivate = 7, ShowNoActivate = 8,
-            Restore = 9, ShowDefault = 10, ForceMinimized = 11
-        };
-
-        private struct WindowPlacement
-        {
-            public int length;
-            public int flags;
-            public int showCmd;
-            public System.Drawing.Point ptMinPosition;
-            public System.Drawing.Point ptMaxPosition;
-            public System.Drawing.Rectangle rcNormalPosition;
-        }
-
         public static bool SetFrontWindow(string processName, string windowName)
         {
-            Process processe = Process.GetProcessesByName(processName).FirstOrDefault();
-
-            if (processe == null)
-                return false;
-
-            IntPtr hWnd = FindWindowByProcessID(processe.Id, windowName);
+            IntPtr hWnd = GetWindowHandleID(processName, windowName);
 
             //get the hWnd of the process
             WindowPlacement placement = new WindowPlacement();
@@ -93,38 +73,44 @@ namespace LoLRunes.Utils.User32
             return true;
         }
 
-        //public static void BringWindowToFront(string title)
-        //{
-        //    IntPtr wdwIntPtr = FindWindow(null, "Put_your_window_title_here");
-        //
-        //    //get the hWnd of the process
-        //    WindowPlacement placement = new WindowPlacement();
-        //    GetWindowPlacement(wdwIntPtr, ref placement);
-        //
-        //    // Check if window is minimized
-        //    if (placement.showCmd == 2)
-        //    {
-        //        //the window is hidden so we restore it
-        //        ShowWindow(wdwIntPtr, ShowWindowEnum.Restore);
-        //    }
-        //
-        //    //set user's focus to the window
-        //    SetForegroundWindow(wdwIntPtr);
-        //}
+        public static bool GetWindowPlacementInfo(string processName, string windowName, ref WindowPlacement windowPlacement)
+        {
+            IntPtr hWnd = GetWindowHandleID(processName, windowName);
 
-        //public static bool GetWindowPlacementInfo(string processName, string windowName, ref WindowPlacement windowPlacement)
-        //{
-        //    Process processe = Process.GetProcessesByName(processName).FirstOrDefault();
-        //
-        //    if (processe == null)
-        //        return false;
-        //
-        //    IntPtr hWnd = FindWindowByProcessID(processe.Id, windowName);
-        //
-        //    GetWindowPlacement(hWnd, ref windowPlacement);
-        //
-        //    return true;
-        //}
+            GetWindowPlacement(hWnd, ref windowPlacement);
+
+            //if (windowPlacement.showCmd != (int)ShowWindowEnum.ShowMaximized)
+            //{
+            //    hWnd = (IntPtr)FindWindow(null, windowName);
+            //}
+            //
+            //GetWindowPlacement(hWnd, ref windowPlacement);
+        
+            return true;
+        }
+
+        private static IntPtr GetWindowHandleID(string processName, string windowName)
+        {
+            Process processe = Process.GetProcessesByName(processName).FirstOrDefault();
+
+            if (processe == null)
+                throw new Exception("No Process found");
+
+            IntPtr hWnd = FindWindowByProcessID(processe.Id, windowName);
+
+            WindowPlacement placement = new WindowPlacement();
+            GetWindowPlacement(hWnd, ref placement);
+
+            if (placement.showCmd != 2)
+            {
+                hWnd = (IntPtr)FindWindow(null, windowName);
+
+                if ((int)hWnd < 1)
+                    throw new Exception("No Process found");
+            }
+
+            return hWnd;
+        }
 
         private static IntPtr FindWindowByProcessID(int processID, string windowName)
         {
@@ -134,15 +120,7 @@ namespace LoLRunes.Utils.User32
             IntPtr windowCode = (IntPtr)0;
 
             EnumWindows(delegate (IntPtr hWnd, int lParam)
-            {
-                if(hWnd == (IntPtr)4395392)
-                {
-                    int fodase = hSaaa;
-
-                    var a = 1;
-                }
-
-                valor += " " + hWnd;                
+            {           
                 //ignore the shell window
                 if (hWnd == hShellWindow)
                 {
@@ -172,8 +150,6 @@ namespace LoLRunes.Utils.User32
                 return true;
 
             }, 0);
-
-            UnityEngine.Debug.Log(valor);
 
             return windowCode;
         }

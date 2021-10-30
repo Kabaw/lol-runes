@@ -121,8 +121,10 @@ public class ApplicationTestManager : MonoBehaviour
     public void GetWindowPlacement()
     {
         WindowPlacement windowPlacement = new WindowPlacement();
+        
+        //SetFrontWindow();
 
-        //WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
+        WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
     }
 
     public void ButtonUnsubscribe()

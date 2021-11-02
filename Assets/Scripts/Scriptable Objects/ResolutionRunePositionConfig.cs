@@ -1,4 +1,5 @@
-﻿using LoLRunes.CustumData;
+﻿using Assets.Scripts.Domain.Models;
+using LoLRunes.CustumData;
 using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
 using System;
@@ -16,20 +17,7 @@ namespace LoLRunes.ScriptableObjects
         [SerializeField] private int resolutionY;
         [SerializeField] private string relativePositions;
         [SerializeField] private Vector2 championScreenOffSet;
-
-        [Header("Relative Positions")]
-        [SerializeField] private Point2D mainPath_Position;
-        [SerializeField] private Point2D sidePath_Position;
-        [SerializeField] private Point2D keyStone_Position;
-        [SerializeField] private Point2D mainRuneSlot01_Position;
-        [SerializeField] private Point2D mainRuneSlot02_Position;
-        [SerializeField] private Point2D mainRuneSlot03_Position;
-        [SerializeField] private Point2D sideRuneSlot01_Position;
-        [SerializeField] private Point2D sideRuneSlot02_Position;
-        [SerializeField] private Point2D shardAttack;
-        [SerializeField] private Point2D shardFlex;
-        [SerializeField] private Point2D shardDefence;
-
+        [SerializeField] RunePagePositions runePagePositions;
 
         public int ResolutionX => resolutionX;
         public int ResolutionY => resolutionY;

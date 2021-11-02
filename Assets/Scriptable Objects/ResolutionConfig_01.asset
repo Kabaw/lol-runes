@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c288115b8b12e4ca49806b8bdb09e5, type: 3}
+  m_Name: ResolutionConfig_01
+  m_EditorClassIdentifier: 
+  resolutionX: 1280
+  resolutionY: 720
+  relativePositions: 135 217;137 335;187 335;235 336;283 335;145 430;212 428;274
+    430;141 520;208 521;275 516;149 610;212 605;279 611;173 216;134 332;185 339;235
+    337;281 339;148 428;203 429;283 437;146 518;212 516;279 520;135 608;182 608;235
+    608;286 608;209 219;143 337;209 336;279 335;145 431;210 430;278 432;146 521;208
+    517;276 521;146 606;210 604;278 608;250 217;144 335;209 336;276 334;143 427;210
+    428;275 431;148 524;209 520;276 521;147 607;210 605;278 607;290 219;142 334;210
+    339;275 333;144 430;211 432;276 428;145 516;209 517;274 521;145 607;211 603;282
+    608;472 523;536 520;603 520;472 564;535 564;601 565;470 607;534 607;602 608
+  championScreenOffSet: {x: 112, y: 2}
+  runePagePositions:
+    mainPath_01:
+      x: 130
+      y: 216
+    mainPath_02:
+      x: 171
+      y: 216
+    mainPath_03:
+      x: 210
+      y: 216
+    mainPath_04:
+      x: 250
+      y: 216
+    mainPath_05:
+      x: 295
+      y: 216
+    sidePath_01:
+      x: 464
+      y: 216
+    sidePath_02:
+      x: 512
+      y: 216
+    sidePath_03:
+      x: 565
+      y: 216
+    sidePath_04:
+      x: 610
+      y: 216
+    keyStone_01_01:
+      x: 0
+      y: 0
+    keyStone_01_02:
+      x: 0
+      y: 0
+    keyStone_01_03:
+      x: 0
+      y: 0
+    keyStone_01_04:
+      x: 0
+      y: 0
+    keyStone_02_01:
+      x: 0
+      y: 0
+    keyStone_02_02:
+      x: 0
+      y: 0
+    keyStone_02_03:
+      x: 0
+      y: 0
+    mainRuneSlot_01_01:
+      x: 0
+      y: 0
+    mainRuneSlot_01_02:
+      x: 0
+      y: 0
+    mainRuneSlot_01_03:
+      x: 0
+      y: 0
+    mainRuneSlot_02_01:
+      x: 0
+      y: 0
+    mainRuneSlot_02_02:
+      x: 0
+      y: 0
+    mainRuneSlot_02_03:
+      x: 0
+      y: 0
+    mainRuneSlot_03_01:
+      x: 0
+      y: 0
+    mainRuneSlot_03_02:
+      x: 0
+      y: 0
+    mainRuneSlot_03_03:
+      x: 0
+      y: 0
+    mainRuneSlot_04_01:
+      x: 0
+      y: 0
+    mainRuneSlot_04_02:
+      x: 0
+      y: 0
+    mainRuneSlot_04_03:
+      x: 0
+      y: 0
+    mainRuneSlot_04_04:
+      x: 0
+      y: 0
+    sideRuneSlot_01_01:
+      x: 0
+      y: 0
+    sideRuneSlot_01_02:
+      x: 0
+      y: 0
+    sideRuneSlot_01_03:
+      x: 0
+      y: 0
+    sideRuneSlot_02_01:
+      x: 0
+      y: 0
+    sideRuneSlot_02_02:
+      x: 0
+      y: 0
+    sideRuneSlot_02_03:
+      x: 0
+      y: 0
+    sideRuneSlot_03_01:
+      x: 0
+      y: 0
+    sideRuneSlot_03_02:
+      x: 0
+      y: 0
+    sideRuneSlot_03_03:
+      x: 0
+      y: 0
+    sideRuneSlot_04_01:
+      x: 0
+      y: 0
+    sideRuneSlot_04_02:
+      x: 0
+      y: 0
+    sideRuneSlot_04_03:
+      x: 0
+      y: 0
+    sideRuneSlot_04_04:
+      x: 0
+      y: 0
+    shardSlot_01_01:
+      x: 0
+      y: 0
+    shardSlot_01_02:
+      x: 0
+      y: 0
+    shardSlot_01_03:
+      x: 0
+      y: 0
+    shardSlot_02_01:
+      x: 0
+      y: 0
+    shardSlot_02_02:
+      x: 0
+      y: 0
+    shardSlot_02_03:
+      x: 0
+      y: 0
+    shardSlot_03_01:
+      x: 0
+      y: 0
+    shardSlot_03_02:
+      x: 0
+      y: 0
+    shardSlot_03_03:
+      x: 0
+      y: 0

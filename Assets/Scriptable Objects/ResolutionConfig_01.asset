@@ -52,26 +52,26 @@ MonoBehaviour:
       x: 610
       y: 216
     keyStone_01_01:
-      x: 0
-      y: 0
+      x: 145
+      y: 335
     keyStone_01_02:
-      x: 0
-      y: 0
+      x: 211
+      y: 335
     keyStone_01_03:
-      x: 0
-      y: 0
+      x: 280
+      y: 335
     keyStone_01_04:
       x: 0
-      y: 0
+      y: 335
     keyStone_02_01:
-      x: 0
-      y: 0
+      x: 145
+      y: 335
     keyStone_02_02:
-      x: 0
-      y: 0
+      x: 211
+      y: 335
     keyStone_02_03:
-      x: 0
-      y: 0
+      x: 280
+      y: 335
     mainRuneSlot_01_01:
       x: 0
       y: 0

@@ -151,29 +151,29 @@ MonoBehaviour:
       x: 610
       y: 460
     shardSlot_01_01:
-      x: 0
-      y: 0
+      x: 470
+      y: 515
     shardSlot_01_02:
-      x: 0
-      y: 0
+      x: 535
+      y: 515
     shardSlot_01_03:
-      x: 0
-      y: 0
+      x: 600
+      y: 515
     shardSlot_02_01:
-      x: 0
-      y: 0
+      x: 470
+      y: 560
     shardSlot_02_02:
-      x: 0
-      y: 0
+      x: 535
+      y: 560
     shardSlot_02_03:
-      x: 0
-      y: 0
+      x: 600
+      y: 560
     shardSlot_03_01:
-      x: 0
-      y: 0
+      x: 470
+      y: 605
     shardSlot_03_02:
-      x: 0
-      y: 0
+      x: 535
+      y: 605
     shardSlot_03_03:
-      x: 0
-      y: 0
+      x: 600
+      y: 605

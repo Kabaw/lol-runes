@@ -52,16 +52,16 @@ MonoBehaviour:
       x: 610
       y: 216
     keyStone_01_01:
-      x: 145
+      x: 135
       y: 335
     keyStone_01_02:
-      x: 211
+      x: 189
       y: 335
     keyStone_01_03:
-      x: 280
+      x: 241
       y: 335
     keyStone_01_04:
-      x: 0
+      x: 286
       y: 335
     keyStone_02_01:
       x: 145
@@ -73,44 +73,44 @@ MonoBehaviour:
       x: 280
       y: 335
     mainRuneSlot_01_01:
-      x: 0
-      y: 0
+      x: 145
+      y: 432
     mainRuneSlot_01_02:
-      x: 0
-      y: 0
+      x: 210
+      y: 432
     mainRuneSlot_01_03:
-      x: 0
-      y: 0
+      x: 275
+      y: 432
     mainRuneSlot_02_01:
-      x: 0
-      y: 0
+      x: 145
+      y: 518
     mainRuneSlot_02_02:
-      x: 0
-      y: 0
+      x: 210
+      y: 518
     mainRuneSlot_02_03:
-      x: 0
-      y: 0
+      x: 275
+      y: 518
     mainRuneSlot_03_01:
-      x: 0
-      y: 0
+      x: 145
+      y: 605
     mainRuneSlot_03_02:
-      x: 0
-      y: 0
+      x: 210
+      y: 605
     mainRuneSlot_03_03:
-      x: 0
-      y: 0
+      x: 275
+      y: 605
     mainRuneSlot_04_01:
-      x: 0
-      y: 0
+      x: 136
+      y: 605
     mainRuneSlot_04_02:
-      x: 0
-      y: 0
+      x: 187
+      y: 605
     mainRuneSlot_04_03:
-      x: 0
-      y: 0
+      x: 236
+      y: 605
     mainRuneSlot_04_04:
-      x: 0
-      y: 0
+      x: 285
+      y: 605
     sideRuneSlot_01_01:
       x: 0
       y: 0

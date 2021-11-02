@@ -25,9 +25,9 @@ namespace LoLRunes.Program.Managers
             instance = this;
         }
 
-        public void RunAsync(IEnumerator enumerator)
+        public Coroutine RunAsync(IEnumerator enumerator)
         {
-            StartCoroutine(enumerator);
+            return StartCoroutine(enumerator);
         }
     }
 }

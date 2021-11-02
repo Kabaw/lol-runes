@@ -9,13 +9,13 @@ namespace LoLRunes.Application.Services
     {
         private RuneService runeService;
         private RunePageService runePageService;
-        private WindowInteractionService windowInteraction;
+        private LeagueWindowInteractionService windowInteraction;
 
         public RunePageAppService()
         {           
             runeService = new RuneService();
             runePageService = new RunePageService();
-            windowInteraction = new WindowInteractionService();
+            windowInteraction = new LeagueWindowInteractionService();
         }
 
         public void ApplyRunePage(RunePageViewModel runePageViewModel)

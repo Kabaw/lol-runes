@@ -1,4 +1,5 @@
-﻿using LoLRunes.Domain.Models;
+﻿using LoLRunes.CustumData;
+using LoLRunes.Domain.Models;
 using LoLRunes.Enumerators.Extensions;
 using LoLRunes.Program.Managers;
 using LoLRunes.ScriptableObjects;
@@ -9,22 +10,36 @@ using UnityEngine;
 
 namespace LoLRunes.Domain.Services
 {
-    public class WindowInteractionService
+    public class LeagueWindowInteractionService
     {
         private static readonly string LOL_WINDOW_NAME = "League of Legends";
         private static readonly string LOL_PROCESS_NAME = "LeagueClientUx";
 
         private ResolutionRunePositionConfig runePositionConfig;
 
-        public WindowInteractionService()
+        public LeagueWindowInteractionService()
         {
             runePositionConfig = ProgramManager.instance.resolutionRunePositionConfig;
+        }
+
+        public void SetFrontWindow()
+        {
+            WindowController.SetFrontWindow(LOL_PROCESS_NAME, LOL_WINDOW_NAME);
+        }
+
+        public Point2D GetWindowTopLeftPoint()
+        {
+            WindowPlacement windowPlacement = new WindowPlacement();
+
+            WindowController.GetWindowPlacementInfo(LOL_PROCESS_NAME, LOL_WINDOW_NAME, ref windowPlacement);
+
+            return new Point2D(windowPlacement.rcNormalPosition.left, windowPlacement.rcNormalPosition.top);
         }
 
         //Aplica a configuração de runas na janela do LOL
         public void ApplyRunePage(RunePage runePage)
         {
-            WindowController.SetFrontWindow(LOL_PROCESS_NAME, LOL_WINDOW_NAME);
+            SetFrontWindow();
 
             ProgramManager.instance.RunAsync(SelectRunes(runePage));
         }

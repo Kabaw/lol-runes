@@ -39,11 +39,11 @@ public class ApplicationTestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void HookManager_MouseMove(object sender, MouseEventExtArgs e)
-    {       
+    {
         if (count < 10000000)
         {
             //print(count);
@@ -91,7 +91,7 @@ public class ApplicationTestManager : MonoBehaviour
     public IEnumerator PerformClicks()
     {
         WindowPlacement windowPlacement = new WindowPlacement();
-                
+
         //WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
 
         foreach (string pointText in _resolutionRunePositionConfig.RelativePositions.Split(new char[] { ';' }))
@@ -121,10 +121,15 @@ public class ApplicationTestManager : MonoBehaviour
     public void GetWindowPlacement()
     {
         WindowPlacement windowPlacement = new WindowPlacement();
-        
+
         //SetFrontWindow();
 
         WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
+
+        //print($"Left: {windowPlacement.rcNormalPosition.left}\n");
+        //print($"Right: {windowPlacement.rcNormalPosition.right}\n");
+        //print($"Top: {windowPlacement.rcNormalPosition.top}\n");
+        //print($"Bottom: {windowPlacement.rcNormalPosition.bottom}\n");        
     }
 
     public void ButtonUnsubscribe()

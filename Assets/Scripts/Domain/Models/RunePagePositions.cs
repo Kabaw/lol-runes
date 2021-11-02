@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.Domain.Models
 {
@@ -11,6 +12,7 @@ namespace Assets.Scripts.Domain.Models
     public class RunePagePositions
     {
         #region Main Path
+        [Header("Main Path")]
         public Point2D mainPath_01;
         public Point2D mainPath_02;
         public Point2D mainPath_03;
@@ -19,6 +21,7 @@ namespace Assets.Scripts.Domain.Models
         #endregion
 
         #region Side Path
+        [Header("Side Path")]
         public Point2D sidePath_01;
         public Point2D sidePath_02;
         public Point2D sidePath_03;
@@ -26,6 +29,7 @@ namespace Assets.Scripts.Domain.Models
         #endregion
 
         #region Key Stones
+        [Header("Key Stones")]
         public Point2D keyStone_01_01;
         public Point2D keyStone_01_02;
         public Point2D keyStone_01_03;
@@ -37,6 +41,7 @@ namespace Assets.Scripts.Domain.Models
         #endregion
 
         #region Main Path Rune Slots
+        [Header("Main Path Rune Slots")]
         public Point2D mainRuneSlot_01_01;
         public Point2D mainRuneSlot_01_02;
         public Point2D mainRuneSlot_01_03;
@@ -56,6 +61,7 @@ namespace Assets.Scripts.Domain.Models
         #endregion
 
         #region Side Path Rune Slots
+        [Header("Side Path Rune Slots")]
         public Point2D sideRuneSlot_01_01;
         public Point2D sideRuneSlot_01_02;
         public Point2D sideRuneSlot_01_03;
@@ -75,6 +81,7 @@ namespace Assets.Scripts.Domain.Models
         #endregion
 
         #region Shard Slots
+        [Header("Shard Slots")]
         public Point2D shardSlot_01_01;
         public Point2D shardSlot_01_02;
         public Point2D shardSlot_01_03;

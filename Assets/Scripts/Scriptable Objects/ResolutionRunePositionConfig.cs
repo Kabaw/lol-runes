@@ -17,11 +17,12 @@ namespace LoLRunes.ScriptableObjects
         [SerializeField] private int resolutionY;
         [SerializeField] private string relativePositions;
         [SerializeField] private Vector2 championScreenOffSet;
-        [SerializeField] RunePagePositions runePagePositions;
+        [SerializeField] private RunePagePositions runePagePositions;
 
         public int ResolutionX => resolutionX;
         public int ResolutionY => resolutionY;
         public string RelativePositions => relativePositions;
+        public RunePagePositions RunePagePositions => runePagePositions;
 
         public Point ChampionScreenOffSet
         {

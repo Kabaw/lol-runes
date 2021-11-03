@@ -1,5 +1,7 @@
 ﻿using LoLRunes.CustumData;
 using LoLRunes.Domain.Models;
+using LoLRunes.Domain.WindowInteraction.Services;
+using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
 using LoLRunes.Program.Managers;
 using LoLRunes.ScriptableObjects;
@@ -15,11 +17,11 @@ namespace LoLRunes.Domain.Services
         private static readonly string LOL_WINDOW_NAME = "League of Legends";
         private static readonly string LOL_PROCESS_NAME = "LeagueClientUx";
 
-        private ResolutionRunePositionConfig runePositionConfig;
+        private RunePagePositionService runePagePositionService;
 
         public LeagueWindowInteractionService()
         {
-            runePositionConfig = ProgramManager.instance.resolutionRunePositionConfig;
+            runePagePositionService = new RunePagePositionService();
         }
 
         public void SetFrontWindow()
@@ -47,56 +49,59 @@ namespace LoLRunes.Domain.Services
         public IEnumerator SelectRunes(RunePage runePage)
         {
             Point point;
+            Size windowReferencePosition;
 
-            point = false ? new Point() : runePositionConfig.ChampionScreenOffSet;
+            Point2D windowTopLeftPoint = GetWindowTopLeftPoint();
+
+            windowReferencePosition = new Size(windowTopLeftPoint.x, windowTopLeftPoint.y);
 
             #region MainPath
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.MainPath.RuneType.GetPositionReference());
-            MouseController.LeftClick(point);
+            if (runePagePositionService.GetRunePosition(runePage.MainPath.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
 
             yield return new WaitForSeconds(0.1f);
             #endregion
 
             #region KeyStone
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.KeyStone.RuneType.GetPositionReference());
-            MouseController.LeftClick(point);
+            if (runePagePositionService.GetRunePosition(runePage.KeyStone.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
             #endregion
 
             #region MainRunes
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.MainPathRune_01.RuneType.GetPositionReference());
-            MouseController.LeftClick(point);
+            if (runePagePositionService.GetRunePosition(runePage.MainPathRune_01.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
 
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.MainPathRune_02.RuneType.GetPositionReference());
-            MouseController.LeftClick(point);
+            if (runePagePositionService.GetRunePosition(runePage.MainPathRune_02.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
 
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.MainPathRune_03.RuneType.GetPositionReference());
-            MouseController.LeftClick(point);
+            if (runePagePositionService.GetRunePosition(runePage.MainPathRune_03.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
             #endregion
 
             #region SidePath
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.SidePath.RuneType.GetPositionReference());
-            MouseController.LeftClick(point);
+            if (runePagePositionService.GetRunePosition(runePage.SidePath.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
 
             yield return new WaitForSeconds(0.1f);
             #endregion
 
             #region SideRunes
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.SidePathRune_01.RuneType.GetPositionReference());
-            MouseController.LeftClick(point);                           
-                                                                        
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.SidePathRune_02.RuneType.GetPositionReference());
-            MouseController.LeftClick(point);
+            if (runePagePositionService.GetRunePosition(runePage.SidePathRune_01.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
+
+            if (runePagePositionService.GetRunePosition(runePage.SidePathRune_02.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
             #endregion
 
             #region Shards
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.RuneShardAttack .RuneType.GetPositionReference());
-            MouseController.LeftClick(point);
+            if (runePagePositionService.GetRunePosition(runePage.RuneShardAttack.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
 
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.RuneShardFlex.RuneType.GetPositionReference());
-            MouseController.LeftClick(point);
+            if (runePagePositionService.GetRunePosition(runePage.RuneShardFlex.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
 
-            point += (Size)runePositionConfig.GetRuneRelativePosition(runePage.RuneShardDefence.RuneType.GetPositionReference());
-            MouseController.LeftClick(point);
+            if (runePagePositionService.GetRunePosition(runePage.RuneShardDefence.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+                MouseController.LeftClick(point + windowReferencePosition);
             #endregion
         }
     }

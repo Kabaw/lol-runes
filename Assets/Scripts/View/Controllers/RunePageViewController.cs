@@ -1,4 +1,5 @@
-﻿using LoLRunes.Enumerators;
+﻿using LoLRunes.Application.Services;
+using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
 using LoLRunes.View.UI;
 using LoLRunes.View.ViewModel;
@@ -22,8 +23,12 @@ namespace LoLRunes.View.Controllers
         private RuneViewModel lastAssignedSidePathRune = null;
         private RunePageViewModel runePage;
 
+        private RunePageAppService runePageAppService;
+
         private void Start()
         {
+            runePageAppService = new RunePageAppService();
+
             NewRunePage();
         }
 
@@ -43,6 +48,11 @@ namespace LoLRunes.View.Controllers
             {
                 SelectRuneShard(rune);
             }
+        }
+
+        public void ApplyRunePage()
+        {
+            runePageAppService.ApplyRunePage(runePage);
         }
 
         public void NewRunePage()

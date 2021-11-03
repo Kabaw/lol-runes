@@ -6,18 +6,44 @@ using LoLRunes.Domain.Models;
 using LoLRunes.Enumerators;
 using LoLRunes.ScriptableObjects;
 using LoLRunes.Program.Managers;
+using System.Linq;
 
 namespace LoLRunes.Domain.WindowInteraction.Services
 {
     public class RunePagePositionService
     {
+        private static bool fisrtInitDone = false;
+        private static RunePositionReferenceEnum[] mainPathRunesOrder;
+        private static RunePositionReferenceEnum[] sidePathRunesOrder;
         private static ResolutionRunePositionConfig resolutionRunePositionConfig;
         private static Dictionary<Tuple<RunePositionReferenceEnum, PathTypeEnum>, Point> runePositionDict;
 
         public RunePagePositionService()
         {
-            resolutionRunePositionConfig = null;
-            runePositionDict = null;
+            if (!fisrtInitDone)
+                FirstInit();
+        }
+
+        public void FirstInit()
+        {
+            mainPathRunesOrder = new RunePositionReferenceEnum[5]
+            {
+                RunePositionReferenceEnum.PATH_01,
+                RunePositionReferenceEnum.PATH_02,
+                RunePositionReferenceEnum.PATH_03,
+                RunePositionReferenceEnum.PATH_04,
+                RunePositionReferenceEnum.PATH_05
+            };
+
+            sidePathRunesOrder = new RunePositionReferenceEnum[4]
+            {
+                RunePositionReferenceEnum.PATH_01,
+                RunePositionReferenceEnum.PATH_02,
+                RunePositionReferenceEnum.PATH_03,
+                RunePositionReferenceEnum.PATH_04
+            };
+
+            fisrtInitDone = true;
         }
 
         public void MapPositionConfig(ResolutionRunePositionConfig resolutionRunePositionConfig)
@@ -212,80 +238,80 @@ namespace LoLRunes.Domain.WindowInteraction.Services
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_01_01, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_01_01.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_01_01.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_01_01.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_01_01.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_01_02, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_01_02.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_01_02.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_01_02.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_01_02.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_01_03, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_01_03.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_01_03.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_01_03.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_01_03.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_02_01, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_02_01.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_02_01.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_02_01.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_02_01.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_02_02, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_02_02.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_02_02.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_02_02.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_02_02.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_02_03, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_02_03.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_02_03.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_02_03.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_02_03.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_03_01, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_03_01.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_03_01.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_03_01.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_03_01.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_03_02, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_03_02.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_03_02.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_03_02.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_03_02.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_03_03, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_03_03.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_03_03.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_03_03.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_03_03.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_04_01, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_04_01.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_04_01.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_04_01.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_04_01.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_04_02, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_04_02.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_04_02.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_04_02.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_04_02.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_04_03, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_04_03.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_04_03.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_04_03.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_04_03.y));
 
             runePositionDict.Add(
                 new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.RUNE_SLOT_04_04, PathTypeEnum.SIDE),
                 new Point(
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_04_04.x,
-                    resolutionRunePositionConfig.RunePagePositions.mainRuneSlot_04_04.y));
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_04_04.x,
+                    resolutionRunePositionConfig.RunePagePositions.sideRuneSlot_04_04.y));
             #endregion
 
             #region Map Shard Slots
@@ -357,6 +383,26 @@ namespace LoLRunes.Domain.WindowInteraction.Services
                 point += (Size)resolutionRunePositionConfig.ChampionScreenOffSet;
 
             return true;
+        }
+
+        public bool GetSidePathRunePosition(RunePositionReferenceEnum sideRunePositionReference, RunePositionReferenceEnum mainRunePositionReference, out Point point)
+        {
+            if (!mainPathRunesOrder.Contains(sideRunePositionReference))
+                throw new Exception("The informed rune position must be a 'PATH'");
+
+            int sidePathOrderIndex = 0;
+
+            foreach (var runePosition in mainPathRunesOrder)
+            {
+                if (runePosition == mainRunePositionReference)
+                    continue;
+                else if (runePosition == sideRunePositionReference)
+                    break;
+
+                sidePathOrderIndex++;
+            }
+
+            return GetRunePosition(sidePathRunesOrder[sidePathOrderIndex], PathTypeEnum.SIDE, out point);
         }
     }
 }

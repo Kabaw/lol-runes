@@ -32,6 +32,7 @@ namespace LoLRunes.Application.Services
             CreateRunePageCommand command = new CreateRunePageCommand();
 
             command.MainPath = runeService.Instantiate(runePageViewModel.MainPath.RuneType);
+            command.KeyStone = runeService.Instantiate(runePageViewModel.KeyStone.RuneType);
             command.MainPathRune_01 = runeService.Instantiate(runePageViewModel.MainPathRune_01.RuneType);
             command.MainPathRune_02 = runeService.Instantiate(runePageViewModel.MainPathRune_02.RuneType);
             command.MainPathRune_03 = runeService.Instantiate(runePageViewModel.MainPathRune_03.RuneType);

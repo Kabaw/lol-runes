@@ -18,7 +18,7 @@ namespace LoLRunes.Enumerators
         KEYSTONE_01_04,
         KEYSTONE_02_01,
         KEYSTONE_02_02,
-        KEYSTONE_02_03,
+        KEYSTONE_02_03, 
 
         //Regular Rune Slots
         RUNE_SLOT_01_01,

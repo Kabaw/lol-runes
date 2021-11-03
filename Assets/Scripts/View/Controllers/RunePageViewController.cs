@@ -132,7 +132,23 @@ namespace LoLRunes.View.Controllers
                 }
                 else
                 {
-                    if(lastAssignedSidePathRune == runePage.SidePathRune_01)
+                    if (runePage.SidePathRune_01 != null &&
+                        runePage.SidePathRune_01.RuneType.GetGroup() == rune.RuneType.GetGroup())
+                    {
+                        runePage.SidePathRune_01 = rune;
+                        lastAssignedSidePathRune = rune;
+                        return;
+                    }
+
+                    if (runePage.SidePathRune_02 != null &&
+                        runePage.SidePathRune_02.RuneType.GetGroup() == rune.RuneType.GetGroup())
+                    {                          
+                        runePage.SidePathRune_02 = rune;
+                        lastAssignedSidePathRune = rune;
+                        return;
+                    }
+
+                    if (lastAssignedSidePathRune == runePage.SidePathRune_01)
                         runePage.SidePathRune_02 = rune;
                     else
                         runePage.SidePathRune_01 = rune;

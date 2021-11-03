@@ -59,7 +59,7 @@ namespace LoLRunes.Domain.Services
             if (runePagePositionService.GetRunePosition(runePage.MainPath.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
             #endregion
 
             #region KeyStone
@@ -79,10 +79,13 @@ namespace LoLRunes.Domain.Services
             #endregion
 
             #region SidePath
-            if (runePagePositionService.GetRunePosition(runePage.SidePath.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+            if (runePagePositionService.GetSidePathRunePosition(
+                    runePage.SidePath.RuneType.GetPositionReference(),
+                    runePage.MainPath.RuneType.GetPositionReference(),
+                    out point))
                 MouseController.LeftClick(point + windowReferencePosition);
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
             #endregion
 
             #region SideRunes

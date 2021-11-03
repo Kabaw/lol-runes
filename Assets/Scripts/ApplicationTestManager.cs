@@ -75,44 +75,7 @@ public class ApplicationTestManager : MonoBehaviour
 
         //text.text = string.Format("top={0}; bottom={1}; left={2}; right={3}", windowPlacement.rcNormalPosition.top, windowPlacement.rcNormalPosition.bottom, windowPlacement.rcNormalPosition.left, windowPlacement.rcNormalPosition.right);
     }
-
-    public void ButtonPerformClicks()
-    {
-        //WindowController.SetForegroundWindow("League of Legends");
-        //
-        //foreach (Point point in positions)
-        //    MouseController.LeftClick(point);
-
-        mouseClickLog = "";
-
-        StartCoroutine(PerformClicks());
-    }
-
-    public IEnumerator PerformClicks()
-    {
-        WindowPlacement windowPlacement = new WindowPlacement();
-
-        //WindowController.GetWindowPlacementInfo("LeagueClientUx", "League of Legends", ref windowPlacement);
-
-        foreach (string pointText in _resolutionRunePositionConfig.RelativePositions.Split(new char[] { ';' }))
-        {
-            string[] pointValueText = pointText.Split(new char[] { ' ' });
-            int x = windowPlacement.rcNormalPosition.left + (int.Parse(pointValueText[0]));
-            int y = windowPlacement.rcNormalPosition.top + (int.Parse(pointValueText[1]));
-
-            Point point = new Point(x, y);
-
-            mouseClickLog += String.Format("{0} {1};", (int.Parse(pointValueText[0])) - windowPlacement.rcNormalPosition.left, (int.Parse(pointValueText[1])) - windowPlacement.rcNormalPosition.top);
-            //print("X = " + windowPlacement.rcNormalPosition.left + (int.Parse(pointValueText[0]) - resolutionRunePositionConfig.WindowX + " --- Y = " + windowPlacement.rcNormalPosition.top + (int.Parse(pointValueText[1]) - resolutionRunePositionConfig.WindowY)));
-
-            MouseController.LeftClick(point);
-
-            yield return new WaitForSeconds(clickDelay);
-        }
-
-        print(mouseClickLog);
-    }
-
+    
     public void SetFrontWindow()
     {
         WindowController.SetFrontWindow("LeagueClientUx", "League of Legends");

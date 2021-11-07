@@ -16,8 +16,6 @@ namespace LoLRunes.Program.Managers
         //[SerializeField] private ResolutionRunePositionConfig _resolutionRunePositionConfig_02;
         //[SerializeField] private ResolutionRunePositionConfig _resolutionRunePositionConfig_03;
 
-        private RunePagePositionService runePagePositionService;
-
         public RuneMenuEnum runeMenu { get; private set; }
         public ResolutionRunePositionConfig activeResolutionRunePositionConfig { get; private set; }
 
@@ -37,9 +35,7 @@ namespace LoLRunes.Program.Managers
             runeMenu = RuneMenuEnum.RUNE_SCREEN;
             activeResolutionRunePositionConfig = _resolutionRunePositionConfig_01;
 
-            runePagePositionService = new RunePagePositionService();
-
-            runePagePositionService.MapPositionConfig(activeResolutionRunePositionConfig);
+            RunePagePositionService.instance.MapPositionConfig(activeResolutionRunePositionConfig);
         }
 
         public Coroutine RunAsync(IEnumerator enumerator)

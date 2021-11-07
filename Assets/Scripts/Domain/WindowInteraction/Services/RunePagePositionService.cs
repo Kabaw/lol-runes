@@ -15,14 +15,33 @@ namespace LoLRunes.Domain.WindowInteraction.Services
 {
     public class RunePagePositionService
     {
+        #region Singleton
+        public static RunePagePositionService _instance;
+
+        public static RunePagePositionService instance
+        {
+            get
+            {
+                if(_instance == null)
+                    _instance = new RunePagePositionService();
+
+                return _instance;
+            }
+        }
+        #endregion
+
         private static bool fisrtInitDone = false;
         private static RunePositionReferenceEnum[] mainPathRunesOrder;
         private static RunePositionReferenceEnum[] sidePathRunesOrder;
         private static ResolutionRunePositionConfig resolutionRunePositionConfig;
         private static Dictionary<Tuple<RunePositionReferenceEnum, PathTypeEnum>, Point> runePositionDict;
 
-        public RunePagePositionService()
+        private CalibrationService calibrationService;
+
+        private RunePagePositionService()
         {
+            calibrationService = new CalibrationService();
+
             if (!fisrtInitDone)
                 FirstInit();
         }
@@ -383,9 +402,10 @@ namespace LoLRunes.Domain.WindowInteraction.Services
                 return false;
 
             Point precision_main = runePositionDict[new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.PATH_01, PathTypeEnum.MAIN)];
+            Point2D reference_precision_main = calibrationService.ReadCalibrationPoint();
 
-            float x_proportion = MathUtils.RuleOfThree(precision_main.X, 1, precision_main.X - 15);
-            float y_proportion = MathUtils.RuleOfThree(precision_main.Y, 1, precision_main.Y + 20);
+            float x_proportion = MathUtils.RuleOfThree(precision_main.X, 1, reference_precision_main.x);
+            float y_proportion = MathUtils.RuleOfThree(precision_main.Y, 1, reference_precision_main.y);
 
             point.X = (int)(point.X * x_proportion);
             point.Y = (int)(point.Y * y_proportion);

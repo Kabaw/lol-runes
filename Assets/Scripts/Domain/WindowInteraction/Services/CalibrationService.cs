@@ -54,6 +54,10 @@ namespace LoLRunes.Domain.Services
 
             MSWindowsEventManager.instance.Unsubscribe_MouseDown(Calibration_HookManager);
 
+            Point2D windowTopLeft = windowInteractionService.GetWindowTopLeftPoint();
+
+            calibrationPoint -= windowTopLeft;
+
             calibrationRepository.SaveCalibrationPoint(calibrationPoint);
 
             isCalibrating = false;
@@ -87,18 +91,20 @@ namespace LoLRunes.Domain.Services
 
         private void Calibration_HookManager(object sender, MouseEventExtArgs e)
         {
-            Point2D point = new Point2D();
-
-            point.x = e.X - windowTopLeft.x;
-            point.y = e.Y - windowTopLeft.y;
+            calibrationPoint.x = e.X;
+            calibrationPoint.y = e.Y;   
 
             CompleteCalibration();
         }
 
         private void CalibrationPositionClick_HookManager(object sender, MouseEventExtArgs e)
         {
-            calibrationPoint.x = e.X - windowTopLeft.x;
-            calibrationPoint.y = e.Y - windowTopLeft.y;
+            Point2D point = new Point2D();
+
+            point.x = e.X - windowTopLeft.x;
+            point.y = e.Y - windowTopLeft.y;
+
+            calibrationPositionPoints.Add(point);
         }
     }
 }

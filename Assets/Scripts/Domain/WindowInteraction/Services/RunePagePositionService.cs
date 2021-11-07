@@ -7,6 +7,9 @@ using LoLRunes.Enumerators;
 using LoLRunes.ScriptableObjects;
 using LoLRunes.Program.Managers;
 using System.Linq;
+using LoLRunes.Utils.Math;
+using LoLRunes.CustumData;
+using LoLRunes.Domain.Services;
 
 namespace LoLRunes.Domain.WindowInteraction.Services
 {
@@ -374,14 +377,29 @@ namespace LoLRunes.Domain.WindowInteraction.Services
         public bool GetRunePosition(RunePositionReferenceEnum runePositionReference, PathTypeEnum pathType, out Point point)
         {
             if (runePositionDict == null)
-                throw new NullReferenceException("Rune position not mapped!");
+                throw new NullReferenceException("Rune position not mapped!");            
 
             if (!runePositionDict.TryGetValue(new Tuple<RunePositionReferenceEnum, PathTypeEnum>(runePositionReference, pathType), out point))
                 return false;
 
-            if (ProgramManager.instance.runeMenu == RuneMenuEnum.CHAMPION_SELECTION_SCREEN)
-                point += (Size)resolutionRunePositionConfig.ChampionScreenOffSet;
+            Point precision_main = runePositionDict[new Tuple<RunePositionReferenceEnum, PathTypeEnum>(RunePositionReferenceEnum.PATH_01, PathTypeEnum.MAIN)];
 
+            float x_proportion = MathUtils.RuleOfThree(precision_main.X, 1, precision_main.X - 15);
+            float y_proportion = MathUtils.RuleOfThree(precision_main.Y, 1, precision_main.Y + 20);
+
+            point.X = (int)(point.X * x_proportion);
+            point.Y = (int)(point.Y * y_proportion);
+
+            if (ProgramManager.instance.runeMenu == RuneMenuEnum.CHAMPION_SELECTION_SCREEN)
+            {
+                Point offSet;
+
+                offSet.X = (int)(resolutionRunePositionConfig.ChampionScreenOffSet.X * x_proportion);
+                offSet.Y = (int)(resolutionRunePositionConfig.ChampionScreenOffSet.Y * y_proportion);
+
+                point += (Size)offSet;
+            }
+            
             return true;
         }
 

@@ -1,6 +1,6 @@
-﻿namespace Assets.Scripts.Utils.Math
+﻿namespace LoLRunes.Utils.Math
 {
-    public class MathUtils
+    public static class MathUtils
     {
         /// <summary>
         /// A is to B as C is to X

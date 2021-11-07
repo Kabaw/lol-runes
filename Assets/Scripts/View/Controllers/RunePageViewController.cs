@@ -155,12 +155,6 @@ namespace LoLRunes.View.Controllers
                 }
 
                 lastAssignedSidePathRune = rune;
-
-                if (runePage.SidePathRune_01 != null)
-                    print(runePage.SidePathRune_01.RuneType);
-
-                if (runePage.SidePathRune_02 != null)
-                    print(runePage.SidePathRune_02.RuneType);
             }
         }
 

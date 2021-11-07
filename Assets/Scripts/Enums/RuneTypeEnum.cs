@@ -116,15 +116,15 @@ namespace LoLRunes.Enumerators
         DOMINATION_RUNE_SLOT_07,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
-        [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_04_01)]
+        [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_04_02)]
         DOMINATION_RUNE_SLOT_08,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
-        [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_04_01)]
+        [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_04_03)]
         DOMINATION_RUNE_SLOT_09,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
-        [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_04_01)]
+        [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_04_04)]
         DOMINATION_RUNE_SLOT_10,
         #endregion
 

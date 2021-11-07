@@ -9,53 +9,96 @@ using UnityEngine;
 using System.Collections.Generic;
 using Gma.UserActivityMonitor;
 using System.Linq;
+using System;
+using LoLRunes.Infra.Core;
 
 namespace LoLRunes.Domain.Services
 {
     public class CalibrationService
     {
         private bool isCalibrating = false;
+        private Point2D calibrationPoint;
         private Point2D windowTopLeft;
-        private List<Point2D> calibrationPoints;
+        private List<Point2D> calibrationPositionPoints;
 
         private LeagueWindowInteractionService windowInteractionService;
+        private CalibrationRepository calibrationRepository;
 
         public CalibrationService()
         {
             windowInteractionService = new LeagueWindowInteractionService();
+            calibrationRepository = new CalibrationRepository();
+        }
+
+        public Point2D ReadCalibrationPoint()
+        {
+            return calibrationRepository.ReadCalibrationPoint();
         }
 
         public void StartCalibration()
         {
+            if (isCalibrating)
+                throw new Exception("Another calibration process is already running");
+
             isCalibrating = true;
-            calibrationPoints = new List<Point2D>();
             windowTopLeft = windowInteractionService.GetWindowTopLeftPoint();
 
             windowInteractionService.SetFrontWindow();
 
-            MSWindowsEventManager.instance.Subscribe_MouseDown(CalibrationClick_HookManager);
+            MSWindowsEventManager.instance.Subscribe_MouseDown(Calibration_HookManager);
         }
 
-        public void CompleteCalibration()
+        private void CompleteCalibration()
         {
-            if(!isCalibrating) return;
+            if (!isCalibrating) return;
 
-            MSWindowsEventManager.instance.Unsubscribe_MouseDown(CalibrationClick_HookManager);
+            MSWindowsEventManager.instance.Unsubscribe_MouseDown(Calibration_HookManager);
 
-            Debug.Log(string.Join("\n", calibrationPoints.Select(p => string.Format("{0:0000}, {1:0000}", p.x, p.y))));
+            calibrationRepository.SaveCalibrationPoint(calibrationPoint);
 
-            calibrationPoints = null;
             isCalibrating = false;
         }
 
-        private void CalibrationClick_HookManager(object sender, MouseEventExtArgs e)
+        public void StartPositionCalibration()
+        {
+            if (isCalibrating)
+                throw new Exception("Another calibration process is already running");
+
+            isCalibrating = true;
+            calibrationPositionPoints = new List<Point2D>();
+            windowTopLeft = windowInteractionService.GetWindowTopLeftPoint();
+
+            windowInteractionService.SetFrontWindow();
+
+            MSWindowsEventManager.instance.Subscribe_MouseDown(CalibrationPositionClick_HookManager);
+        }
+
+        public void CompletePositionCalibration()
+        {
+            if(!isCalibrating) return;
+
+            MSWindowsEventManager.instance.Unsubscribe_MouseDown(CalibrationPositionClick_HookManager);
+
+            Debug.Log(string.Join("\n", calibrationPositionPoints.Select(p => string.Format("{0:0000}, {1:0000}", p.x, p.y))));
+
+            calibrationPositionPoints = null;
+            isCalibrating = false;
+        }
+
+        private void Calibration_HookManager(object sender, MouseEventExtArgs e)
         {
             Point2D point = new Point2D();
 
             point.x = e.X - windowTopLeft.x;
             point.y = e.Y - windowTopLeft.y;
 
-            calibrationPoints.Add(point);
+            CompleteCalibration();
+        }
+
+        private void CalibrationPositionClick_HookManager(object sender, MouseEventExtArgs e)
+        {
+            calibrationPoint.x = e.X - windowTopLeft.x;
+            calibrationPoint.y = e.Y - windowTopLeft.y;
         }
     }
 }

@@ -19,9 +19,14 @@ namespace LoLRunes.Application.Services
             calibrationService.StartCalibration();
         }
 
-        public void CompleteCalibration()
+        public void StartPositionCalibration()
         {
-            calibrationService.CompleteCalibration();
+            calibrationService.StartPositionCalibration();
+        }
+
+        public void CompletePositionCalibration()
+        {
+            calibrationService.CompletePositionCalibration();
         }
     }
 }

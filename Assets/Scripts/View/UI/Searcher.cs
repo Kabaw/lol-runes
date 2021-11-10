@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using LoLRunes.View.ViewModel;
+using System;
+using System.Linq;
 
 namespace LoLRunes.View.UI
 {
@@ -11,7 +14,35 @@ namespace LoLRunes.View.UI
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private TMP_Dropdown dropdown;
 
+        private bool isInit = false;
         private bool mouseOverDropdown = false;
+        private List<RunePageViewModel> _runePages;
+
+        public List<RunePageViewModel> runePages
+        {
+            get { return _runePages; }
+
+            set
+            {
+                _runePages = value;
+
+                dropdown.ClearOptions();
+                dropdown.AddOptions(_runePages.Select(r => r.Name).ToList());
+            }
+        }
+
+        private void Start()
+        {
+            //Mocked values
+            List<RunePageViewModel> pages = new List<RunePageViewModel>();
+
+            pages.Add(new RunePageViewModel() { Name = "Page 01" });
+            pages.Add(new RunePageViewModel() { Name = "Page 02" });
+            pages.Add(new RunePageViewModel() { Name = "Page 03" });
+
+            runePages = pages;
+            //Mocked values
+        }
 
         private void Update()
         {
@@ -53,6 +84,10 @@ namespace LoLRunes.View.UI
             print("out");
         }
 
+        public void OnChangeValue_Dropdown()
+        {
+            inputField.text = runePages[dropdown.value].Name;
+        }
 
         private void OnMouseClick_Dropdown()
         {

@@ -53,7 +53,6 @@ namespace LoLRunes.View.UI
         {
             if (mouseOverDropdown)
             {
-                print("SELECTED meeeeeeeeeeeeeeee " + inputField.text.Length);
                 inputField.Select();
                 inputField.caretPosition = inputField.caretWidth + 100;
             }
@@ -61,7 +60,6 @@ namespace LoLRunes.View.UI
 
         public void OnSelect_Input()
         {
-            print("SELECTED");
             dropdown.Show();
         }
 
@@ -75,13 +73,11 @@ namespace LoLRunes.View.UI
         {
             mouseOverDropdown = true;
             inputField.Select();
-            print("in");
         }
 
         public void OnMouseExit_Dropdown()
         {
             mouseOverDropdown = false;
-            print("out");
         }
 
         public void OnChangeValue_Dropdown()

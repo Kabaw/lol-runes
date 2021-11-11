@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace LoLRunes.View.UI
 {
-    public class Searcher : MonoBehaviour
+    public class SearchableDropdown : MonoBehaviour
     {
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private TMP_Dropdown dropdown;

@@ -13,8 +13,6 @@ namespace LoLRunes.Program.Managers
         #endregion
 
         [SerializeField] private ResolutionRunePositionConfig _resolutionRunePositionConfig_01;
-        //[SerializeField] private ResolutionRunePositionConfig _resolutionRunePositionConfig_02;
-        //[SerializeField] private ResolutionRunePositionConfig _resolutionRunePositionConfig_03;
 
         public RuneMenuEnum runeMenu { get; private set; }
         public ResolutionRunePositionConfig activeResolutionRunePositionConfig { get; private set; }

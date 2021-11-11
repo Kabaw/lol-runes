@@ -6,17 +6,22 @@ using UnityEngine.EventSystems;
 using LoLRunes.View.ViewModel;
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace LoLRunes.View.UI
 {
     public class SearchableDropdown : MonoBehaviour
     {
+        public static readonly string EMPTY = " ";
+
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private TMP_Dropdown dropdown;
 
         private bool isInit = false;
         private bool mouseOverDropdown = false;
+        private Coroutine dropdownRerenderCoroutine;
         private List<RunePageViewModel> _runePages;
+        private List<string> dropdownTexts;
 
         public List<RunePageViewModel> runePages
         {
@@ -26,8 +31,14 @@ namespace LoLRunes.View.UI
             {
                 _runePages = value;
 
+                dropdownTexts = new List<string>();
+                dropdownTexts.AddRange(_runePages.Select(r => r.Name));
+                dropdownTexts.Add(EMPTY);
+
                 dropdown.ClearOptions();
-                dropdown.AddOptions(_runePages.Select(r => r.Name).ToList());
+                dropdown.AddOptions(dropdownTexts);
+
+                inputField.text = "";
             }
         }
 
@@ -45,7 +56,7 @@ namespace LoLRunes.View.UI
         }
 
         private void Update()
-        {
+        {            
             EvaluateMouseClick();
         }
 
@@ -53,26 +64,49 @@ namespace LoLRunes.View.UI
         {
             if (mouseOverDropdown)
             {
-                inputField.Select();
-                inputField.caretPosition = inputField.caretWidth + 100;
+                SelectInput();                
             }
         }
 
         public void OnSelect_Input()
         {
-            dropdown.Show();
+            ShowDropdown();
         }
 
         public void OnDeselect_Input()
         {
-            dropdown.Hide();
-            print(inputField.caretWidth);
+            print("Deselect");
+        }
+
+        public void OnEditEnd_Input()
+        {
+            print("end edit");
+        }
+
+        public void OnChangeValue_Input()
+        {
+            dropdown.ClearOptions();
+
+            inputField.text = EvaluateCharacters(inputField.text);          
+
+            //List<string> names = _runePages.Where(rp => rp.Name.ToLower().Contains(inputField.text.ToLower())).Select(r => r.Name).ToList();
+            List<string> names = dropdownTexts.Where(n => n.ToLower().Contains(inputField.text.ToLower())).ToList();
+            names.Add(EMPTY);
+
+            dropdown.AddOptions(names);
+            dropdown.value = dropdown.options.Count - 1;
+
+            if(dropdown.IsExpanded)
+                dropdown.Hide();
+
+            SelectInput();
+            ShowDropdownAfterDelay();
         }
 
         public void OnMouseEnter_Dropdown()
         {
             mouseOverDropdown = true;
-            inputField.Select();
+            SelectInput();
         }
 
         public void OnMouseExit_Dropdown()
@@ -82,7 +116,12 @@ namespace LoLRunes.View.UI
 
         public void OnChangeValue_Dropdown()
         {
+            if (dropdown.options[dropdown.value].text == EMPTY)
+                return;
+            
             inputField.text = runePages[dropdown.value].Name;
+            dropdown.ClearOptions();
+            ResetInputCaretPosition();
         }
 
         private void OnMouseClick_Dropdown()
@@ -94,6 +133,46 @@ namespace LoLRunes.View.UI
         {
             if (mouseOverDropdown && Input.GetMouseButtonUp(0))
                 OnMouseClick_Dropdown();
+        }
+
+        private void SelectInput()
+        {
+            inputField.Select();
+            ResetInputCaretPosition();
+        }
+
+        private void ShowDropdown()
+        {
+            if (dropdown.options.Count > 1)
+                dropdown.Show();
+        }
+
+        private string EvaluateCharacters(string text)
+        {
+            return text;
+            return Regex.Replace(text, @"^\w+$", "").Trim();
+        }
+
+        private void ResetInputCaretPosition()
+        {
+            inputField.caretPosition = inputField.caretWidth + 100;
+        }
+
+        private void ShowDropdownAfterDelay()
+        {
+            if (dropdownRerenderCoroutine != null)
+                StopCoroutine(dropdownRerenderCoroutine);
+
+            dropdownRerenderCoroutine = StartCoroutine(DropdownRerenderRoutine());
+        }
+
+        private IEnumerator DropdownRerenderRoutine()
+        {
+            yield return new WaitForSeconds(0.2f);
+
+            ShowDropdown();
+            SelectInput();
+            dropdownRerenderCoroutine = null;
         }
     }
 }

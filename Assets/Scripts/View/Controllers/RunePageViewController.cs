@@ -20,6 +20,9 @@ namespace LoLRunes.View.Controllers
         [SerializeField] private Transform mainPathRunesRoot;
         [SerializeField] private Transform sidePathRunesRoot;
 
+        [Header("Misc References")]
+        [SerializeField] private SearchableDropdown searchableDropdown;
+
         private RuneViewModel lastAssignedSidePathRune = null;
         private RunePageViewModel runePage;
 
@@ -30,6 +33,8 @@ namespace LoLRunes.View.Controllers
             runePageAppService = new RunePageAppService();
 
             NewRunePage();
+
+            searchableDropdown.onSelectDropdown += OnRunePageSearched;
         }
 
         public void SelectRune(RuneTypeEnum runeType, Transform runePathRoot)
@@ -62,6 +67,16 @@ namespace LoLRunes.View.Controllers
             mainPath.ResetPath();
             sidePath.ResetPath();
             runeShardsComp.ResetShards();            
+        }
+
+        private void LoadRunePage(RunePageViewModel runePage)
+        {
+
+        }
+
+        private void OnRunePageSearched(string selectOption, int selectOptionIndex)
+        {
+
         }
 
         private void SelectMainPathRune(RuneViewModel rune)

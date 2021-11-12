@@ -10,6 +10,8 @@ using System.Text.RegularExpressions;
 
 namespace LoLRunes.View.UI
 {
+    public delegate void OnSelectDropdown(string selectOption, int selectOptionIndex);
+
     public class SearchableDropdown : MonoBehaviour
     {
         public static readonly string EMPTY = " ";
@@ -20,23 +22,31 @@ namespace LoLRunes.View.UI
         private bool isInit = false;
         private bool mouseOverDropdown = false;
         private Coroutine dropdownRerenderCoroutine;
-        private List<RunePageViewModel> _runePages;
-        private List<string> dropdownTexts;
+        private List<string> _options;
+        private List<string> dropdownOptions;
 
-        public List<RunePageViewModel> runePages
+        private OnSelectDropdown _onSelectDropdown;
+
+        public event OnSelectDropdown onSelectDropdown
         {
-            get { return _runePages; }
+            add { _onSelectDropdown += value; }            
+            remove { _onSelectDropdown -= value; }
+        }
+
+        public List<string> options
+        {
+            get { return _options; }
 
             set
             {
-                _runePages = value;
+                _options = value;
 
-                dropdownTexts = new List<string>();
-                dropdownTexts.AddRange(_runePages.Select(r => r.Name));
-                dropdownTexts.Add(EMPTY);
+                dropdownOptions = new List<string>();
+                dropdownOptions.AddRange(options);
+                dropdownOptions.Add(EMPTY);
 
                 dropdown.ClearOptions();
-                dropdown.AddOptions(dropdownTexts);
+                dropdown.AddOptions(dropdownOptions);
 
                 inputField.text = "";
             }
@@ -45,13 +55,9 @@ namespace LoLRunes.View.UI
         private void Start()
         {
             //Mocked values
-            List<RunePageViewModel> pages = new List<RunePageViewModel>();
+            List<string> texts = new List<string>() { "Page 01", "Page 02", "Page 03" };
 
-            pages.Add(new RunePageViewModel() { Name = "Page 01" });
-            pages.Add(new RunePageViewModel() { Name = "Page 02" });
-            pages.Add(new RunePageViewModel() { Name = "Page 03" });
-
-            runePages = pages;
+            options = texts;
             //Mocked values
         }
 
@@ -89,8 +95,7 @@ namespace LoLRunes.View.UI
 
             inputField.text = EvaluateCharacters(inputField.text);          
 
-            //List<string> names = _runePages.Where(rp => rp.Name.ToLower().Contains(inputField.text.ToLower())).Select(r => r.Name).ToList();
-            List<string> names = dropdownTexts.Where(n => n.ToLower().Contains(inputField.text.ToLower())).ToList();
+            List<string> names = dropdownOptions.Where(n => n.ToLower().Contains(inputField.text.ToLower())).ToList();
             names.Add(EMPTY);
 
             dropdown.AddOptions(names);
@@ -118,10 +123,15 @@ namespace LoLRunes.View.UI
         {
             if (dropdown.options[dropdown.value].text == EMPTY)
                 return;
-            
-            inputField.text = runePages[dropdown.value].Name;
+
+            int optionIndex = dropdown.value;
+            string optionText = dropdownOptions[dropdown.value];
+
+            inputField.text = optionText;
             dropdown.ClearOptions();
             ResetInputCaretPosition();
+
+            _onSelectDropdown?.Invoke(optionText, optionIndex);
         }
 
         private void OnMouseClick_Dropdown()

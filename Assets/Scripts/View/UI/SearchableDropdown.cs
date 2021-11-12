@@ -16,7 +16,7 @@ namespace LoLRunes.View.UI
 
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private TMP_Dropdown dropdown;
-
+        
         private bool isInit = false;
         private bool mouseOverDropdown = false;
         private Coroutine dropdownRerenderCoroutine;

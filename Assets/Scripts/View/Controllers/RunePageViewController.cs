@@ -24,7 +24,8 @@ namespace LoLRunes.View.Controllers
         [SerializeField] private SearchableDropdown searchableDropdown;
 
         private RuneViewModel lastAssignedSidePathRune = null;
-        private RunePageViewModel runePage;
+        private RunePageViewModel loadedRunePage;
+        private List<RunePageViewModel> runePages;
 
         private RunePageAppService runePageAppService;
 
@@ -57,12 +58,12 @@ namespace LoLRunes.View.Controllers
 
         public void ApplyRunePage()
         {
-            runePageAppService.ApplyRunePage(runePage);
+            runePageAppService.ApplyRunePage(loadedRunePage);
         }
 
         public void NewRunePage()
         {
-            runePage = new RunePageViewModel();
+            loadedRunePage = new RunePageViewModel();
 
             mainPath.ResetPath();
             sidePath.ResetPath();
@@ -84,26 +85,26 @@ namespace LoLRunes.View.Controllers
             switch (rune.RuneType.GetGroup())
             {
                 case RuneGroupEnum.PATH:
-                    if (runePage.MainPath != null &&runePage.MainPath.RuneType != rune.RuneType)
+                    if (loadedRunePage.MainPath != null &&loadedRunePage.MainPath.RuneType != rune.RuneType)
                         ClearRunePageModelPath(PathTypeEnum.MAIN);
 
-                    runePage.MainPath = rune;                    
+                    loadedRunePage.MainPath = rune;                    
                     break;
 
                 case RuneGroupEnum.KEYSTONE:
-                    runePage.KeyStone = rune;
+                    loadedRunePage.KeyStone = rune;
                     break;
 
                 case RuneGroupEnum.RUNE_01:
-                    runePage.MainPathRune_01 = rune;
+                    loadedRunePage.MainPathRune_01 = rune;
                     break;
 
                 case RuneGroupEnum.RUNE_02:
-                    runePage.MainPathRune_02 = rune;
+                    loadedRunePage.MainPathRune_02 = rune;
                     break;
 
                 case RuneGroupEnum.RUNE_03:
-                    runePage.MainPathRune_03 = rune;
+                    loadedRunePage.MainPathRune_03 = rune;
                     break;
             }
         }
@@ -112,17 +113,17 @@ namespace LoLRunes.View.Controllers
         {
             if(pathType == PathTypeEnum.MAIN)
             {
-                runePage.MainPath = null;
-                runePage.KeyStone = null;
-                runePage.MainPathRune_01 = null;
-                runePage.MainPathRune_02 = null;
-                runePage.MainPathRune_03 = null;
+                loadedRunePage.MainPath = null;
+                loadedRunePage.KeyStone = null;
+                loadedRunePage.MainPathRune_01 = null;
+                loadedRunePage.MainPathRune_02 = null;
+                loadedRunePage.MainPathRune_03 = null;
             }
             else
             {
-                runePage.SidePath = null;
-                runePage.SidePathRune_01 = null;
-                runePage.SidePathRune_02 = null;
+                loadedRunePage.SidePath = null;
+                loadedRunePage.SidePathRune_01 = null;
+                loadedRunePage.SidePathRune_02 = null;
             }
         }
 
@@ -130,10 +131,10 @@ namespace LoLRunes.View.Controllers
         {
             if(rune.RuneType.GetGroup() == RuneGroupEnum.PATH)
             {
-                if (runePage.SidePath != null && runePage.SidePath.RuneType != rune.RuneType)
+                if (loadedRunePage.SidePath != null && loadedRunePage.SidePath.RuneType != rune.RuneType)
                     ClearRunePageModelPath(PathTypeEnum.SIDE);
 
-                runePage.SidePath = rune;
+                loadedRunePage.SidePath = rune;
                 return;
             }
 
@@ -143,30 +144,30 @@ namespace LoLRunes.View.Controllers
             {
                 if(lastAssignedSidePathRune == null)
                 {
-                    runePage.SidePathRune_01 = rune;                    
+                    loadedRunePage.SidePathRune_01 = rune;                    
                 }
                 else
                 {
-                    if (runePage.SidePathRune_01 != null &&
-                        runePage.SidePathRune_01.RuneType.GetGroup() == rune.RuneType.GetGroup())
+                    if (loadedRunePage.SidePathRune_01 != null &&
+                        loadedRunePage.SidePathRune_01.RuneType.GetGroup() == rune.RuneType.GetGroup())
                     {
-                        runePage.SidePathRune_01 = rune;
+                        loadedRunePage.SidePathRune_01 = rune;
                         lastAssignedSidePathRune = rune;
                         return;
                     }
 
-                    if (runePage.SidePathRune_02 != null &&
-                        runePage.SidePathRune_02.RuneType.GetGroup() == rune.RuneType.GetGroup())
+                    if (loadedRunePage.SidePathRune_02 != null &&
+                        loadedRunePage.SidePathRune_02.RuneType.GetGroup() == rune.RuneType.GetGroup())
                     {                          
-                        runePage.SidePathRune_02 = rune;
+                        loadedRunePage.SidePathRune_02 = rune;
                         lastAssignedSidePathRune = rune;
                         return;
                     }
 
-                    if (lastAssignedSidePathRune == runePage.SidePathRune_01)
-                        runePage.SidePathRune_02 = rune;
+                    if (lastAssignedSidePathRune == loadedRunePage.SidePathRune_01)
+                        loadedRunePage.SidePathRune_02 = rune;
                     else
-                        runePage.SidePathRune_01 = rune;
+                        loadedRunePage.SidePathRune_01 = rune;
                 }
 
                 lastAssignedSidePathRune = rune;
@@ -191,15 +192,15 @@ namespace LoLRunes.View.Controllers
             switch (rune.RuneType.GetGroup())
             {
                 case RuneGroupEnum.SHARDS_ATTACK:
-                    runePage.RuneShardAttack = rune;
+                    loadedRunePage.RuneShardAttack = rune;
                     break;
 
                 case RuneGroupEnum.SHARDS_FLEX:
-                    runePage.RuneShardFlex = rune;
+                    loadedRunePage.RuneShardFlex = rune;
                     break;
 
                 case RuneGroupEnum.SHARDS_DEFENCE:
-                    runePage.RuneShardDefence = rune;
+                    loadedRunePage.RuneShardDefence = rune;
                     break;
             }
         }

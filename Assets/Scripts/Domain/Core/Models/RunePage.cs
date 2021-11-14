@@ -5,6 +5,9 @@ namespace LoLRunes.Domain.Models
 {
     public class RunePage
     {
+        public int id { get; private set; }
+        public string name { get; private set; }
+
         public Rune MainPath { get; private set; }
         public Rune SidePath { get; private set; }
 

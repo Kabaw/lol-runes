@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using Gma.UserActivityMonitor;
 using System.Linq;
 using System;
-using LoLRunes.Infra.Core;
+using LoLRunes.Infra.WindowInteraction;
 
 namespace LoLRunes.Domain.Services
 {

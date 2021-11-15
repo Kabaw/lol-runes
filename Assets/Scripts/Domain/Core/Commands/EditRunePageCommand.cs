@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LoLRunes.Domain.Commands
 {
-    public class CreateRunePageCommand
+    public class EditRunePageCommand
     {
         public string Name { get; set; }
 

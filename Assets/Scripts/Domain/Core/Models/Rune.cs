@@ -8,7 +8,7 @@ namespace LoLRunes.Domain.Models
 {
     public class Rune
     {
-        public RuneTypeEnum RuneType { get; private set; }
+        public RuneTypeEnum RuneType { get; internal set; }
 
         public Rune(RuneTypeEnum runeType)
         {

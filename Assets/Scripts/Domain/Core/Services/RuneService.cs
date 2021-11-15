@@ -7,11 +7,8 @@ using LoLRunes.ScriptableObjects;
 namespace LoLRunes.Domain.Services
 {
     public class RuneService
-    {       
-        public RuneService()
-        {
-            
-        }
+    {
+        public RuneService() { }
 
         public Rune Instantiate(RuneTypeEnum runeType)
         {

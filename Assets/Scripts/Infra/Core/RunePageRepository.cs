@@ -47,8 +47,26 @@ namespace LoLRunes.Infra.Core
             }
             catch (Exception)
             {
-                throw new Exception("Error when attempting to 'SAVE' the rune page data.");
+                throw new Exception("Error when attempting to 'SAVE' the Rune page data.");
             }
+        }
+
+        public RunePage Read(int id)
+        {
+            List<RunePage> runePages = ReadAll();
+
+            RunePage runePage = runePages.Where(r => r.Id == id).FirstOrDefault();
+
+            return runePage;
+        }
+
+        public RunePage Read(string name)
+        {
+            List<RunePage> runePages = ReadAll();
+
+            RunePage runePage = runePages.Where(r => r.Name == name).FirstOrDefault();
+
+            return runePage;
         }
 
         public List<RunePage> ReadAll()
@@ -66,7 +84,7 @@ namespace LoLRunes.Infra.Core
             }
             catch (Exception)
             {
-                throw new Exception("Error when attempting to 'READ' the calibration data.");
+                throw new Exception("Error when attempting to 'READ' the Rune Page data.");
             }
         }
 
@@ -74,7 +92,7 @@ namespace LoLRunes.Infra.Core
         {
             List<RunePage> runePages = ReadAll();
 
-            int runePageIndex = runePages.FindIndex(r => r.id == runePage.id);
+            int runePageIndex = runePages.FindIndex(r => r.Id == runePage.Id);
 
             runePages[runePageIndex] = runePage;
 
@@ -84,7 +102,7 @@ namespace LoLRunes.Infra.Core
             }
             catch (Exception)
             {
-                throw new Exception("Error when attempting to 'EDIT' the rune page data with ID: " + runePage.id);
+                throw new Exception("Error when attempting to 'EDIT' the Rune Page data with ID: " + runePage.Id);
             }           
         }
 
@@ -100,7 +118,7 @@ namespace LoLRunes.Infra.Core
         {
             List<RunePage> runePages = ReadAll();
 
-            NEXT_ID = runePages.Max(r => r.id) + 1;
+            NEXT_ID = runePages.Max(r => r.Id) + 1;
         }
     }
 }

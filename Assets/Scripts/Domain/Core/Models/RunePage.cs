@@ -5,28 +5,30 @@ namespace LoLRunes.Domain.Models
 {
     public class RunePage
     {
-        public int id { get; private set; }
-        public string name { get; private set; }
+        public int Id { get; internal set; }
+        public string Name { get; internal set; }
 
-        public Rune MainPath { get; private set; }
-        public Rune SidePath { get; private set; }
+        public Rune MainPath { get; internal set; }
+        public Rune SidePath { get; internal set; }
 
-        public Rune KeyStone { get; private set; }
+        public Rune KeyStone { get; internal set; }
 
-        public Rune MainPathRune_01 { get; private set; }
-        public Rune MainPathRune_02 { get; private set; }
-        public Rune MainPathRune_03 { get; private set; }
+        public Rune MainPathRune_01 { get; internal set; }
+        public Rune MainPathRune_02 { get; internal set; }
+        public Rune MainPathRune_03 { get; internal set; }
 
-        public Rune SidePathRune_01 { get; private set; }
-        public Rune SidePathRune_02 { get; private set; }
+        public Rune SidePathRune_01 { get; internal set; }
+        public Rune SidePathRune_02 { get; internal set; }
 
-        public Rune RuneShardAttack { get; private set; }
-        public Rune RuneShardFlex { get; private set; }
-        public Rune RuneShardDefence { get; private set; }
+        public Rune RuneShardAttack { get; internal set; }
+        public Rune RuneShardFlex { get; internal set; }
+        public Rune RuneShardDefence { get; internal set; }
 
-        public RunePage(Rune mainPath, Rune sidePath, Rune keyStone, Rune mainPathRune_01, Rune mainPathRune_02,
+        public RunePage(string name, Rune mainPath, Rune sidePath, Rune keyStone, Rune mainPathRune_01, Rune mainPathRune_02,
             Rune mainPathRune_03, Rune sidePathRune_01, Rune sidePathRune_02, Rune runeShardAttack, Rune runeShardFlex, Rune runeShardDefence)
         {
+            Name = name;
+
             MainPath = mainPath;
             SidePath = sidePath;
 

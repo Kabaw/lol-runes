@@ -81,12 +81,12 @@ namespace LoLRunes.View.UI
 
         public void OnDeselect_Input()
         {
-            print("Deselect");
+            //print("Deselect");
         }
 
         public void OnEditEnd_Input()
         {
-            print("end edit");
+            //print("end edit");
         }
 
         public void OnChangeValue_Input()

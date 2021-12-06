@@ -4,6 +4,7 @@ using LoLRunes.Domain.Services;
 using LoLRunes.Domain.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace LoLRunes.Application.Services
 {   
@@ -22,6 +23,8 @@ namespace LoLRunes.Application.Services
 
         public void ApplyRunePage(RunePageViewModel runePageViewModel)
         {
+            EvaluateRunePageRequest(runePageViewModel);
+
             CreateRunePageCommand command = MapToCreateRunePageCommand(runePageViewModel);
 
             RunePage runePage = runePageService.Instantiate(command);
@@ -31,6 +34,8 @@ namespace LoLRunes.Application.Services
 
         public RunePageViewModel SaveRunePage(RunePageViewModel runePageViewModel)
         {
+            EvaluateRunePageRequest(runePageViewModel);
+
             CreateRunePageCommand command = MapToCreateRunePageCommand(runePageViewModel);
 
             RunePage runePage = runePageService.Instantiate(command);
@@ -47,6 +52,8 @@ namespace LoLRunes.Application.Services
 
         public RunePageViewModel EditRunePage(RunePageViewModel runePageViewModel)
         {
+            EvaluateRunePageRequest(runePageViewModel);
+
             RunePage runePage = runePageService.Read(runePageViewModel.id);
 
             EditRunePageCommand command = MapToEditRunePageCommand(runePageViewModel);
@@ -54,6 +61,24 @@ namespace LoLRunes.Application.Services
             runePage = runePageService.Edit(runePage, command);
 
             return MapToRunePageViewModel(runePageService.Save(runePage));
+        }
+
+        private void EvaluateRunePageRequest(RunePageViewModel runePageViewModel)
+        {
+            if (runePageViewModel.MainPath == null ||
+                runePageViewModel.SidePath == null ||
+                runePageViewModel.KeyStone == null ||
+                runePageViewModel.MainPathRune_01 == null ||
+                runePageViewModel.MainPathRune_02 == null ||
+                runePageViewModel.MainPathRune_03 == null ||
+                runePageViewModel.SidePathRune_01 == null ||
+                runePageViewModel.SidePathRune_02 == null ||
+                runePageViewModel.RuneShardAttack == null ||
+                runePageViewModel.RuneShardFlex == null ||
+                runePageViewModel.RuneShardDefence == null)
+            {
+                throw new InvalidOperationException("Some fields have null values");
+            }
         }
 
         #region Mapping

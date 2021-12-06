@@ -16,10 +16,8 @@ namespace LoLRunes.Infra.Core
 
         public RunePageRepository()
         {
-            if(NEXT_ID < 0)
-            {
-                CalculeNextID();
-            }
+            CheckFilesExistance();
+            CalculeNextID();
         }
 
         public void SetId(object obj, int id)
@@ -45,9 +43,9 @@ namespace LoLRunes.Infra.Core
 
                 NEXT_ID++;
             }
-            catch (Exception)
+            catch (Exception error)
             {
-                throw new Exception("Error when attempting to 'SAVE' the Rune page data.");
+                throw new Exception("Error when attempting to 'SAVE' the Rune page data.\n" + error.Message);
             }
         }
 
@@ -80,11 +78,14 @@ namespace LoLRunes.Infra.Core
 
                 List<RunePage> runePages = JsonUtility.FromJson<List<RunePage>>(json);
 
+                if (runePages == null)
+                    runePages = new List<RunePage>();
+
                 return runePages;
             }
-            catch (Exception)
+            catch (Exception error)
             {
-                throw new Exception("Error when attempting to 'READ' the Rune Page data.");
+                throw new Exception("Error when attempting to 'READ' the Rune Page data.\n" + error.Message);
             }
         }
 
@@ -100,9 +101,9 @@ namespace LoLRunes.Infra.Core
             {
                 SaveMany(runePages);
             }
-            catch (Exception)
+            catch (Exception error)
             {
-                throw new Exception("Error when attempting to 'EDIT' the Rune Page data with ID: " + runePage.Id);
+                throw new Exception("Error when attempting to 'EDIT' the Rune Page data with ID: " + runePage.Id + "\n" + error.Message);
             }           
         }
 
@@ -116,9 +117,18 @@ namespace LoLRunes.Infra.Core
 
         private void CalculeNextID()
         {
-            List<RunePage> runePages = ReadAll();
+            if (NEXT_ID >= 0)
+                return;
 
-            NEXT_ID = runePages.Max(r => r.Id) + 1;
+            List<RunePage> runePages = ReadAll();            
+
+            NEXT_ID = runePages.Count == 0 ? 1 : runePages.Max(r => r.Id) + 1;
+        }
+
+        private void CheckFilesExistance()
+        {
+            if (!File.Exists(UnityEngine.Application.persistentDataPath + "/" + RUNE_PAGES_FILE_NAME))
+                File.Create(UnityEngine.Application.persistentDataPath + "/" + RUNE_PAGES_FILE_NAME);
         }
     }
 }

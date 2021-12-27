@@ -60,18 +60,26 @@ namespace LoLRunes.View.Controllers
             }
         }
 
-        public void ApplyRunePage()
-        {
-            runePageAppService.ApplyRunePage(loadedRunePage);
-        }
-
         public void NewRunePage()
         {
             loadedRunePage = new RunePageViewModel();
 
             mainPath.ResetPath();
             sidePath.ResetPath();
-            runeShardsComp.ResetShards();            
+            runeShardsComp.ResetShards();
+        }
+
+        public void ApplyRunePage()
+        {
+            runePageAppService.ApplyRunePage(loadedRunePage);
+        }
+
+        public void SaveRunePage()
+        {
+            if(loadedRunePage.id == 0)
+                runePageAppService.SaveRunePage(loadedRunePage);
+            else
+                runePageAppService.EditRunePage(loadedRunePage);
         }
 
         private void LoadRunePage(RunePageViewModel runePage)

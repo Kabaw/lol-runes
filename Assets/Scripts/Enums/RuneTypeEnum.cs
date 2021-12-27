@@ -1,4 +1,5 @@
 ﻿using LoLRunes.CustumAttributes;
+using System;
 
 namespace LoLRunes.Enumerators
 {

@@ -40,7 +40,9 @@ namespace LoLRunes.Application.Services
 
             RunePage runePage = runePageService.Instantiate(command);
 
-            return MapToRunePageViewModel(runePageService.Save(runePage));
+            runePage = runePageService.Save(runePage);
+
+            return MapToRunePageViewModel(runePage);
         }
 
         public List<RunePageViewModel> ReadAllRunePages()
@@ -60,12 +62,13 @@ namespace LoLRunes.Application.Services
 
             runePage = runePageService.Edit(runePage, command);
 
-            return MapToRunePageViewModel(runePageService.Save(runePage));
+            return MapToRunePageViewModel(runePage);
         }
 
         private void EvaluateRunePageRequest(RunePageViewModel runePageViewModel)
         {
-            if (runePageViewModel.MainPath == null ||
+            if (runePageViewModel.Name == null ||
+                runePageViewModel.MainPath == null ||
                 runePageViewModel.SidePath == null ||
                 runePageViewModel.KeyStone == null ||
                 runePageViewModel.MainPathRune_01 == null ||

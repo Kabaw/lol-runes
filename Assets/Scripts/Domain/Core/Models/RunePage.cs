@@ -50,7 +50,8 @@ namespace LoLRunes.Domain.Models
 
         private void EvaluateModel()
         {
-            if (MainPath == null ||
+            if (Name == null ||
+                MainPath == null ||
                 SidePath == null ||
                 KeyStone == null ||
                 MainPathRune_01 == null ||

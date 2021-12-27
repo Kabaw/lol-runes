@@ -24,5 +24,10 @@ namespace LoLRunes.View.ViewModel
         public RuneViewModel RuneShardAttack { get; set; }
         public RuneViewModel RuneShardFlex { get; set; }
         public RuneViewModel RuneShardDefence { get; set; }        
+
+        public RunePageViewModel()
+        {
+            Name = "Rune Page";
+        }
     }
 }

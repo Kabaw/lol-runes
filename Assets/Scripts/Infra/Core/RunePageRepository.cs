@@ -1,4 +1,5 @@
 ﻿using LoLRunes.Domain.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,12 +25,12 @@ namespace LoLRunes.Infra.Core
         {
             Type type = obj.GetType();
 
-            PropertyInfo prop = type.GetProperty("id");
+            PropertyInfo prop = type.GetProperty("Id");
 
             prop.SetValue(obj, id);
         }
 
-        public void Save(RunePage runePage)
+        public void Insert(RunePage runePage)
         {
             List<RunePage> runePages = ReadAll();
 
@@ -39,13 +40,13 @@ namespace LoLRunes.Infra.Core
 
             try
             {
-                SaveMany(runePages);
+                InsertMany(runePages);
 
                 NEXT_ID++;
             }
             catch (Exception error)
             {
-                throw new Exception("Error when attempting to 'SAVE' the Rune page data.\n" + error.Message);
+                throw new IOException("Error when attempting to 'INSERT' the Rune page data.\n" + error.Message);
             }
         }
 
@@ -76,7 +77,7 @@ namespace LoLRunes.Infra.Core
             {
                 json = File.ReadAllText(runePageFilePath);
 
-                List<RunePage> runePages = JsonUtility.FromJson<List<RunePage>>(json);
+                List<RunePage> runePages = JsonConvert.DeserializeObject<List<RunePage>>(json);
 
                 if (runePages == null)
                     runePages = new List<RunePage>();
@@ -85,7 +86,7 @@ namespace LoLRunes.Infra.Core
             }
             catch (Exception error)
             {
-                throw new Exception("Error when attempting to 'READ' the Rune Page data.\n" + error.Message);
+                throw new IOException("Error when attempting to 'READ' the Rune Page data.\n" + error.Message);
             }
         }
 
@@ -99,18 +100,18 @@ namespace LoLRunes.Infra.Core
 
             try
             {
-                SaveMany(runePages);
+                InsertMany(runePages);
             }
             catch (Exception error)
             {
-                throw new Exception("Error when attempting to 'EDIT' the Rune Page data with ID: " + runePage.Id + "\n" + error.Message);
+                throw new IOException("Error when attempting to 'EDIT' the Rune Page data with ID: " + runePage.Id + "\n" + error.Message);
             }           
         }
 
-        private void SaveMany(List<RunePage> runePages)
+        private void InsertMany(List<RunePage> runePages)
         {
             string runePageFilePath = UnityEngine.Application.persistentDataPath + "/" + RUNE_PAGES_FILE_NAME;
-            string json = JsonUtility.ToJson(runePages);
+            string json = JsonConvert.SerializeObject(runePages);
 
             File.WriteAllText(runePageFilePath, json);
         }

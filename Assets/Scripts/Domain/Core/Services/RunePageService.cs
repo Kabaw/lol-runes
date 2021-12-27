@@ -26,7 +26,13 @@ namespace LoLRunes.Domain.Services
 
         public RunePage Save(RunePage runePage)
         {
-            runePageRepository.Save(runePage);
+            if (runePage == null)
+                throw new InvalidOperationException("Insert: RunePage objetc is null or dosen't have an ID");
+
+            if (runePage.Id > 0)
+                throw new InvalidOperationException("Insert: Can't insert this RunePage, it alredy have an ID");
+
+            runePageRepository.Insert(runePage);
 
             return runePage;
         }
@@ -58,6 +64,9 @@ namespace LoLRunes.Domain.Services
 
         public RunePage Edit(RunePage runePage, EditRunePageCommand command)
         {
+            if (runePage == null || runePage.Id < 1)
+                throw new InvalidOperationException("Edit: RunePage objetc is null or dosen't have an ID");
+
             runePage.Name = command.Name;
             runePage.MainPath = command.MainPath;
             runePage.SidePath = command.SidePath;

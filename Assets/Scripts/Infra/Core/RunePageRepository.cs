@@ -120,7 +120,7 @@ namespace LoLRunes.Infra.Core
 
         private void CalculeNextID()
         {
-            if (NEXT_ID >= 0)
+            if (NEXT_ID > 0)
                 return;
 
             List<RunePage> runePages = ReadAll();            

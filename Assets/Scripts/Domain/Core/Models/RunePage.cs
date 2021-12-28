@@ -1,11 +1,12 @@
 ﻿using LoLRunes.Enumerators;
+using Newtonsoft.Json;
 using System;
 
 namespace LoLRunes.Domain.Models
 {
     public class RunePage
     {
-        public int Id { get; internal set; }
+        public int Id { get; private set; }        
         public string Name { get; internal set; }
 
         public Rune MainPath { get; internal set; }
@@ -23,6 +24,33 @@ namespace LoLRunes.Domain.Models
         public Rune RuneShardAttack { get; internal set; }
         public Rune RuneShardFlex { get; internal set; }
         public Rune RuneShardDefence { get; internal set; }
+
+        #region Json Constructor
+        [JsonConstructor]
+        public RunePage(int id, string name, Rune mainPath, Rune sidePath, Rune keyStone, Rune mainPathRune_01, Rune mainPathRune_02,
+            Rune mainPathRune_03, Rune sidePathRune_01, Rune sidePathRune_02, Rune runeShardAttack, Rune runeShardFlex, Rune runeShardDefence)
+        {
+            Id = id;
+
+            Name = name;
+
+            MainPath = mainPath;
+            SidePath = sidePath;
+
+            KeyStone = keyStone;
+
+            MainPathRune_01 = mainPathRune_01;
+            MainPathRune_02 = mainPathRune_02;
+            MainPathRune_03 = mainPathRune_03;
+
+            SidePathRune_01 = sidePathRune_01;
+            SidePathRune_02 = sidePathRune_02;
+
+            RuneShardAttack = runeShardAttack;
+            RuneShardFlex = runeShardFlex;
+            RuneShardDefence = runeShardDefence;
+        }
+        #endregion
 
         public RunePage(string name, Rune mainPath, Rune sidePath, Rune keyStone, Rune mainPathRune_01, Rune mainPathRune_02,
             Rune mainPathRune_03, Rune sidePathRune_01, Rune sidePathRune_02, Rune runeShardAttack, Rune runeShardFlex, Rune runeShardDefence)

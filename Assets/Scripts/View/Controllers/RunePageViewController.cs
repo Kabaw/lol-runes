@@ -3,6 +3,7 @@ using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
 using LoLRunes.View.UI;
 using LoLRunes.View.ViewModel;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace LoLRunes.View.Controllers
         [Header("Misc References")]
         [SerializeField] private SearchableDropdown searchableDropdown;
 
+        private bool ignoreNextOnSearchble = false;
         private RuneViewModel lastAssignedSidePathRune = null;
         private RunePageViewModel loadedRunePage;
         private List<RunePageViewModel> runePages;
@@ -32,6 +34,8 @@ namespace LoLRunes.View.Controllers
         private void Start()
         {
             runePageAppService = new RunePageAppService();
+
+            //runePages = runePageAppService.ReadAllRunePages();
 
             NewRunePage();
 
@@ -56,18 +60,26 @@ namespace LoLRunes.View.Controllers
             }
         }
 
-        public void ApplyRunePage()
-        {
-            runePageAppService.ApplyRunePage(loadedRunePage);
-        }
-
         public void NewRunePage()
         {
             loadedRunePage = new RunePageViewModel();
 
             mainPath.ResetPath();
             sidePath.ResetPath();
-            runeShardsComp.ResetShards();            
+            runeShardsComp.ResetShards();
+        }
+
+        public void ApplyRunePage()
+        {
+            runePageAppService.ApplyRunePage(loadedRunePage);
+        }
+
+        public void SaveRunePage()
+        {
+            if(loadedRunePage.id == 0)
+                runePageAppService.SaveRunePage(loadedRunePage);
+            else
+                runePageAppService.EditRunePage(loadedRunePage);
         }
 
         private void LoadRunePage(RunePageViewModel runePage)
@@ -75,9 +87,22 @@ namespace LoLRunes.View.Controllers
 
         }
 
+        private void SetSearchableOption()
+        {
+            ignoreNextOnSearchble = true;
+
+            searchableDropdown.options = runePages.Select(r => r.Name).ToList();
+        }
+
         private void OnRunePageSearched(string selectOption, int selectOptionIndex)
         {
+            if (ignoreNextOnSearchble)
+            {
+                ignoreNextOnSearchble = false;
+                return;
+            }
 
+            LoadRunePage(runePages[selectOptionIndex]);
         }
 
         private void SelectMainPathRune(RuneViewModel rune)

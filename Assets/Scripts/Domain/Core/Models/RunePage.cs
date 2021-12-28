@@ -78,8 +78,10 @@ namespace LoLRunes.Domain.Models
 
         private void EvaluateModel()
         {
-            if (Name == null ||
-                MainPath == null ||
+            if (Name == null)
+                throw new InvalidOperationException("Rune Page name not defined!");
+
+            if (MainPath == null ||
                 SidePath == null ||
                 KeyStone == null ||
                 MainPathRune_01 == null ||
@@ -91,7 +93,7 @@ namespace LoLRunes.Domain.Models
                 RuneShardFlex == null ||
                 RuneShardDefence == null)
             {
-                throw new InvalidOperationException("Some fields have null values");
+                throw new InvalidOperationException("Not all runes were defined!");
             }
         }
     }

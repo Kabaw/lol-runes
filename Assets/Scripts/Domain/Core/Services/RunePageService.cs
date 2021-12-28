@@ -19,6 +19,11 @@ namespace LoLRunes.Domain.Services
 
         public RunePage Instantiate(CreateRunePageCommand command)
         {
+            RunePage runePage = runePageRepository.ReadByName(command.Name.Trim());
+
+            if(runePage != null)
+                throw new InvalidOperationException("There is already another Rune Page with the same name!");
+
             return new RunePage(command.Name, command.MainPath, command.SidePath, command.KeyStone, command.MainPathRune_01,
                 command.MainPathRune_02, command.MainPathRune_03, command.SidePathRune_01, command.SidePathRune_02,
                 command.RuneShardAttack, command.RuneShardFlex, command.RuneShardDefence);
@@ -47,9 +52,9 @@ namespace LoLRunes.Domain.Services
             return runePage;
         }
 
-        public RunePage Read(string name)
+        public RunePage ReadByName(string name)
         {
-            RunePage runePage = runePageRepository.Read(name);
+            RunePage runePage = runePageRepository.ReadByName(name);
 
             if (runePage == null)
                 throw new Exception("Unable to find the rune page with Name: '" + name + "'");

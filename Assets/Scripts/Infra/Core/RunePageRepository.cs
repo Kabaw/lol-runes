@@ -61,7 +61,7 @@ namespace LoLRunes.Infra.Core
             return runePage;
         }
 
-        public RunePage Read(string name)
+        public RunePage ReadByName(string name)
         {
             List<RunePage> runePages = ReadAll();
 

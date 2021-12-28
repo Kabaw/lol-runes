@@ -7,6 +7,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace LoLRunes.View.Controllers
 {
@@ -23,6 +24,7 @@ namespace LoLRunes.View.Controllers
 
         [Header("Misc References")]
         [SerializeField] private SearchableDropdown searchableDropdown;
+        [SerializeField] private TMP_InputField pageNameInput;
 
         private bool ignoreNextOnSearchble = false;
         private RuneViewModel lastAssignedSidePathRune = null;
@@ -76,7 +78,9 @@ namespace LoLRunes.View.Controllers
 
         public void SaveRunePage()
         {
-            if(loadedRunePage.id == 0)
+            loadedRunePage.Name = pageNameInput.text.Trim();
+
+            if (loadedRunePage.id == 0)
                 runePageAppService.SaveRunePage(loadedRunePage);
             else
                 runePageAppService.EditRunePage(loadedRunePage);

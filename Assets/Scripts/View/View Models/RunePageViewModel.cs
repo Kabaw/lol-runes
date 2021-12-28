@@ -6,7 +6,7 @@ namespace LoLRunes.View.ViewModel
 {
     public class RunePageViewModel
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public RuneViewModel MainPath { get; set; }

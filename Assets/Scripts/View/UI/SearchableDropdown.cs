@@ -124,8 +124,8 @@ namespace LoLRunes.View.UI
             if (dropdown.options[dropdown.value].text == EMPTY)
                 return;
 
-            int optionIndex = dropdown.value;
-            string optionText = dropdownOptions[dropdown.value];
+            int optionIndex = dropdownOptions.FindIndex(x => x == dropdown.options[dropdown.value].text);
+            string optionText = dropdownOptions[optionIndex];
 
             inputField.text = optionText;
             dropdown.ClearOptions();

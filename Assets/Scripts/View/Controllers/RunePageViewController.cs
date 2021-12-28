@@ -37,7 +37,9 @@ namespace LoLRunes.View.Controllers
         {
             runePageAppService = new RunePageAppService();
 
-            //runePages = runePageAppService.ReadAllRunePages();
+            runePages = runePageAppService.ReadAllRunePages();
+
+            SetSearchableOption();
 
             NewRunePage();
 
@@ -80,32 +82,30 @@ namespace LoLRunes.View.Controllers
         {
             loadedRunePage.Name = pageNameInput.text.Trim();
 
-            if (loadedRunePage.id == 0)
-                runePageAppService.SaveRunePage(loadedRunePage);
+            if (loadedRunePage.Id == 0)
+                loadedRunePage = runePageAppService.SaveRunePage(loadedRunePage);
             else
-                runePageAppService.EditRunePage(loadedRunePage);
+                loadedRunePage = runePageAppService.EditRunePage(loadedRunePage);
         }
 
         private void LoadRunePage(RunePageViewModel runePage)
         {
+            loadedRunePage = runePage;
 
+            pageNameInput.text = loadedRunePage.Name;
+
+            mainPath.SelectPathRunes(runePage);
+            sidePath.SelectPathRunes(runePage);
+            runeShardsComp.SelectRuneShards(runePage);
         }
 
         private void SetSearchableOption()
         {
-            ignoreNextOnSearchble = true;
-
             searchableDropdown.options = runePages.Select(r => r.Name).ToList();
         }
 
-        private void OnRunePageSearched(string selectOption, int selectOptionIndex)
+        private void OnRunePageSearched(string selectOptionText, int selectOptionIndex)
         {
-            if (ignoreNextOnSearchble)
-            {
-                ignoreNextOnSearchble = false;
-                return;
-            }
-
             LoadRunePage(runePages[selectOptionIndex]);
         }
 

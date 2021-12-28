@@ -56,7 +56,7 @@ namespace LoLRunes.Application.Services
         {
             EvaluateRunePageRequest(runePageViewModel);
 
-            RunePage runePage = runePageService.Read(runePageViewModel.id);
+            RunePage runePage = runePageService.Read(runePageViewModel.Id);
 
             EditRunePageCommand command = MapToEditRunePageCommand(runePageViewModel);
 
@@ -129,6 +129,7 @@ namespace LoLRunes.Application.Services
         {
             RunePageViewModel runePageViewModel = new RunePageViewModel();
 
+            runePageViewModel.Id = runePage.Id;
             runePageViewModel.Name = runePage.Name;
             runePageViewModel.MainPath = MapToRuneViewModel(runePage.MainPath);
             runePageViewModel.KeyStone = MapToRuneViewModel(runePage.KeyStone);

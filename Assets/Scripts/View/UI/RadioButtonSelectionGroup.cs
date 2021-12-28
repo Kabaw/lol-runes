@@ -34,6 +34,15 @@ namespace LoLRunes.View.UI
 
             selectedRadios.Add(radioButton);
 
+            if(selectedRadios.Count == maxSelectionQtd)
+            {
+                foreach (RadioButton radio in radioButtons)
+                {
+                    if(!selectedRadios.Contains(radio))
+                        radio.ResetRadio(Enumerators.ButtonTintEnum.UNSELECTED_TINT);
+                }
+            }
+
             if (selectedRadios.Count > maxSelectionQtd)
             {
                 RadioButton removedRadioButton = selectedRadios[0];

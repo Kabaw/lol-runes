@@ -25,6 +25,11 @@ namespace LoLRunes.View.UI
 
         public Button selectedButton { get; private set; }
 
+        public void DefineSelectedButton(Button button)
+        {
+            button.onClick.Invoke();
+        }
+
         public void ButtonClick(Button button)
         {
             ColorBlock colors;
@@ -66,11 +71,6 @@ namespace LoLRunes.View.UI
                 colors.normalColor = startTint == ButtonTintEnum.SELECTED_TINT ? selectedTint : unselectedTint;
                 b.colors = colors;
             }
-        }
-
-        private void DefineSelectedButton(Button button)
-        {
-            ButtonClick(button);
         }
 
         private void OnEnable()

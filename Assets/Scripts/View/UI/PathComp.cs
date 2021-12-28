@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Serialization;
 using LoLRunes.LiteralIdentifiers;
 using System.Linq;
+using LoLRunes.View.ViewModel;
 
 namespace LoLRunes.View.UI
 {
@@ -43,6 +44,29 @@ namespace LoLRunes.View.UI
             _onPathChanged?.Invoke(this);
         }
 
+        public void SelectPathRunes(RunePageViewModel runePageViewModel)
+        {
+            //ResetPath();
+
+            if (pathType == PathTypeEnum.MAIN)
+            {
+                SelectRune(pathButtons.Select(b => b.gameObject).ToList(), runePageViewModel.MainPath.RuneType);
+
+                SelectRune(keyStones, runePageViewModel.KeyStone.RuneType);
+
+                SelectRune(runeSets, runePageViewModel.MainPathRune_01.RuneType);
+                SelectRune(runeSets, runePageViewModel.MainPathRune_02.RuneType);
+                SelectRune(runeSets, runePageViewModel.MainPathRune_03.RuneType);
+            }
+            else
+            {
+                SelectRune(pathButtons.Select(b => b.gameObject).ToList(), runePageViewModel.SidePath.RuneType);
+
+                SelectRune(runeSets, runePageViewModel.SidePathRune_01.RuneType);
+                SelectRune(runeSets, runePageViewModel.SidePathRune_02.RuneType);
+            }
+        }
+        
         public void ResetPath()
         {
             DeactivateAll(keyStones);
@@ -57,6 +81,19 @@ namespace LoLRunes.View.UI
                 pathButtons.Where(b => b.runeType == RuneTypeEnum.PRECISION_PATH).First().button.onClick.Invoke();
             else
                 pathButtons.Where(b => b.runeType == RuneTypeEnum.DOMINATION_PATH).First().button.onClick.Invoke();
+        }
+
+        private void SelectRune(List<GameObject> runeGroupParent, RuneTypeEnum runeType)
+        {
+            List<RuneButton> runeButtons = new List<RuneButton>();
+
+            foreach (GameObject go in runeGroupParent)
+                runeButtons.AddRange(go.GetComponentsInChildren<RuneButton>().ToList());
+
+            Button runeButton = runeButtons.Find(b => b.runeType == runeType).button;
+
+            if(runeButton)
+                runeButton.transform.parent.GetComponent<RadioButton>().DefineSelectedButton(runeButton);
         }
 
         private void ActivateByTag(List<GameObject> gameObjects, string tag)

@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace LoLRunes.View.UI
 {
-    public delegate void OnSelectDropdown(string selectOption, int selectOptionIndex);
+    public delegate void OnSelectDropdown(string selectOption);
 
     public class SearchableDropdown : MonoBehaviour
     {
@@ -124,14 +124,22 @@ namespace LoLRunes.View.UI
             if (dropdown.options[dropdown.value].text == EMPTY)
                 return;
 
-            int optionIndex = dropdownOptions.FindIndex(x => x == dropdown.options[dropdown.value].text);
-            string optionText = dropdownOptions[optionIndex];
+            string optionText = dropdown.options[dropdown.value].text;
 
             inputField.text = optionText;
             dropdown.ClearOptions();
             ResetInputCaretPosition();
 
-            _onSelectDropdown?.Invoke(optionText, optionIndex);
+            _onSelectDropdown?.Invoke(optionText);
+        }
+
+        public void DefineSelectedOption(string option)
+        {
+            if (!options.Contains(option))
+                throw new Exception("Option can't be defined because the dropdown list do not contains this option!");
+
+            inputField.text = option;
+            dropdown.Hide();
         }
 
         private void OnMouseClick_Dropdown()

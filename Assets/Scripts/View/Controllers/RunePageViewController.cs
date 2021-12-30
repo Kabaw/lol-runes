@@ -82,15 +82,24 @@ namespace LoLRunes.View.Controllers
         {
             loadedRunePage.Name = pageNameInput.text.Trim();
 
+            RunePageViewModel runePage;
+
             if (loadedRunePage.Id == 0)
-                loadedRunePage = runePageAppService.SaveRunePage(loadedRunePage);
+                runePage = runePageAppService.SaveRunePage(loadedRunePage);
             else
-                loadedRunePage = runePageAppService.EditRunePage(loadedRunePage);
+                runePage = runePageAppService.EditRunePage(loadedRunePage);
+
+            loadedRunePage = runePage.DeepCopy();
+
+            runePages.RemoveAll(p => p.Id == runePage.Id);
+            runePages.Add(runePage);
+
+            //SetSearchableOption(runePage.Name);
         }
 
         private void LoadRunePage(RunePageViewModel runePage)
         {
-            loadedRunePage = runePage;
+            loadedRunePage = runePage.DeepCopy();
 
             pageNameInput.text = loadedRunePage.Name;
 
@@ -99,14 +108,17 @@ namespace LoLRunes.View.Controllers
             runeShardsComp.SelectRuneShards(runePage);
         }
 
-        private void SetSearchableOption()
+        private void SetSearchableOption(string optionText = null)
         {
             searchableDropdown.options = runePages.Select(r => r.Name).ToList();
+
+            if(optionText != null)
+                searchableDropdown.DefineSelectedOption(optionText);
         }
 
-        private void OnRunePageSearched(string selectOptionText, int selectOptionIndex)
+        private void OnRunePageSearched(string selectOptionText)
         {
-            LoadRunePage(runePages[selectOptionIndex]);
+            LoadRunePage(runePages.Find(p => p.Name == selectOptionText));
         }
 
         private void SelectMainPathRune(RuneViewModel rune)

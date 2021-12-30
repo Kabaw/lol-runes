@@ -23,6 +23,11 @@ namespace LoLRunes.View.UI
 
         public void OnRadioSelectionChange(RadioButton radioButton)
         {
+            EvaluateRadioGroup(radioButton);
+        }
+
+        public void EvaluateRadioGroup(RadioButton radioButton)
+        {
             if (!radioButtons.Contains(radioButton)) return;
 
             if (selectedRadios.Contains(radioButton))
@@ -34,11 +39,11 @@ namespace LoLRunes.View.UI
 
             selectedRadios.Add(radioButton);
 
-            if(selectedRadios.Count == maxSelectionQtd)
+            if (selectedRadios.Count == maxSelectionQtd)
             {
                 foreach (RadioButton radio in radioButtons)
                 {
-                    if(!selectedRadios.Contains(radio))
+                    if (!selectedRadios.Contains(radio))
                         radio.ResetRadio(Enumerators.ButtonTintEnum.UNSELECTED_TINT);
                 }
             }
@@ -51,6 +56,15 @@ namespace LoLRunes.View.UI
 
                 removedRadioButton.ResetRadio(Enumerators.ButtonTintEnum.UNSELECTED_TINT);
             }
+        }
+
+        public void ReevaluateRadioGroupState()
+        {
+            ResetRadioGroup();
+
+            foreach (RadioButton radio in radioButtons)
+                if (radio.selectedButton)
+                    EvaluateRadioGroup(radio);
         }
 
         public void ResetRadioGroup()

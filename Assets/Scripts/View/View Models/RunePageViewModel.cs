@@ -29,5 +29,26 @@ namespace LoLRunes.View.ViewModel
         {
             Name = "Rune Page";
         }
+
+        public RunePageViewModel DeepCopy()
+        {
+            RunePageViewModel runePage = new RunePageViewModel();
+
+            runePage.Id = Id;
+            runePage.Name = string.Copy(Name);
+            runePage.MainPath = MainPath.DeepCopy();
+            runePage.SidePath = SidePath.DeepCopy();
+            runePage.KeyStone = KeyStone.DeepCopy();
+            runePage.MainPathRune_01 = MainPathRune_01.DeepCopy();
+            runePage.MainPathRune_02 = MainPathRune_02.DeepCopy();
+            runePage.MainPathRune_03 = MainPathRune_03.DeepCopy();
+            runePage.SidePathRune_01 = SidePathRune_01.DeepCopy();
+            runePage.SidePathRune_02 = SidePathRune_02.DeepCopy();
+            runePage.RuneShardAttack = RuneShardAttack.DeepCopy();
+            runePage.RuneShardFlex = RuneShardFlex.DeepCopy();
+            runePage.RuneShardDefence = RuneShardDefence.DeepCopy();
+
+            return runePage;
+        }
     }
 }

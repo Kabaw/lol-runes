@@ -19,11 +19,6 @@ namespace LoLRunes.Domain.Services
 
         public RunePage Instantiate(CreateRunePageCommand command)
         {
-            RunePage runePage = runePageRepository.ReadByName(command.Name.Trim());
-
-            if(runePage != null)
-                throw new InvalidOperationException("There is already another Rune Page with the same name!");
-
             return new RunePage(command.Name, command.MainPath, command.SidePath, command.KeyStone, command.MainPathRune_01,
                 command.MainPathRune_02, command.MainPathRune_03, command.SidePathRune_01, command.SidePathRune_02,
                 command.RuneShardAttack, command.RuneShardFlex, command.RuneShardDefence);
@@ -36,6 +31,11 @@ namespace LoLRunes.Domain.Services
 
             if (runePage.Id > 0)
                 throw new InvalidOperationException("Insert: Can't insert this RunePage, it alredy have an ID");
+
+            RunePage page = runePageRepository.ReadByName(runePage.Name);
+
+            if (runePage != null)
+                throw new InvalidOperationException("There is already another Rune Page with the same name!");
 
             runePageRepository.Insert(runePage);
 
@@ -71,6 +71,11 @@ namespace LoLRunes.Domain.Services
         {
             if (runePage == null || runePage.Id < 1)
                 throw new InvalidOperationException("Edit: RunePage objetc is null or dosen't have an ID");
+
+            RunePage page = runePageRepository.ReadByName(runePage.Name);
+
+            if (runePage != null && page.Id != runePage.Id)
+                throw new InvalidOperationException("There is already another Rune Page with the same name!");
 
             runePage.Name = command.Name;
             runePage.MainPath = command.MainPath;

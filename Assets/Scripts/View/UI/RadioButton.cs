@@ -25,7 +25,7 @@ namespace LoLRunes.View.UI
 
         public Button selectedButton { get; private set; }
 
-        public void ButtonClick(Button button)
+        public void DefineSelectedButton(Button button, bool triggerEvents = false)
         {
             ColorBlock colors;
 
@@ -37,11 +37,13 @@ namespace LoLRunes.View.UI
                     colors.normalColor = selectedTint;
                     b.colors = colors;
 
-                    if(selectedButton != b)
+                    if (selectedButton != b)
                     {
-                        _onRadioSelectionChange?.Invoke(this);
+                        if(triggerEvents)
+                            _onRadioSelectionChange?.Invoke(this);
+
                         selectedButton = b;
-                    }                    
+                    }
                 }
                 else
                 {
@@ -50,6 +52,11 @@ namespace LoLRunes.View.UI
                     b.colors = colors;
                 }
             }
+        }
+
+        public void ButtonClick(Button button)
+        {
+            DefineSelectedButton(button, true);
         }
 
         public void ResetRadio(ButtonTintEnum startTint = ButtonTintEnum.SELECTED_TINT)
@@ -66,11 +73,6 @@ namespace LoLRunes.View.UI
                 colors.normalColor = startTint == ButtonTintEnum.SELECTED_TINT ? selectedTint : unselectedTint;
                 b.colors = colors;
             }
-        }
-
-        private void DefineSelectedButton(Button button)
-        {
-            ButtonClick(button);
         }
 
         private void OnEnable()

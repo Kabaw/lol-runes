@@ -7,6 +7,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace LoLRunes.View.Controllers
 {
@@ -23,6 +24,7 @@ namespace LoLRunes.View.Controllers
 
         [Header("Misc References")]
         [SerializeField] private SearchableDropdown searchableDropdown;
+        [SerializeField] private TMP_InputField pageNameInput;
 
         private bool ignoreNextOnSearchble = false;
         private RuneViewModel lastAssignedSidePathRune = null;
@@ -35,7 +37,9 @@ namespace LoLRunes.View.Controllers
         {
             runePageAppService = new RunePageAppService();
 
-            //runePages = runePageAppService.ReadAllRunePages();
+            runePages = runePageAppService.ReadAllRunePages();
+
+            SetSearchableOption();
 
             NewRunePage();
 
@@ -64,6 +68,8 @@ namespace LoLRunes.View.Controllers
         {
             loadedRunePage = new RunePageViewModel();
 
+            pageNameInput.text = "New Rune Page";
+
             mainPath.ResetPath();
             sidePath.ResetPath();
             runeShardsComp.ResetShards();
@@ -76,33 +82,45 @@ namespace LoLRunes.View.Controllers
 
         public void SaveRunePage()
         {
-            if(loadedRunePage.id == 0)
-                runePageAppService.SaveRunePage(loadedRunePage);
+            loadedRunePage.Name = pageNameInput.text.Trim();
+
+            RunePageViewModel runePage;
+
+            if (loadedRunePage.Id == 0)
+                runePage = runePageAppService.SaveRunePage(loadedRunePage);
             else
-                runePageAppService.EditRunePage(loadedRunePage);
+                runePage = runePageAppService.EditRunePage(loadedRunePage);
+
+            loadedRunePage = runePage.DeepCopy();
+
+            runePages.RemoveAll(p => p.Id == runePage.Id);
+            runePages.Add(runePage);
+
+            SetSearchableOption(runePage.Name);
         }
 
         private void LoadRunePage(RunePageViewModel runePage)
         {
+            loadedRunePage = runePage.DeepCopy();
 
+            pageNameInput.text = loadedRunePage.Name;
+
+            mainPath.SelectPathRunes(runePage);
+            sidePath.SelectPathRunes(runePage);
+            runeShardsComp.SelectRuneShards(runePage);
         }
 
-        private void SetSearchableOption()
+        private void SetSearchableOption(string optionText = null)
         {
-            ignoreNextOnSearchble = true;
-
             searchableDropdown.options = runePages.Select(r => r.Name).ToList();
+
+            if(optionText != null)
+                searchableDropdown.DefineSelectedOption(optionText);
         }
 
-        private void OnRunePageSearched(string selectOption, int selectOptionIndex)
+        private void OnRunePageSearched(string selectOptionText)
         {
-            if (ignoreNextOnSearchble)
-            {
-                ignoreNextOnSearchble = false;
-                return;
-            }
-
-            LoadRunePage(runePages[selectOptionIndex]);
+            LoadRunePage(runePages.Find(p => p.Name == selectOptionText));
         }
 
         private void SelectMainPathRune(RuneViewModel rune)

@@ -7,6 +7,7 @@ namespace LoLRunes.Domain.Commands
 {
     public class EditRunePageCommand
     {
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public Rune MainPath { get; set; }

@@ -11,14 +11,16 @@ namespace LoLRunes.Infra.Core
 {
     public class RunePageRepository
     {
-        private static int NEXT_ID = -1;
+        private static int NEXT_ID = 0;
 
         private static readonly string RUNE_PAGES_FILE_NAME = "rune_pages.txt";
+        private static readonly string RUNE_PAGES_FILE_PATH = UnityEngine.Application.persistentDataPath + "/" + RUNE_PAGES_FILE_NAME;
 
         public RunePageRepository()
         {
             CheckFilesExistance();
             CalculeNextID();
+
         }
 
         public void SetId(object obj, int id)
@@ -59,7 +61,7 @@ namespace LoLRunes.Infra.Core
             return runePage;
         }
 
-        public RunePage Read(string name)
+        public RunePage ReadByName(string name)
         {
             List<RunePage> runePages = ReadAll();
 
@@ -118,7 +120,7 @@ namespace LoLRunes.Infra.Core
 
         private void CalculeNextID()
         {
-            if (NEXT_ID >= 0)
+            if (NEXT_ID > 0)
                 return;
 
             List<RunePage> runePages = ReadAll();            
@@ -128,8 +130,14 @@ namespace LoLRunes.Infra.Core
 
         private void CheckFilesExistance()
         {
-            if (!File.Exists(UnityEngine.Application.persistentDataPath + "/" + RUNE_PAGES_FILE_NAME))
-                File.Create(UnityEngine.Application.persistentDataPath + "/" + RUNE_PAGES_FILE_NAME);
+            if (File.Exists(RUNE_PAGES_FILE_PATH))
+                return;
+
+            FileStream stream = File.Create(RUNE_PAGES_FILE_PATH);
+            
+            while (!File.Exists(RUNE_PAGES_FILE_PATH)) { }
+
+            stream.Close();
         }
     }
 }

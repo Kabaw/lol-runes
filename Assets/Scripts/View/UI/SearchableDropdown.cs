@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace LoLRunes.View.UI
 {
-    public delegate void OnSelectDropdown(string selectOption, int selectOptionIndex);
+    public delegate void OnSelectDropdown(string selectOption);
 
     public class SearchableDropdown : MonoBehaviour
     {
@@ -21,6 +21,7 @@ namespace LoLRunes.View.UI
         
         private bool isInit = false;
         private bool mouseOverDropdown = false;
+        private bool dropDownFrameBlock;
         private Coroutine dropdownRerenderCoroutine;
         private List<string> _options;
         private List<string> dropdownOptions;
@@ -124,14 +125,22 @@ namespace LoLRunes.View.UI
             if (dropdown.options[dropdown.value].text == EMPTY)
                 return;
 
-            int optionIndex = dropdown.value;
-            string optionText = dropdownOptions[dropdown.value];
+            string optionText = dropdown.options[dropdown.value].text;
 
             inputField.text = optionText;
             dropdown.ClearOptions();
             ResetInputCaretPosition();
 
-            _onSelectDropdown?.Invoke(optionText, optionIndex);
+            _onSelectDropdown?.Invoke(optionText);
+        }
+
+        public void DefineSelectedOption(string option)
+        {
+            if (!options.Contains(option))
+                throw new Exception("Option can't be defined because the dropdown list do not contains this option!");
+
+            DontShowDropDownUntilNextFrame();
+            inputField.text = option;
         }
 
         private void OnMouseClick_Dropdown()
@@ -153,6 +162,9 @@ namespace LoLRunes.View.UI
 
         private void ShowDropdown()
         {
+            if (dropDownFrameBlock)
+                return;
+
             if (dropdown.options.Count > 1)
                 dropdown.Show();
         }
@@ -183,6 +195,22 @@ namespace LoLRunes.View.UI
             ShowDropdown();
             SelectInput();
             dropdownRerenderCoroutine = null;
+        }
+
+        private void DontShowDropDownUntilNextFrame()
+        {
+            StartCoroutine(DontShowDropDownUntilNextFrameRoutine());
+        }
+
+        private IEnumerator DontShowDropDownUntilNextFrameRoutine()
+        {
+            dropDownFrameBlock = true;
+            dropdown.gameObject.SetActive(false);
+            
+            yield return new WaitForSeconds(0.5f);
+
+            dropdown.gameObject.SetActive(true);
+            dropDownFrameBlock = false;
         }
     }
 }

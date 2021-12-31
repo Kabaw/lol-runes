@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.Serialization;
 using LoLRunes.LiteralIdentifiers;
 using System.Linq;
+using LoLRunes.View.ViewModel;
+using System;
 
 namespace LoLRunes.View.UI
 {
@@ -12,6 +14,8 @@ namespace LoLRunes.View.UI
 
     public class PathComp : MonoBehaviour
     {
+        private static PathComp mainPath;
+
         private static OnPathChanged _onPathChanged;
 
         public static event OnPathChanged onPathChanged
@@ -31,6 +35,9 @@ namespace LoLRunes.View.UI
 
         private void Awake()
         {
+            if (pathType == PathTypeEnum.MAIN)
+                mainPath = this;
+
             if (pathType == PathTypeEnum.SIDE)
                 onPathChanged += OnPathChanged;
         }
@@ -41,6 +48,69 @@ namespace LoLRunes.View.UI
             ActivateByTag(runeSets, runeButton.tag);
 
             _onPathChanged?.Invoke(this);
+        }
+
+        public void SelectPathRunes(RunePageViewModel runePageViewModel)
+        {
+            DeactivateAll(keyStones);
+            DeactivateAll(runeSets);
+
+            if (pathType == PathTypeEnum.MAIN)
+            {
+                ActivateByTag(keyStones, GetRuneTagByMainRuneType(runePageViewModel.MainPath.RuneType));
+                ActivateByTag(runeSets, GetRuneTagByMainRuneType(runePageViewModel.MainPath.RuneType));
+
+                SelectRune(pathButtons.Select(b => b.gameObject).ToList(), runePageViewModel.MainPath.RuneType);           
+
+                SelectRune(keyStones, runePageViewModel.KeyStone.RuneType);
+
+                SelectRune(runeSets, runePageViewModel.MainPathRune_01.RuneType);
+                SelectRune(runeSets, runePageViewModel.MainPathRune_02.RuneType);
+                SelectRune(runeSets, runePageViewModel.MainPathRune_03.RuneType);
+            }
+            else
+            {
+                ActivateByTag(runeSets, GetRuneTagByMainRuneType(runePageViewModel.SidePath.RuneType));
+
+                DisableSelectedMainPath(mainPath, mainPath.pathRunesRadio.selectedButton);
+
+                SelectRune(pathButtons.Select(b => b.gameObject).ToList(), runePageViewModel.SidePath.RuneType);                
+
+                SelectRune(runeSets, runePageViewModel.SidePathRune_01.RuneType);
+                SelectRune(runeSets, runePageViewModel.SidePathRune_02.RuneType);
+            }
+        }
+
+        private void SelectRune(List<GameObject> runeGroupParent, RuneTypeEnum runeType)
+        {
+            List<RuneButton> runeButtons = new List<RuneButton>();
+
+            foreach (GameObject go in runeGroupParent)
+            {
+                runeButtons.Clear();
+                runeButtons.AddRange(go.GetComponentsInChildren<RuneButton>().ToList());
+
+                RuneButton runeButton = runeButtons.Find(b => b.runeType == runeType);
+
+                if (!runeButton)
+                    continue;
+
+                Button button = runeButtons.Find(b => b.runeType == runeType).button;
+
+                if (!go.activeSelf)
+                    go.SetActive(true);
+
+                Transform buttonParent = button.transform.parent;
+                RadioButton radioButton = buttonParent.GetComponent<RadioButton>();
+
+                radioButton.ResetRadio();
+                radioButton.DefineSelectedButton(button);
+
+                RadioButtonSelectionGroup radioGroup = go.GetComponent<RadioButtonSelectionGroup>();
+                
+                if (radioGroup)
+                    radioGroup.ReevaluateRadioGroupState();
+            }
         }
 
         public void ResetPath()
@@ -111,6 +181,30 @@ namespace LoLRunes.View.UI
                     runeButton.button.interactable = false;
                 else
                     runeButton.button.interactable = true;
+            }
+        }
+
+        private string GetRuneTagByMainRuneType(RuneTypeEnum runeType)
+        {
+            switch (runeType)
+            {
+                case RuneTypeEnum.PRECISION_PATH:
+                    return TagName.Precision;
+
+                case RuneTypeEnum.DOMINATION_PATH:
+                    return TagName.Domination;
+
+                case RuneTypeEnum.SORCERY_PATH:
+                    return TagName.Sorcery;
+
+                case RuneTypeEnum.RESOLVE_PATH:
+                    return TagName.Resolve;
+
+                case RuneTypeEnum.INPIRATION_PATH:
+                    return TagName.Inspiration;
+
+                default:
+                    throw new Exception("Invalid Rune Type");
             }
         }
 

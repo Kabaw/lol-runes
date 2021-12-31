@@ -109,6 +109,7 @@ namespace LoLRunes.Application.Services
         {
             EditRunePageCommand command = new EditRunePageCommand();
 
+            command.Id = runePageViewModel.Id;
             command.Name = runePageViewModel.Name;
             command.MainPath = runeService.Instantiate(runePageViewModel.MainPath.RuneType);
             command.KeyStone = runeService.Instantiate(runePageViewModel.KeyStone.RuneType);

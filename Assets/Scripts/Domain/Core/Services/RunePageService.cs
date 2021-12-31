@@ -34,7 +34,7 @@ namespace LoLRunes.Domain.Services
 
             RunePage page = runePageRepository.ReadByName(runePage.Name);
 
-            if (runePage != null)
+            if (page != null)
                 throw new InvalidOperationException("There is already another Rune Page with the same name!");
 
             runePageRepository.Insert(runePage);
@@ -72,9 +72,9 @@ namespace LoLRunes.Domain.Services
             if (runePage == null || runePage.Id < 1)
                 throw new InvalidOperationException("Edit: RunePage objetc is null or dosen't have an ID");
 
-            RunePage page = runePageRepository.ReadByName(runePage.Name);
+            RunePage page = runePageRepository.ReadByName(command.Name);
 
-            if (runePage != null && page.Id != runePage.Id)
+            if (page != null && page.Id != runePage.Id)
                 throw new InvalidOperationException("There is already another Rune Page with the same name!");
 
             runePage.Name = command.Name;

@@ -68,6 +68,8 @@ namespace LoLRunes.View.Controllers
         {
             loadedRunePage = new RunePageViewModel();
 
+            pageNameInput.text = "New Rune Page";
+
             mainPath.ResetPath();
             sidePath.ResetPath();
             runeShardsComp.ResetShards();

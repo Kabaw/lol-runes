@@ -21,6 +21,7 @@ namespace LoLRunes.View.UI
         
         private bool isInit = false;
         private bool mouseOverDropdown = false;
+        private bool dropDownFrameBlock;
         private Coroutine dropdownRerenderCoroutine;
         private List<string> _options;
         private List<string> dropdownOptions;
@@ -138,8 +139,8 @@ namespace LoLRunes.View.UI
             if (!options.Contains(option))
                 throw new Exception("Option can't be defined because the dropdown list do not contains this option!");
 
+            DontShowDropDownUntilNextFrame();
             inputField.text = option;
-            dropdown.Hide();
         }
 
         private void OnMouseClick_Dropdown()
@@ -161,6 +162,9 @@ namespace LoLRunes.View.UI
 
         private void ShowDropdown()
         {
+            if (dropDownFrameBlock)
+                return;
+
             if (dropdown.options.Count > 1)
                 dropdown.Show();
         }
@@ -191,6 +195,22 @@ namespace LoLRunes.View.UI
             ShowDropdown();
             SelectInput();
             dropdownRerenderCoroutine = null;
+        }
+
+        private void DontShowDropDownUntilNextFrame()
+        {
+            StartCoroutine(DontShowDropDownUntilNextFrameRoutine());
+        }
+
+        private IEnumerator DontShowDropDownUntilNextFrameRoutine()
+        {
+            dropDownFrameBlock = true;
+            dropdown.gameObject.SetActive(false);
+            
+            yield return new WaitForSeconds(0.5f);
+
+            dropdown.gameObject.SetActive(true);
+            dropDownFrameBlock = false;
         }
     }
 }

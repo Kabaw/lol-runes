@@ -94,7 +94,7 @@ namespace LoLRunes.View.Controllers
             runePages.RemoveAll(p => p.Id == runePage.Id);
             runePages.Add(runePage);
 
-            //SetSearchableOption(runePage.Name);
+            SetSearchableOption(runePage.Name);
         }
 
         private void LoadRunePage(RunePageViewModel runePage)

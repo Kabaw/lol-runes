@@ -1,7 +1,11 @@
-﻿namespace LoLRunes.Enumerators
+﻿using System;
+
+namespace LoLRunes.Enumerators
 {
+    [Serializable]
     public enum RuneMenuEnum
     {
-        RUNE_SCREEN, CHAMPION_SELECTION_SCREEN
+        RUNE_SCREEN = 0,
+        CHAMPION_SELECTION_SCREEN = 1
     }
 }

@@ -8,6 +8,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using LoLRunes.Program.Managers;
 
 namespace LoLRunes.View.Controllers
 {
@@ -77,6 +79,8 @@ namespace LoLRunes.View.Controllers
 
         public void ApplyRunePage()
         {
+            ToggleGroup toggleGroup;            
+
             runePageAppService.ApplyRunePage(loadedRunePage);
         }
 
@@ -97,6 +101,16 @@ namespace LoLRunes.View.Controllers
             runePages.Add(runePage);
 
             SetSearchableOption(runePage.Name);
+        }
+
+        public void SetRuneMenu(int runeMenu)
+        {
+            ProgramManager.instance.runeMenu = (RuneMenuEnum)runeMenu;
+        }
+
+        public void SetRuneMenu(bool value)
+        {
+            bool a = value;
         }
 
         private void LoadRunePage(RunePageViewModel runePage)

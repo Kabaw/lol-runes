@@ -14,7 +14,7 @@ namespace LoLRunes.Program.Managers
 
         [SerializeField] private ResolutionRunePositionConfig _resolutionRunePositionConfig_01;
 
-        public RuneMenuEnum runeMenu { get; private set; }
+        public RuneMenuEnum runeMenu { get; set; }
         public ResolutionRunePositionConfig activeResolutionRunePositionConfig { get; private set; }
 
         private void Awake()

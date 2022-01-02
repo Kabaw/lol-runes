@@ -30,7 +30,7 @@ namespace LoLRunes.Program.Managers
 
         private void Start()
         {           
-            runeMenu = RuneMenuEnum.RUNE_SCREEN;
+            runeMenu = RuneMenuEnum.CHAMPION_SELECTION_SCREEN;
             activeResolutionRunePositionConfig = _resolutionRunePositionConfig_01;
 
             RunePagePositionService.instance.MapPositionConfig(activeResolutionRunePositionConfig);

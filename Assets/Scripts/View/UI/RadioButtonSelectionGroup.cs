@@ -10,23 +10,23 @@ namespace LoLRunes.View.UI
         [Tooltip("The maximum number of radio buttons that can be selected at the same time.")]
         [SerializeField] private int maxSelectionQtd;
 
-        [SerializeField] private List<RadioButton> radioButtons;
+        [SerializeField] private List<RuneRadioButton> radioButtons;
 
-        private List<RadioButton> selectedRadios;
+        private List<RuneRadioButton> selectedRadios;
 
         private void Awake()
         {
-            selectedRadios = new List<RadioButton>();
+            selectedRadios = new List<RuneRadioButton>();
 
-            RadioButton.onRadioSelectionChange += OnRadioSelectionChange;
+            RuneRadioButton.onRadioSelectionChange += OnRadioSelectionChange;
         }
 
-        public void OnRadioSelectionChange(RadioButton radioButton)
+        public void OnRadioSelectionChange(RuneRadioButton radioButton)
         {
             EvaluateRadioGroup(radioButton);
         }
 
-        public void EvaluateRadioGroup(RadioButton radioButton)
+        public void EvaluateRadioGroup(RuneRadioButton radioButton)
         {
             if (!radioButtons.Contains(radioButton)) return;
 
@@ -41,7 +41,7 @@ namespace LoLRunes.View.UI
 
             if (selectedRadios.Count == maxSelectionQtd)
             {
-                foreach (RadioButton radio in radioButtons)
+                foreach (RuneRadioButton radio in radioButtons)
                 {
                     if (!selectedRadios.Contains(radio))
                         radio.ResetRadio(Enumerators.ButtonTintEnum.UNSELECTED_TINT);
@@ -50,7 +50,7 @@ namespace LoLRunes.View.UI
 
             if (selectedRadios.Count > maxSelectionQtd)
             {
-                RadioButton removedRadioButton = selectedRadios[0];
+                RuneRadioButton removedRadioButton = selectedRadios[0];
 
                 selectedRadios.RemoveAt(0);
 
@@ -62,14 +62,14 @@ namespace LoLRunes.View.UI
         {
             ResetRadioGroup();
 
-            foreach (RadioButton radio in radioButtons)
+            foreach (RuneRadioButton radio in radioButtons)
                 if (radio.selectedButton)
                     EvaluateRadioGroup(radio);
         }
 
         public void ResetRadioGroup()
         {
-            selectedRadios = new List<RadioButton>();
+            selectedRadios = new List<RuneRadioButton>();
         }
     }
 }

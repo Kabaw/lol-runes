@@ -2300,8 +2300,9 @@ GameObject:
   m_Component:
   - component: {fileID: 731646444}
   - component: {fileID: 731646445}
+  - component: {fileID: 731646446}
   m_Layer: 5
-  m_Name: Default
+  m_Name: Toggle_ChampionSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2373,6 +2374,22 @@ MonoBehaviour:
   m_Group: {fileID: 828766321}
   onValueChanged:
     m_PersistentCalls:
+      m_Calls: []
+  m_IsOn: 1
+--- !u!114 &731646446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731646443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443ad752bca1fe84b8d3629f8120a6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSelect:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1584855346}
         m_MethodName: SetRuneMenu
@@ -2380,12 +2397,11 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
 --- !u!1 &734659641
 GameObject:
   m_ObjectHideFlags: 0
@@ -3028,8 +3044,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1262620256}
   - component: {fileID: 1262620257}
+  - component: {fileID: 1262620258}
   m_Layer: 5
-  m_Name: SelectionScreen
+  m_Name: Toggle_RuneWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3101,6 +3118,22 @@ MonoBehaviour:
   m_Group: {fileID: 828766321}
   onValueChanged:
     m_PersistentCalls:
+      m_Calls: []
+  m_IsOn: 0
+--- !u!114 &1262620258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262620255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443ad752bca1fe84b8d3629f8120a6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSelect:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1584855346}
         m_MethodName: SetRuneMenu
@@ -3108,12 +3141,11 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
 --- !u!224 &1273818188 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7435892939973751374, guid: 5cddd2c527baff94fb156ecaa3e46ed3,

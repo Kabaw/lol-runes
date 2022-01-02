@@ -25,13 +25,13 @@ namespace LoLRunes.View.UI
         }
 
         [SerializeField, FormerlySerializedAs("pathType")] private PathTypeEnum _pathType;
-        [SerializeField] private RadioButton _pathRunesRadio;
+        [SerializeField] private RuneRadioButton _pathRunesRadio;
         [SerializeField] private List<RuneButton> pathButtons;
         [SerializeField] private List<GameObject> keyStones;
         [SerializeField] private List<GameObject> runeSets;
 
         public PathTypeEnum pathType => _pathType;
-        public RadioButton pathRunesRadio => _pathRunesRadio;
+        public RuneRadioButton pathRunesRadio => _pathRunesRadio;
 
         private void Awake()
         {
@@ -101,7 +101,7 @@ namespace LoLRunes.View.UI
                     go.SetActive(true);
 
                 Transform buttonParent = button.transform.parent;
-                RadioButton radioButton = buttonParent.GetComponent<RadioButton>();
+                RuneRadioButton radioButton = buttonParent.GetComponent<RuneRadioButton>();
 
                 radioButton.ResetRadio();
                 radioButton.DefineSelectedButton(button);

@@ -37,7 +37,7 @@ namespace LoLRunes.View.UI
             Button runeButton = runeButtons.Find(b => b.runeType == runeType).button;
 
             if (runeButton)
-                runeButton.transform.parent.GetComponent<RadioButton>().DefineSelectedButton(runeButton);
+                runeButton.transform.parent.GetComponent<RuneRadioButton>().DefineSelectedButton(runeButton);
         }
 
         private void ActivateAll(List<GameObject> gameObjects)

@@ -7,9 +7,9 @@ using LoLRunes.Enumerators;
 
 namespace LoLRunes.View.UI
 {
-    public delegate void OnRadioSelectionChange(RadioButton radioButton);
+    public delegate void OnRadioSelectionChange(RuneRadioButton radioButton);
 
-    public class RadioButton : MonoBehaviour
+    public class RuneRadioButton : MonoBehaviour
     {
         private static OnRadioSelectionChange _onRadioSelectionChange;
 

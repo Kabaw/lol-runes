@@ -412,7 +412,7 @@ namespace LoLRunes.Domain.WindowInteraction.Services
 
             if (ProgramManager.instance.runeMenu == RuneMenuEnum.CHAMPION_SELECTION_SCREEN)
             {
-                Point offSet;
+                Point offSet = Point.Empty;
 
                 offSet.X = (int)(resolutionRunePositionConfig.ChampionScreenOffSet.X * x_proportion);
                 offSet.Y = (int)(resolutionRunePositionConfig.ChampionScreenOffSet.Y * y_proportion);

@@ -20,7 +20,6 @@ namespace LoLRunes.Infra.Core
         {
             CheckFilesExistance();
             CalculeNextID();
-
         }
 
         public void SetId(object obj, int id)

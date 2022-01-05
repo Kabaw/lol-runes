@@ -5,7 +5,6 @@ using LoLRunes.Program.Managers;
 using LoLRunes.Infra.Core;
 using System.Collections.Generic;
 using System;
-using LolRunes.Utils.Exceprion;
 using LolRunes.Domain.Core.Exceptions;
 
 namespace LoLRunes.Domain.Services

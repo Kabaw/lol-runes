@@ -5,6 +5,8 @@ using LoLRunes.Program.Managers;
 using LoLRunes.Infra.Core;
 using System.Collections.Generic;
 using System;
+using LolRunes.Utils.Exceprion;
+using LolRunes.Domain.Core.Exceptions;
 
 namespace LoLRunes.Domain.Services
 {
@@ -35,7 +37,7 @@ namespace LoLRunes.Domain.Services
             RunePage page = runePageRepository.ReadByName(runePage.Name);
 
             if (page != null)
-                throw new InvalidOperationException("There is already another Rune Page with the same name!");
+                throw new BusinessLogicException("Name already used", "There is already another Rune Page with the same name!");
 
             runePageRepository.Insert(runePage);
 
@@ -70,12 +72,12 @@ namespace LoLRunes.Domain.Services
         public RunePage Edit(RunePage runePage, EditRunePageCommand command)
         {
             if (runePage == null || runePage.Id < 1)
-                throw new InvalidOperationException("Edit: RunePage objetc is null or dosen't have an ID");
+                throw new BusinessLogicException("RunePage objetc is null or dosen't have an ID", false);
 
             RunePage page = runePageRepository.ReadByName(command.Name);
 
             if (page != null && page.Id != runePage.Id)
-                throw new InvalidOperationException("There is already another Rune Page with the same name!");
+                throw new BusinessLogicException("Name already used", "There is already another Rune Page with the same name!");
 
             runePage.Name = command.Name;
             runePage.MainPath = command.MainPath;

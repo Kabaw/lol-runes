@@ -10,6 +10,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using LoLRunes.Program.Managers;
+using System;
+using LolRunes.Domain.Core.Exceptions;
 
 namespace LoLRunes.View.Controllers
 {
@@ -79,8 +81,6 @@ namespace LoLRunes.View.Controllers
 
         public void ApplyRunePage()
         {
-            ToggleGroup toggleGroup;            
-
             runePageAppService.ApplyRunePage(loadedRunePage);
         }
 
@@ -90,10 +90,20 @@ namespace LoLRunes.View.Controllers
 
             RunePageViewModel runePage;
 
-            if (loadedRunePage.Id == 0)
-                runePage = runePageAppService.SaveRunePage(loadedRunePage);
-            else
-                runePage = runePageAppService.EditRunePage(loadedRunePage);
+            try
+            {
+                if (loadedRunePage.Id == 0)
+                    runePage = runePageAppService.SaveRunePage(loadedRunePage);
+                else
+                    runePage = runePageAppService.EditRunePage(loadedRunePage);
+            }
+            catch (BusinessLogicException ex)
+            {
+                if(ex.displayErrorMessage)
+                    MessageWindowController.instance.DisplayMessage(ex.title, ex.Message);
+
+                return;
+            }                
 
             loadedRunePage = runePage.DeepCopy();
 
@@ -106,11 +116,6 @@ namespace LoLRunes.View.Controllers
         public void SetRuneMenu(int runeMenu)
         {
             ProgramManager.instance.runeMenu = (RuneMenuEnum)runeMenu;
-        }
-
-        public void SetRuneMenu(bool value)
-        {
-            bool a = value;
         }
 
         private void LoadRunePage(RunePageViewModel runePage)

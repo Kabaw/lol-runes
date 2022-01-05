@@ -1,4 +1,5 @@
-﻿using LoLRunes.Enumerators;
+﻿using LolRunes.Domain.Core.Exceptions;
+using LoLRunes.Enumerators;
 using Newtonsoft.Json;
 using System;
 
@@ -79,7 +80,7 @@ namespace LoLRunes.Domain.Models
         private void EvaluateModel()
         {
             if (Name == null)
-                throw new InvalidOperationException("Rune Page name not defined!");
+                throw new BusinessLogicException("No Name", "The Rune Page name was not informed!!");
 
             if (MainPath == null ||
                 SidePath == null ||
@@ -93,7 +94,7 @@ namespace LoLRunes.Domain.Models
                 RuneShardFlex == null ||
                 RuneShardDefence == null)
             {
-                throw new InvalidOperationException("Not all runes were defined!");
+                throw new BusinessLogicException("Incomplete Page", "Not all runes of the page were informed!");
             }
         }
     }

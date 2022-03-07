@@ -29,6 +29,7 @@ namespace LoLRunes.View.Controllers
         [Header("Misc References")]
         [SerializeField] private SearchableDropdown searchableDropdown;
         [SerializeField] private TMP_InputField pageNameInput;
+        [SerializeField] private TMP_InputField buildLinkInput;
 
         private bool ignoreNextOnSearchble = false;
         private RuneViewModel lastAssignedSidePathRune = null;
@@ -86,6 +87,7 @@ namespace LoLRunes.View.Controllers
 
         public void SaveRunePage()
         {
+            loadedRunePage.Name = pageNameInput.text.Trim();
             loadedRunePage.Name = pageNameInput.text.Trim();
 
             RunePageViewModel runePage;

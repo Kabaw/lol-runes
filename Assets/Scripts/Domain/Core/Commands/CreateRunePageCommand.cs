@@ -8,6 +8,7 @@ namespace LoLRunes.Domain.Commands
     public class CreateRunePageCommand
     {
         public string Name { get; set; }
+        public string BuildLink { get; set; }
 
         public Rune MainPath { get; set; }
         public Rune SidePath { get; set; }

@@ -8,6 +8,7 @@ namespace LoLRunes.View.ViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string BuildLink { get; set; }
 
         public RuneViewModel MainPath { get; set; }
         public RuneViewModel SidePath { get; set; }
@@ -36,6 +37,7 @@ namespace LoLRunes.View.ViewModel
 
             runePage.Id = Id;
             runePage.Name = string.Copy(Name);
+            runePage.BuildLink = string.Copy(BuildLink);
             runePage.MainPath = MainPath.DeepCopy();
             runePage.SidePath = SidePath.DeepCopy();
             runePage.KeyStone = KeyStone.DeepCopy();

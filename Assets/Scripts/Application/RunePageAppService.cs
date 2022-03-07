@@ -68,6 +68,7 @@ namespace LoLRunes.Application.Services
         private void EvaluateRunePageRequest(RunePageViewModel runePageViewModel)
         {
             if (runePageViewModel.Name == null ||
+                runePageViewModel.BuildLink == null ||
                 runePageViewModel.MainPath == null ||
                 runePageViewModel.SidePath == null ||
                 runePageViewModel.KeyStone == null ||
@@ -90,6 +91,7 @@ namespace LoLRunes.Application.Services
             CreateRunePageCommand command = new CreateRunePageCommand();
 
             command.Name = runePageViewModel.Name;
+            command.BuildLink = runePageViewModel.BuildLink;
             command.MainPath = runeService.Instantiate(runePageViewModel.MainPath.RuneType);
             command.KeyStone = runeService.Instantiate(runePageViewModel.KeyStone.RuneType);
             command.MainPathRune_01 = runeService.Instantiate(runePageViewModel.MainPathRune_01.RuneType);
@@ -111,6 +113,7 @@ namespace LoLRunes.Application.Services
 
             command.Id = runePageViewModel.Id;
             command.Name = runePageViewModel.Name;
+            command.BuildLink = runePageViewModel.BuildLink;
             command.MainPath = runeService.Instantiate(runePageViewModel.MainPath.RuneType);
             command.KeyStone = runeService.Instantiate(runePageViewModel.KeyStone.RuneType);
             command.MainPathRune_01 = runeService.Instantiate(runePageViewModel.MainPathRune_01.RuneType);
@@ -132,6 +135,7 @@ namespace LoLRunes.Application.Services
 
             runePageViewModel.Id = runePage.Id;
             runePageViewModel.Name = runePage.Name;
+            runePageViewModel.BuildLink = runePage.BuildLink;
             runePageViewModel.MainPath = MapToRuneViewModel(runePage.MainPath);
             runePageViewModel.KeyStone = MapToRuneViewModel(runePage.KeyStone);
             runePageViewModel.MainPathRune_01 = MapToRuneViewModel(runePage.MainPathRune_01);

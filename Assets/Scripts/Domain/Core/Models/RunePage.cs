@@ -9,6 +9,7 @@ namespace LoLRunes.Domain.Models
     {
         public int Id { get; private set; }        
         public string Name { get; internal set; }
+        public string BuildLink { get; internal set; }
 
         public Rune MainPath { get; internal set; }
         public Rune SidePath { get; internal set; }
@@ -28,12 +29,16 @@ namespace LoLRunes.Domain.Models
 
         #region Json Constructor
         [JsonConstructor]
-        public RunePage(int id, string name, Rune mainPath, Rune sidePath, Rune keyStone, Rune mainPathRune_01, Rune mainPathRune_02,
+        public RunePage(int id, string name, string buildLink, Rune mainPath, Rune sidePath, Rune keyStone, Rune mainPathRune_01, Rune mainPathRune_02,
             Rune mainPathRune_03, Rune sidePathRune_01, Rune sidePathRune_02, Rune runeShardAttack, Rune runeShardFlex, Rune runeShardDefence)
         {
             Id = id;
 
             Name = name;
+            BuildLink = buildLink;
+
+            if (BuildLink == null)
+                BuildLink = "";
 
             MainPath = mainPath;
             SidePath = sidePath;
@@ -53,10 +58,11 @@ namespace LoLRunes.Domain.Models
         }
         #endregion
 
-        public RunePage(string name, Rune mainPath, Rune sidePath, Rune keyStone, Rune mainPathRune_01, Rune mainPathRune_02,
+        public RunePage(string name, string buildLink, Rune mainPath, Rune sidePath, Rune keyStone, Rune mainPathRune_01, Rune mainPathRune_02,
             Rune mainPathRune_03, Rune sidePathRune_01, Rune sidePathRune_02, Rune runeShardAttack, Rune runeShardFlex, Rune runeShardDefence)
         {
             Name = name;
+            BuildLink = buildLink;
 
             MainPath = mainPath;
             SidePath = sidePath;

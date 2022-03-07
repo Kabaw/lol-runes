@@ -88,7 +88,7 @@ namespace LoLRunes.View.Controllers
         public void SaveRunePage()
         {
             loadedRunePage.Name = pageNameInput.text.Trim();
-            loadedRunePage.Name = pageNameInput.text.Trim();
+            loadedRunePage.BuildLink = buildLinkInput.text.Trim();
 
             RunePageViewModel runePage;
 
@@ -125,6 +125,7 @@ namespace LoLRunes.View.Controllers
             loadedRunePage = runePage.DeepCopy();
 
             pageNameInput.text = loadedRunePage.Name;
+            buildLinkInput.text = loadedRunePage.BuildLink;
 
             mainPath.SelectPathRunes(runePage);
             sidePath.SelectPathRunes(runePage);

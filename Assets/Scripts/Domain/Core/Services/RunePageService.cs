@@ -79,6 +79,7 @@ namespace LoLRunes.Domain.Services
                 throw new BusinessLogicException("Name already used", "There is already another Rune Page with the same name!");
 
             runePage.Name = command.Name;
+            runePage.BuildLink = command.BuildLink;
             runePage.MainPath = command.MainPath;
             runePage.SidePath = command.SidePath;
             runePage.KeyStone = command.KeyStone;

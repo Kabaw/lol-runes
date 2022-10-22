@@ -1,0 +1,18 @@
+{
+    "name": "Application",
+    "references": [
+        "GUID:b03aefdaa8900f4499b64a66086c1ea2",
+        "GUID:f2c38b9003c5d4b479d77c0f6c511b07",
+        "GUID:681f3fa5e06bee844a2733bfcc39b418",
+        "GUID:19237b0b381c4394b812d7c6c56d7be1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

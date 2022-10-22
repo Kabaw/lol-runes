@@ -1,0 +1,16 @@
+{
+    "name": "Domain",
+    "references": [
+        "GUID:367bd5d681314eb4b997a5bbc3aa5e9d",
+        "GUID:681f3fa5e06bee844a2733bfcc39b418"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

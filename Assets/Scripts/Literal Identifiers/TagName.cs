@@ -11,5 +11,7 @@ namespace LoLRunes.LiteralIdentifiers
         public static readonly string Resolve = "Resolve";
         public static readonly string Inspiration = "Inspiration";
         public static readonly string MessageCanvas = "MessageCanvas";
+        public static readonly string UI = "UI";
+        public static readonly string UiParent = "UI Parent";
     }
 }

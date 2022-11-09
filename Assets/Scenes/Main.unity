@@ -6384,6 +6384,16 @@ PrefabInstance:
       propertyPath: runeSets.Array.data[4]
       value: 
       objectReference: {fileID: 2139556177305636325}
+    - target: {fileID: 1346930675169678310, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LoLRunes.View.UI.PathComp, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346930675169678310, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: LoLRunes.View.UI.RuneButton, View
+      objectReference: {fileID: 0}
     - target: {fileID: 1700802484000950976, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
       propertyPath: m_text
@@ -6534,10 +6544,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5284600319631119627, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LoLRunes.View.UI.PathComp, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284600319631119627, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: LoLRunes.View.UI.RuneButton, View
+      objectReference: {fileID: 0}
     - target: {fileID: 8013479331105022486, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029923017472597, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LoLRunes.View.UI.PathComp, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029923017472597, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: LoLRunes.View.UI.RuneButton, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029923869894351, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LoLRunes.View.UI.PathComp, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029923869894351, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: LoLRunes.View.UI.RuneButton, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029924726058309, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LoLRunes.View.UI.PathComp, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029924726058309, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: LoLRunes.View.UI.RuneButton, View
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7, type: 3}
@@ -8731,6 +8781,16 @@ PrefabInstance:
       propertyPath: keyStones.Array.data[4]
       value: 
       objectReference: {fileID: 7099902535994480731}
+    - target: {fileID: 1346930675169678310, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LoLRunes.View.UI.PathComp, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346930675169678310, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: LoLRunes.View.UI.RuneButton, View
+      objectReference: {fileID: 0}
     - target: {fileID: 1700802485460774209, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
       propertyPath: m_Name
@@ -8851,10 +8911,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5284600319631119627, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LoLRunes.View.UI.PathComp, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284600319631119627, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: LoLRunes.View.UI.RuneButton, View
+      objectReference: {fileID: 0}
     - target: {fileID: 8013479331105022486, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029923017472597, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LoLRunes.View.UI.PathComp, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029923017472597, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: LoLRunes.View.UI.RuneButton, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029923869894351, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LoLRunes.View.UI.PathComp, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029923869894351, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: LoLRunes.View.UI.RuneButton, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029924726058309, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LoLRunes.View.UI.PathComp, View
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169029924726058309, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: LoLRunes.View.UI.RuneButton, View
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7, type: 3}

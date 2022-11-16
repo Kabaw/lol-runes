@@ -6,6 +6,7 @@ using LoLRunes.View.ViewModel;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace LoLRunes.View.Controllers
 {
@@ -13,9 +14,10 @@ namespace LoLRunes.View.Controllers
     {
         CalibrationAppService calibrationAppService;
 
-        private void Start()
+        [Inject]
+        public void Construct(CalibrationAppService calibrationAppService)
         {
-            calibrationAppService = new CalibrationAppService();
+            this.calibrationAppService = calibrationAppService;
         }
 
         public void StartCalibration()

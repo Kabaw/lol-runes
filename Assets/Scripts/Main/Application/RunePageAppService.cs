@@ -10,15 +10,15 @@ namespace LoLRunes.Application.Services
 {   
     public class RunePageAppService
     {
-        private RuneService runeService;
+        private IRuneService runeService;
         private RunePageService runePageService;
         private LeagueWindowInteractionService windowInteraction;
 
-        public RunePageAppService()
+        public RunePageAppService(IRuneService runeService, RunePageService runePageService, LeagueWindowInteractionService leagueWindowInteractionService)
         {           
-            runeService = new RuneService();
-            runePageService = new RunePageService();
-            windowInteraction = new LeagueWindowInteractionService();
+            this.runeService = runeService;
+            this.runePageService = runePageService;
+            this.windowInteraction = leagueWindowInteractionService;
         }
 
         public void ApplyRunePage(RunePageViewModel runePageViewModel)

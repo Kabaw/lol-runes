@@ -6,7 +6,7 @@ using LoLRunes.ScriptableObjects;
 
 namespace LoLRunes.Domain.Services
 {
-    public class RuneService
+    public class RuneService : IRuneService
     {
         public RuneService() { }
 

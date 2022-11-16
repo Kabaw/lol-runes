@@ -1,6 +1,4 @@
-﻿using LoLRunes.CustumAttributes;
-
-namespace LoLRunes.Enumerators
+﻿namespace LoLRunes.Shared.Enums
 {
     public enum RunePositionReferenceEnum
     {

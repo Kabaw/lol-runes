@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LoLRunes.Utils.UnityComponents
+namespace LoLRunes.Shared.Utils.UnityComponents
 {
     public static class TransformUtility
     {

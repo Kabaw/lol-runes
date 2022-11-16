@@ -1,6 +1,6 @@
-﻿using LoLRunes.CustumData;
-using LoLRunes.Domain.Repositories;
+﻿using LoLRunes.Domain.Repositories;
 using LoLRunes.Domain.Services.Interfaces;
+using LoLRunes.Shared.CustumData;
 using Zenject;
 
 namespace LoLRunes.Domain.Services

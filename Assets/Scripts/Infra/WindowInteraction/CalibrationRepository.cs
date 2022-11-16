@@ -1,5 +1,5 @@
-﻿using LoLRunes.CustumData;
-using LoLRunes.Domain.Repositories;
+﻿using LoLRunes.Domain.Repositories;
+using LoLRunes.Shared.CustumData;
 using System;
 using System.IO;
 using UnityEngine;

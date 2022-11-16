@@ -1,4 +1,4 @@
-﻿using LoLRunes.Enumerators;
+﻿using LoLRunes.Shared.Enums;
 using System.Drawing;
 
 namespace LoLRunes.Domain.Services.Interfaces

@@ -1,8 +1,8 @@
-﻿using LolRunes.Domain.Core.Exceptions;
+﻿using LolRunes.Shared.Exceptions;
 using LoLRunes.Application.Services.Interfaces;
-using LoLRunes.Enumerators;
-using LoLRunes.Enumerators.Extensions;
 using LoLRunes.Infra;
+using LoLRunes.Shared.Enums;
+using LoLRunes.Shared.Extensions;
 using LoLRunes.View.UI;
 using LoLRunes.View.ViewModel;
 using System.Collections.Generic;

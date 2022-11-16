@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LolRunes.Domain.Core.Exceptions
+namespace LolRunes.Shared.Exceptions
 {
     public class BusinessLogicException : BaseException
     {

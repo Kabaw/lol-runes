@@ -1,10 +1,10 @@
-﻿using LoLRunes.CustumData;
-using LoLRunes.Domain.Models;
+﻿using LoLRunes.Domain.Models;
 using LoLRunes.Domain.Services.Interfaces;
-using LoLRunes.Enumerators;
-using LoLRunes.Enumerators.Extensions;
+using LoLRunes.Shared.CustumData;
+using LoLRunes.Shared.Enums;
+using LoLRunes.Shared.Extensions;
 using LoLRunes.Shared.Utils;
-using LoLRunes.Utils.User32;
+using LoLRunes.Shared.Utils.User32;
 using System.Collections;
 using System.Drawing;
 using UnityEngine;

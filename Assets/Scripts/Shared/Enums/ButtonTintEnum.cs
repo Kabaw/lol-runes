@@ -1,4 +1,4 @@
-﻿namespace LoLRunes.Enumerators
+﻿namespace LoLRunes.Shared.Enums
 {
     public enum ButtonTintEnum
     {

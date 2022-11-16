@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LoLRunes.Enumerators
+namespace LoLRunes.Shared.Enums
 {
     [Serializable]
     public enum RuneMenuEnum

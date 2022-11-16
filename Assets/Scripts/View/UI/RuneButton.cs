@@ -1,13 +1,10 @@
-﻿using LoLRunes.Enumerators;
-using LoLRunes.LiteralIdentifiers;
-using LoLRunes.Utils.UnityComponents;
+﻿using LoLRunes.Shared.Enums;
+using LoLRunes.Shared.LiteralIdentifiers;
+using LoLRunes.Shared.Utils.UnityComponents;
 using LoLRunes.View.Controllers;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace LoLRunes.View.UI
 {

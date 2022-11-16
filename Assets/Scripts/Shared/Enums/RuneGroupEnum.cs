@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace LoLRunes.Enumerators
+﻿namespace LoLRunes.Shared.Enums
 {
     public enum RuneGroupEnum
     {

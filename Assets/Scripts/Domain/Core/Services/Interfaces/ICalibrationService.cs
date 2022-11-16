@@ -1,4 +1,4 @@
-﻿using LoLRunes.CustumData;
+﻿using LoLRunes.Shared.CustumData;
 
 namespace LoLRunes.Domain.Services.Interfaces
 {

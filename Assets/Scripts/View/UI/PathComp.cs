@@ -1,12 +1,12 @@
-﻿using LoLRunes.Enumerators;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Serialization;
-using LoLRunes.LiteralIdentifiers;
-using System.Linq;
+﻿using LoLRunes.Shared.Enums;
+using LoLRunes.Shared.LiteralIdentifiers;
 using LoLRunes.View.ViewModel;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace LoLRunes.View.UI
 {

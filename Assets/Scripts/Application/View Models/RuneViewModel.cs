@@ -1,5 +1,4 @@
-﻿using System;
-using LoLRunes.Enumerators;
+﻿using LoLRunes.Shared.Enums;
 
 namespace LoLRunes.View.ViewModel
 {

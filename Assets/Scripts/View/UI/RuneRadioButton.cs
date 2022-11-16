@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LoLRunes.Shared.Enums;
 using UnityEngine;
 using UnityEngine.UI;
-using LoLRunes.Enumerators;
 
 namespace LoLRunes.View.UI
 {

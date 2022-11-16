@@ -1,7 +1,5 @@
-﻿using LolRunes.Domain.Core.Exceptions;
-using LoLRunes.Enumerators;
+﻿using LolRunes.Shared.Exceptions;
 using Newtonsoft.Json;
-using System;
 
 namespace LoLRunes.Domain.Models
 {

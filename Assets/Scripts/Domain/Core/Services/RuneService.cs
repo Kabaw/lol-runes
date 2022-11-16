@@ -1,6 +1,6 @@
 ﻿using LoLRunes.Domain.Models;
 using LoLRunes.Domain.Services.Interfaces;
-using LoLRunes.Enumerators;
+using LoLRunes.Shared.Enums;
 
 namespace LoLRunes.Domain.Services
 {

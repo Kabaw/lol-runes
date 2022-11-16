@@ -1,9 +1,4 @@
-﻿using LoLRunes.Enumerators;
-using LoLRunes.Enumerators.Extensions;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using LoLRunes.Shared.Enums;
 
 namespace LoLRunes.Domain.Models
 {

@@ -1,5 +1,5 @@
-﻿using LoLRunes.LiteralIdentifiers;
-using LoLRunes.Utils.UnityComponents;
+﻿using LoLRunes.Shared.LiteralIdentifiers;
+using LoLRunes.Shared.Utils.UnityComponents;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;

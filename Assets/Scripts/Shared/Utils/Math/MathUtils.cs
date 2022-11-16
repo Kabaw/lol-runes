@@ -1,4 +1,4 @@
-﻿namespace LoLRunes.Utils.Math
+﻿namespace LoLRunes.Shared.Utils.Math
 {
     public static class MathUtils
     {

@@ -1,5 +1,5 @@
-﻿using LoLRunes.CustumData;
-using LoLRunes.Domain.Models;
+﻿using LoLRunes.Domain.Models;
+using LoLRunes.Shared.CustumData;
 
 namespace LoLRunes.Domain.Services.Interfaces
 {

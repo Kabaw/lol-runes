@@ -1,9 +1,9 @@
-﻿using LoLRunes.CustumData;
-using LoLRunes.Domain.ScriptableObjects;
+﻿using LoLRunes.Domain.ScriptableObjects;
 using LoLRunes.Domain.Services.Interfaces;
-using LoLRunes.Enumerators;
 using LoLRunes.Infra;
-using LoLRunes.Utils.Math;
+using LoLRunes.Shared.CustumData;
+using LoLRunes.Shared.Enums;
+using LoLRunes.Shared.Utils.Math;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

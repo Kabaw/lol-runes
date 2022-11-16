@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Gma.UserActivityMonitor;
 
-namespace LoLRunes.Utils.User32
+namespace LoLRunes.Shared.Utils.User32
 {
     public enum MouseEvent
     {

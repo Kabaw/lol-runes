@@ -1,5 +1,5 @@
 ﻿using LoLRunes.Domain.ScriptableObjects;
-using LoLRunes.Enumerators;
+using LoLRunes.Shared.Enums;
 
 namespace LoLRunes.Infra
 {

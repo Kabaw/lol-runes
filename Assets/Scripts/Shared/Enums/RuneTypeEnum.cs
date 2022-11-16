@@ -1,7 +1,6 @@
-﻿using LoLRunes.CustumAttributes;
-using System;
+﻿using LoLRunes.Shared.CustumAttributes;
 
-namespace LoLRunes.Enumerators
+namespace LoLRunes.Shared.Enums
 {
     public enum RuneTypeEnum
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LolRunes.Domain.Core.Exceptions
+namespace LolRunes.Shared.Exceptions
 {
     public abstract class BaseException : Exception
     {

@@ -1,5 +1,5 @@
 ﻿using LoLRunes.Domain.Models;
-using LoLRunes.Enumerators;
+using LoLRunes.Shared.Enums;
 
 namespace LoLRunes.Domain.Services.Interfaces
 {

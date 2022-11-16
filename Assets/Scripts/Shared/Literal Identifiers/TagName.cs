@@ -1,6 +1,4 @@
-﻿
-
-namespace LoLRunes.LiteralIdentifiers
+﻿namespace LoLRunes.Shared.LiteralIdentifiers
 {
     public static class TagName
     {

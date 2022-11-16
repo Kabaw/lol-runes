@@ -1,7 +1,8 @@
-﻿using System;
-using LoLRunes.CustumAttributes;
+﻿using LoLRunes.Shared.CustumAttributes;
+using LoLRunes.Shared.Enums;
+using System;
 
-namespace LoLRunes.Enumerators.Extensions
+namespace LoLRunes.Shared.Extensions
 {
     public static class RuneTypeEnumExtension
     {        

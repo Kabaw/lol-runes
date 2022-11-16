@@ -1,28 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-[DisallowMultipleComponent]
-[RequireComponent(typeof(Toggle))]
-public class TogglePlus : MonoBehaviour
+namespace LoLRunes.Shared.UnityPlus
 {
-    private Toggle toogle;
-
-    [SerializeField] UnityEvent onSelect;
-
-    private void Awake()
+    [DisallowMultipleComponent]
+    [RequireComponent(typeof(Toggle))]
+    public class TogglePlus : MonoBehaviour
     {
-        toogle = GetComponent<Toggle>();
+        private Toggle toogle;
 
-        toogle.onValueChanged.AddListener(OnValueChange);
-    }
+        [SerializeField] UnityEvent onSelect;
 
-    private void OnValueChange(bool value)
-    {
-        if (!value) return;
+        private void Awake()
+        {
+            toogle = GetComponent<Toggle>();
 
-        onSelect.Invoke();
+            toogle.onValueChanged.AddListener(OnValueChange);
+        }
+
+        private void OnValueChange(bool value)
+        {
+            if (!value) return;
+
+            onSelect.Invoke();
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using UnityEngine;
 
-namespace LoLRunes.Utils.User32
+namespace LoLRunes.Shared.Utils.User32
 {
     #region Window Data Resources
     public struct PointApi

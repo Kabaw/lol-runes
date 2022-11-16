@@ -1,4 +1,4 @@
-﻿using LolRunes.Domain.Core.Exceptions;
+﻿using LolRunes.Shared.Exceptions;
 using LoLRunes.Domain.Models;
 using LoLRunes.Domain.Repositories;
 using LoLRunes.Domain.Services.Commands;

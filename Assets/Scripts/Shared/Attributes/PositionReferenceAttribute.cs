@@ -1,10 +1,7 @@
-﻿using LoLRunes.Enumerators;
+﻿using LoLRunes.Shared.Enums;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-namespace LoLRunes.CustumAttributes
+namespace LoLRunes.Shared.CustumAttributes
 {
     public class RunePositionReferenceAttribute : Attribute
     {

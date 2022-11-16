@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using LoLRunes.Shared.Enums;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -44,7 +45,7 @@ namespace LoLRunes.View.UI
                 foreach (RuneRadioButton radio in radioButtons)
                 {
                     if (!selectedRadios.Contains(radio))
-                        radio.ResetRadio(Enumerators.ButtonTintEnum.UNSELECTED_TINT);
+                        radio.ResetRadio(ButtonTintEnum.UNSELECTED_TINT);
                 }
             }
 
@@ -54,7 +55,7 @@ namespace LoLRunes.View.UI
 
                 selectedRadios.RemoveAt(0);
 
-                removedRadioButton.ResetRadio(Enumerators.ButtonTintEnum.UNSELECTED_TINT);
+                removedRadioButton.ResetRadio(ButtonTintEnum.UNSELECTED_TINT);
             }
         }
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoLRunes.CustumData
+namespace LoLRunes.Shared.CustumData
 {
     [Serializable]
     public struct Point2D

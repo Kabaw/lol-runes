@@ -1,8 +1,7 @@
 ﻿using LoLRunes.CustumData;
 using LoLRunes.Domain.Models;
-using System.Collections;
 
-namespace LoLRunes.Domain.Interfaces
+namespace LoLRunes.Domain.Services.Interfaces
 {
     public interface ILeagueWindowInteractionService
     {

@@ -1,9 +1,7 @@
-﻿using LoLRunes.CustumData;
-using LoLRunes.Enumerators;
-using LoLRunes.ScriptableObjects;
+﻿using LoLRunes.Enumerators;
 using System.Drawing;
 
-namespace LoLRunes.Domain.Interfaces
+namespace LoLRunes.Domain.Services.Interfaces
 {
     public interface IRunePagePositionService
     {

@@ -1,8 +1,8 @@
-﻿using LoLRunes.Domain.Commands;
-using LoLRunes.Domain.Models;
+﻿using LoLRunes.Domain.Models;
+using LoLRunes.Domain.Services.Commands;
 using System.Collections.Generic;
 
-namespace LoLRunes.Domain.Services
+namespace LoLRunes.Domain.Services.Interfaces
 {
     public interface IRunePageService
     {

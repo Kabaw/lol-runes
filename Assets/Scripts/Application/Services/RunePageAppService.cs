@@ -1,4 +1,5 @@
-﻿using LoLRunes.Domain.Commands;
+﻿using LoLRunes.Application.Services.Interfaces;
+using LoLRunes.Domain.Commands;
 using LoLRunes.Domain.Interfaces;
 using LoLRunes.Domain.Models;
 using LoLRunes.Domain.Services;
@@ -6,7 +7,6 @@ using LoLRunes.View.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace LoLRunes.Application.Services
 {

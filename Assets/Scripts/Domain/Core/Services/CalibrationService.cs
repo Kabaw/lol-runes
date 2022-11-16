@@ -1,12 +1,6 @@
-﻿using Gma.UserActivityMonitor;
-using LoLRunes.CustumData;
-using LoLRunes.Domain.Interfaces;
+﻿using LoLRunes.CustumData;
 using LoLRunes.Domain.Repositories;
-using LoLRunes.Utils.User32;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+using LoLRunes.Domain.Services.Interfaces;
 using Zenject;
 
 namespace LoLRunes.Domain.Services

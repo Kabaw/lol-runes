@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LoLRunes.Domain.Commands
+namespace LoLRunes.Domain.Services.Commands
 {
-    public class EditRunePageCommand
+    public class CreateRunePageCommand
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string BuildLink { get; set; }
 

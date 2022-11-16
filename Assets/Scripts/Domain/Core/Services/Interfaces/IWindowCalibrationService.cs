@@ -1,6 +1,4 @@
-﻿using LoLRunes.CustumData;
-
-namespace LoLRunes.Domain.Interfaces
+﻿namespace LoLRunes.Domain.Services.Interfaces
 {
     public interface IWindowCalibrationService
     {

@@ -1,7 +1,7 @@
 ﻿using LoLRunes.Domain.Models;
 using LoLRunes.Enumerators;
 
-namespace LoLRunes.Domain.Interfaces
+namespace LoLRunes.Domain.Services.Interfaces
 {
     public interface IRuneService
     {

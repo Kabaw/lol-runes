@@ -11,7 +11,7 @@ using Zenject;
 
 namespace LoLRunes.Domain.Services
 {
-    public class CalibrationService : ICalibrationService
+    public class WindowCalibrationService : IWindowCalibrationService
     {
         private bool isCalibrating = false;
         private Point2D calibrationPoint;
@@ -19,18 +19,13 @@ namespace LoLRunes.Domain.Services
         private List<Point2D> calibrationPositionPoints;
 
         private ILeagueWindowInteractionService windowInteractionService;
-        private ICalibrationRepository calibrationRepository;
+        private ICalibrationService calibrationService;
 
         [Inject]
-        public CalibrationService(ICalibrationRepository calibrationRepository, ILeagueWindowInteractionService leagueWindowInteractionService)
+        public WindowCalibrationService(ICalibrationService calibrationService, ILeagueWindowInteractionService leagueWindowInteractionService)
         {
             this.windowInteractionService = leagueWindowInteractionService;
-            this.calibrationRepository = calibrationRepository;
-        }
-
-        public Point2D ReadCalibrationPoint()
-        {
-            return calibrationRepository.ReadCalibrationPoint();
+            this.calibrationService = calibrationService;
         }
 
         public void StartCalibration()
@@ -56,7 +51,7 @@ namespace LoLRunes.Domain.Services
 
             calibrationPoint -= windowTopLeft;
 
-            calibrationRepository.SaveCalibrationPoint(calibrationPoint);
+            calibrationService.SaveCalibrationPoint(calibrationPoint);
 
             isCalibrating = false;
         }

@@ -8,26 +8,26 @@ namespace LoLRunes.Application.Services
 {   
     public class CalibrationAppService
     {
-        private ICalibrationService calibrationService;
+        private IWindowCalibrationService windowCalibrationService;
 
-        public CalibrationAppService(ICalibrationService calibrationService)
+        public CalibrationAppService(IWindowCalibrationService windowCalibrationService)
         {
-            this.calibrationService = calibrationService;
+            this.windowCalibrationService = windowCalibrationService;
         }
 
         public void StartCalibration()
         {
-            calibrationService.StartCalibration();
+            windowCalibrationService.StartCalibration();
         }
 
         public void StartPositionCalibration()
         {
-            calibrationService.StartPositionCalibration();
+            windowCalibrationService.StartPositionCalibration();
         }
 
         public void CompletePositionCalibration()
         {
-            calibrationService.CompletePositionCalibration();
+            windowCalibrationService.CompletePositionCalibration();
         }
     }
 }

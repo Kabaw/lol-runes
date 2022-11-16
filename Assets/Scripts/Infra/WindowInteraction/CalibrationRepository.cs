@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using UnityEngine;
 
-namespace LoLRunes.Infra.WindowInteraction
+namespace LoLRunes.Infra
 {
     public class CalibrationRepository : ICalibrationRepository
     {

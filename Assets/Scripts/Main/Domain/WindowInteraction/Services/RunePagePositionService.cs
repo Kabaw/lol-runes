@@ -10,37 +10,23 @@ using System.Linq;
 using LoLRunes.Utils.Math;
 using LoLRunes.CustumData;
 using LoLRunes.Domain.Services;
+using LoLRunes.Domain.Interfaces;
 
 namespace LoLRunes.Domain.WindowInteraction.Services
 {
-    public class RunePagePositionService
+    public class RunePagePositionService : IRunePagePositionService
     {
-        #region Singleton
-        public static RunePagePositionService _instance;
-
-        public static RunePagePositionService instance
-        {
-            get
-            {
-                if(_instance == null)
-                    _instance = new RunePagePositionService();
-
-                return _instance;
-            }
-        }
-        #endregion
-
         private static bool fisrtInitDone = false;
         private static RunePositionReferenceEnum[] mainPathRunesOrder;
         private static RunePositionReferenceEnum[] sidePathRunesOrder;
         private static ResolutionRunePositionConfig resolutionRunePositionConfig;
         private static Dictionary<Tuple<RunePositionReferenceEnum, PathTypeEnum>, Point> runePositionDict;
 
-        private CalibrationService calibrationService;
+        private ICalibrationService calibrationService;
 
-        private RunePagePositionService()
+        public RunePagePositionService(ICalibrationService calibrationService)
         {
-            calibrationService = new CalibrationService();
+            this.calibrationService = calibrationService;
 
             if (!fisrtInitDone)
                 FirstInit();
@@ -396,7 +382,7 @@ namespace LoLRunes.Domain.WindowInteraction.Services
         public bool GetRunePosition(RunePositionReferenceEnum runePositionReference, PathTypeEnum pathType, out Point point)
         {
             if (runePositionDict == null)
-                throw new NullReferenceException("Rune position not mapped!");            
+                throw new NullReferenceException("Rune position not mapped!");
 
             if (!runePositionDict.TryGetValue(new Tuple<RunePositionReferenceEnum, PathTypeEnum>(runePositionReference, pathType), out point))
                 return false;
@@ -419,7 +405,7 @@ namespace LoLRunes.Domain.WindowInteraction.Services
 
                 point += (Size)offSet;
             }
-            
+
             return true;
         }
 

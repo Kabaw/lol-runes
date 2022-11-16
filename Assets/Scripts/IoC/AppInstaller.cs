@@ -1,5 +1,8 @@
 using LoLRunes.Application.Services;
+using LoLRunes.Domain.Interfaces;
+using LoLRunes.Domain.Repositories;
 using LoLRunes.Domain.Services;
+using LoLRunes.Infra.Core;
 using Zenject;
 
 public class AppInstaller : MonoInstaller<AppInstaller>
@@ -18,7 +21,8 @@ public class AppInstaller : MonoInstaller<AppInstaller>
         Container.Bind<CalibrationAppService>().AsSingle();
         Container.Bind<RunePageAppService>().AsSingle();
         
-        //Container.Bind<IRunePageRepository>().To<RunePageRepository>().AsSingle();
+        //Infra
+        Container.Bind<IRunePageRepository>().To<RunePageRepository>().AsSingle();
         //Container.Bind<IInspectorDataProvider>().To<InspectorDataProvider>().FromInstance(inspectorDataProvider);
     }
 }

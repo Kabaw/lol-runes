@@ -33,7 +33,7 @@ namespace LoLRunes.Program.Managers
             runeMenu = RuneMenuEnum.CHAMPION_SELECTION_SCREEN;
             activeResolutionRunePositionConfig = _resolutionRunePositionConfig_01;
 
-            RunePagePositionService.instance.MapPositionConfig(activeResolutionRunePositionConfig);
+            runePagePositionService.MapPositionConfig(activeResolutionRunePositionConfig);
         }
 
         public Coroutine RunAsync(IEnumerator enumerator)

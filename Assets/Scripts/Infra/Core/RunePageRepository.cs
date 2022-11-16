@@ -1,15 +1,15 @@
-﻿using LoLRunes.Domain.Models;
+﻿using LoLRunes.Domain.Repositories;
+using LoLRunes.Domain.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using UnityEngine;
 
 namespace LoLRunes.Infra.Core
 {
-    public class RunePageRepository
+    public class RunePageRepository : IRunePageRepository
     {
         private static int NEXT_ID = 0;
 
@@ -72,7 +72,7 @@ namespace LoLRunes.Infra.Core
         public List<RunePage> ReadAll()
         {
             string json;
-            string runePageFilePath = UnityEngine.Application.persistentDataPath + "/" + RUNE_PAGES_FILE_NAME;            
+            string runePageFilePath = UnityEngine.Application.persistentDataPath + "/" + RUNE_PAGES_FILE_NAME;
 
             try
             {
@@ -106,7 +106,7 @@ namespace LoLRunes.Infra.Core
             catch (Exception error)
             {
                 throw new IOException("Error when attempting to 'EDIT' the Rune Page data with ID: " + runePage.Id + "\n" + error.Message);
-            }           
+            }
         }
 
         private void InsertMany(List<RunePage> runePages)
@@ -122,7 +122,7 @@ namespace LoLRunes.Infra.Core
             if (NEXT_ID > 0)
                 return;
 
-            List<RunePage> runePages = ReadAll();            
+            List<RunePage> runePages = ReadAll();
 
             NEXT_ID = runePages.Count == 0 ? 1 : runePages.Max(r => r.Id) + 1;
         }
@@ -133,7 +133,7 @@ namespace LoLRunes.Infra.Core
                 return;
 
             FileStream stream = File.Create(RUNE_PAGES_FILE_PATH);
-            
+
             while (!File.Exists(RUNE_PAGES_FILE_PATH)) { }
 
             stream.Close();

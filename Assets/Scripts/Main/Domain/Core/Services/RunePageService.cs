@@ -1,21 +1,19 @@
-﻿using LoLRunes.Domain.Models;
+﻿using LolRunes.Domain.Core.Exceptions;
 using LoLRunes.Domain.Commands;
-using LoLRunes.ScriptableObjects;
-using LoLRunes.Program.Managers;
-using LoLRunes.Infra.Core;
-using System.Collections.Generic;
+using LoLRunes.Domain.Models;
+using LoLRunes.Domain.Repositories;
 using System;
-using LolRunes.Domain.Core.Exceptions;
+using System.Collections.Generic;
 
 namespace LoLRunes.Domain.Services
 {
     public class RunePageService
     {
-        RunePageRepository runePageRepository;
+        IRunePageRepository runePageRepository;
 
-        public RunePageService()
+        public RunePageService(IRunePageRepository runePageRepository)
         {
-            runePageRepository = new RunePageRepository();
+            this.runePageRepository = runePageRepository;
         }
 
         public RunePage Instantiate(CreateRunePageCommand command)

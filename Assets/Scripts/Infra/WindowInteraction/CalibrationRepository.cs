@@ -1,11 +1,12 @@
 ﻿using LoLRunes.CustumData;
+using LoLRunes.Domain.Repositories;
 using System;
 using System.IO;
 using UnityEngine;
 
 namespace LoLRunes.Infra.WindowInteraction
 {
-    public class CalibrationRepository
+    public class CalibrationRepository : ICalibrationRepository
     {
         private static readonly string CALIBRATION_FILE_NAME = "calibration.txt";
 
@@ -22,7 +23,7 @@ namespace LoLRunes.Infra.WindowInteraction
         public Point2D ReadCalibrationPoint()
         {
             string json;
-            string calibrationFilePath = UnityEngine.Application.persistentDataPath + "/" + CALIBRATION_FILE_NAME;            
+            string calibrationFilePath = UnityEngine.Application.persistentDataPath + "/" + CALIBRATION_FILE_NAME;
 
             try
             {

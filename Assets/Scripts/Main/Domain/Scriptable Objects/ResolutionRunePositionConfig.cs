@@ -1,11 +1,5 @@
 ﻿using Assets.Scripts.Domain.Models;
-using LoLRunes.CustumData;
-using LoLRunes.Enumerators;
-using LoLRunes.Enumerators.Extensions;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using UnityEngine;
 
 namespace LoLRunes.ScriptableObjects

@@ -1,11 +1,9 @@
-﻿using System.Collections;
+﻿using LoLRunes.LiteralIdentifiers;
+using LoLRunes.Utils.UnityComponents;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Linq;
-using TMPro;
-using LoLRunes.Utils.UnityComponents;
-using LoLRunes.LiteralIdentifiers;
 
 namespace LoLRunes.View.Controllers
 {

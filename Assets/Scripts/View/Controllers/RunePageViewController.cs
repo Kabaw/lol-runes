@@ -32,13 +32,12 @@ namespace LoLRunes.View.Controllers
         private RuneViewModel lastAssignedSidePathRune = null;
         private RunePageViewModel loadedRunePage;
         private List<RunePageViewModel> runePages;        
-        private RunePageAppService runePageAppService;
+        private IRunePageAppService runePageAppService;
         private IInspectorDataProvider inspectorDataProvider;
 
         [Inject]
-        public void Constructor(RunePageAppService runePageAppService, IInspectorDataProvider inspectorDataProvider)
+        public void Constructor(IRunePageAppService runePageAppService, IInspectorDataProvider inspectorDataProvider)
         {
-            print("ok");
             this.runePageAppService = runePageAppService;
             this.inspectorDataProvider = inspectorDataProvider;
         }

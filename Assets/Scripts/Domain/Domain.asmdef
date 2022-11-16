@@ -1,5 +1,5 @@
 {
-    "name": "Main",
+    "name": "Domain",
     "rootNamespace": "",
     "references": [
         "GUID:51e75f678d873414da5189a52337fabd",

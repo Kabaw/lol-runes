@@ -6,8 +6,8 @@ using LoLRunes.Domain.Interfaces;
 using UnityEngine;
 
 namespace LoLRunes.Application.Services
-{   
-    public class CalibrationAppService
+{
+    public class CalibrationAppService : ICalibrationAppService
     {
         private IWindowCalibrationService windowCalibrationService;
 

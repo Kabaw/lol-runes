@@ -10,13 +10,13 @@ using UnityEngine;
 
 namespace LoLRunes.Application.Services
 {
-    public class RunePageAppService
+    public class RunePageAppService : IRunePageAppService
     {
         private IRuneService runeService;
-        private RunePageService runePageService;
+        private IRunePageService runePageService;
         private ILeagueWindowInteractionService windowInteraction;
 
-        public RunePageAppService(IRuneService runeService, RunePageService runePageService, ILeagueWindowInteractionService leagueWindowInteractionService)
+        public RunePageAppService(IRuneService runeService, IRunePageService runePageService, ILeagueWindowInteractionService leagueWindowInteractionService)
         {
             this.runeService = runeService;
             this.runePageService = runePageService;

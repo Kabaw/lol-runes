@@ -9,7 +9,7 @@ using Zenject;
 
 namespace LoLRunes.Domain.Services
 {
-    public class RunePageService
+    public class RunePageService : IRunePageService
     {
         IRunePageRepository runePageRepository;
 
@@ -21,7 +21,7 @@ namespace LoLRunes.Domain.Services
 
         public RunePage Instantiate(CreateRunePageCommand command)
         {
-            return new RunePage(command.Name, command.BuildLink , command.MainPath, command.SidePath, command.KeyStone, command.MainPathRune_01,
+            return new RunePage(command.Name, command.BuildLink, command.MainPath, command.SidePath, command.KeyStone, command.MainPathRune_01,
                 command.MainPathRune_02, command.MainPathRune_03, command.SidePathRune_01, command.SidePathRune_02,
                 command.RuneShardAttack, command.RuneShardFlex, command.RuneShardDefence);
         }
@@ -48,7 +48,7 @@ namespace LoLRunes.Domain.Services
         {
             RunePage runePage = runePageRepository.Read(id);
 
-            if(runePage == null)
+            if (runePage == null)
                 throw new Exception("Unable to find the rune page with ID: '" + id + "'");
 
             return runePage;

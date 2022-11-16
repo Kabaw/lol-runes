@@ -20,7 +20,7 @@ public class AppInstaller : MonoInstaller<AppInstaller>
 
         //Domain Core
         Container.Bind<IRuneService>().To<RuneService>().AsSingle();
-        Container.Bind<RunePageService>().AsSingle();
+        Container.Bind<IRunePageService>().To<RunePageService>().AsSingle();
 
         //Domain WindowInteraction
         Container.Bind<ICalibrationService>().To<CalibrationService>().AsSingle();

@@ -3,6 +3,7 @@ using LoLRunes.Domain.Commands;
 using LoLRunes.Domain.Services;
 using LoLRunes.Domain.Models;
 using LoLRunes.Domain.Interfaces;
+using UnityEngine;
 
 namespace LoLRunes.Application.Services
 {   
@@ -12,6 +13,7 @@ namespace LoLRunes.Application.Services
 
         public CalibrationAppService(IWindowCalibrationService windowCalibrationService)
         {
+            Debug.Log(ToString());
             this.windowCalibrationService = windowCalibrationService;
         }
 

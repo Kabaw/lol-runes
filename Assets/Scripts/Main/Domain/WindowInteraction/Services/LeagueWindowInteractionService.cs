@@ -8,6 +8,7 @@ using LoLRunes.Utils.User32;
 using System.Collections;
 using System.Drawing;
 using UnityEngine;
+using Zenject;
 
 namespace LoLRunes.Domain.Services
 {
@@ -17,8 +18,10 @@ namespace LoLRunes.Domain.Services
         private readonly string LOL_PROCESS_NAME = "LeagueClientUx";
         private IRunePagePositionService runePagePositionService;
 
+        [Inject]
         public LeagueWindowInteractionService(IRunePagePositionService runePagePositionService)
         {
+            Debug.Log(ToString());
             this.runePagePositionService = runePagePositionService;
         }
 

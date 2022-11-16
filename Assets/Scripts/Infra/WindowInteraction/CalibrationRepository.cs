@@ -3,6 +3,7 @@ using LoLRunes.Domain.Repositories;
 using System;
 using System.IO;
 using UnityEngine;
+using Zenject;
 
 namespace LoLRunes.Infra
 {
@@ -10,7 +11,11 @@ namespace LoLRunes.Infra
     {
         private static readonly string CALIBRATION_FILE_NAME = "calibration.txt";
 
-        public CalibrationRepository() { }
+        [Inject]
+        public CalibrationRepository()
+        {
+            Debug.Log(ToString());
+        }
 
         public void SaveCalibrationPoint(Point2D point)
         {

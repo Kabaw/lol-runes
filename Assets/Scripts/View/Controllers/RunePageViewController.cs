@@ -36,8 +36,9 @@ namespace LoLRunes.View.Controllers
         private IInspectorDataProvider inspectorDataProvider;
 
         [Inject]
-        private void Constructor(RunePageAppService runePageAppService, IInspectorDataProvider inspectorDataProvider)
+        public void Constructor(RunePageAppService runePageAppService, IInspectorDataProvider inspectorDataProvider)
         {
+            print("ok");
             this.runePageAppService = runePageAppService;
             this.inspectorDataProvider = inspectorDataProvider;
         }

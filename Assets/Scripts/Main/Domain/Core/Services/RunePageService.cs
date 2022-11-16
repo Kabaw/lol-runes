@@ -4,6 +4,8 @@ using LoLRunes.Domain.Models;
 using LoLRunes.Domain.Repositories;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
+using Zenject;
 
 namespace LoLRunes.Domain.Services
 {
@@ -11,8 +13,10 @@ namespace LoLRunes.Domain.Services
     {
         IRunePageRepository runePageRepository;
 
+        [Inject]
         public RunePageService(IRunePageRepository runePageRepository)
         {
+            Debug.Log(ToString());
             this.runePageRepository = runePageRepository;
         }
 

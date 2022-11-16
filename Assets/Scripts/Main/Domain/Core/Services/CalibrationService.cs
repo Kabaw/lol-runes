@@ -18,6 +18,7 @@ namespace LoLRunes.Domain.Services
         [Inject]
         public CalibrationService(ICalibrationRepository calibrationRepository)
         {
+            Debug.Log(ToString());
             this.calibrationRepository = calibrationRepository;
         }
 

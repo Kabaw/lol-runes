@@ -24,6 +24,7 @@ namespace LoLRunes.Domain.Services
         [Inject]
         public WindowCalibrationService(ICalibrationService calibrationService, ILeagueWindowInteractionService leagueWindowInteractionService)
         {
+            Debug.Log(ToString());
             this.windowInteractionService = leagueWindowInteractionService;
             this.calibrationService = calibrationService;
         }

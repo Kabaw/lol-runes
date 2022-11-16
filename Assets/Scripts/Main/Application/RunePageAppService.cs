@@ -6,6 +6,7 @@ using LoLRunes.View.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace LoLRunes.Application.Services
 {
@@ -13,10 +14,11 @@ namespace LoLRunes.Application.Services
     {
         private IRuneService runeService;
         private RunePageService runePageService;
-        private LeagueWindowInteractionService windowInteraction;
+        private ILeagueWindowInteractionService windowInteraction;
 
-        public RunePageAppService(IRuneService runeService, RunePageService runePageService, LeagueWindowInteractionService leagueWindowInteractionService)
-        {           
+        public RunePageAppService(IRuneService runeService, RunePageService runePageService, ILeagueWindowInteractionService leagueWindowInteractionService)
+        {
+            Debug.Log(ToString());
             this.runeService = runeService;
             this.runePageService = runePageService;
             this.windowInteraction = leagueWindowInteractionService;

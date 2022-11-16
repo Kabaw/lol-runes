@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using UnityEngine;
 
 namespace LoLRunes.Infra.Core
 {
@@ -18,6 +19,7 @@ namespace LoLRunes.Infra.Core
 
         public RunePageRepository()
         {
+            Debug.Log(ToString());
             CheckFilesExistance();
             CalculeNextID();
         }

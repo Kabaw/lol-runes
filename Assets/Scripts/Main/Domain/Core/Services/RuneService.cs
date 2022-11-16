@@ -1,6 +1,7 @@
 ﻿using LoLRunes.Domain.Interfaces;
 using LoLRunes.Domain.Models;
 using LoLRunes.Enumerators;
+using UnityEngine;
 
 namespace LoLRunes.Domain.Services
 {
@@ -10,6 +11,7 @@ namespace LoLRunes.Domain.Services
 
         public Rune Instantiate(RuneTypeEnum runeType)
         {
+            Debug.Log(ToString());
             return new Rune(runeType);
         }
     }

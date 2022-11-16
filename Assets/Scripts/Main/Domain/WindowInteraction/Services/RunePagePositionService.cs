@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using UnityEngine;
+using Zenject;
 
 namespace LoLRunes.Domain.Services
 {
@@ -21,13 +23,14 @@ namespace LoLRunes.Domain.Services
         private ICalibrationService calibrationService;
         private IInspectorDataProvider inspectorDataProvider;
 
+        [Inject]
         public RunePagePositionService(ICalibrationService calibrationService, IInspectorDataProvider inspectorDataProvider)
         {
+            Debug.Log(ToString());
             this.calibrationService = calibrationService;
             this.inspectorDataProvider = inspectorDataProvider;
             
-            SetRuneOrder();
-            MapPositionConfig(inspectorDataProvider.activeResolutionRunePositionConfig);
+            SetRuneOrder();            
         }
 
         private void SetRuneOrder()
@@ -378,7 +381,7 @@ namespace LoLRunes.Domain.Services
         public bool GetRunePosition(RunePositionReferenceEnum runePositionReference, PathTypeEnum pathType, out Point point)
         {
             if (runePositionDict == null)
-                throw new NullReferenceException("Rune position not mapped!");
+                MapPositionConfig(inspectorDataProvider.activeResolutionRunePositionConfig);
 
             if (!runePositionDict.TryGetValue(new Tuple<RunePositionReferenceEnum, PathTypeEnum>(runePositionReference, pathType), out point))
                 return false;

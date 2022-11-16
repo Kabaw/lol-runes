@@ -21,7 +21,6 @@ namespace LoLRunes.Domain.Services
         [Inject]
         public LeagueWindowInteractionService(IRunePagePositionService runePagePositionService)
         {
-            Debug.Log(ToString());
             this.runePagePositionService = runePagePositionService;
         }
 

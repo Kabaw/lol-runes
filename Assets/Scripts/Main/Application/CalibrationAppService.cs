@@ -13,7 +13,6 @@ namespace LoLRunes.Application.Services
 
         public CalibrationAppService(IWindowCalibrationService windowCalibrationService)
         {
-            Debug.Log(ToString());
             this.windowCalibrationService = windowCalibrationService;
         }
 

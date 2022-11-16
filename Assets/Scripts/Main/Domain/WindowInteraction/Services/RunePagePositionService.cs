@@ -26,7 +26,6 @@ namespace LoLRunes.Domain.Services
         [Inject]
         public RunePagePositionService(ICalibrationService calibrationService, IInspectorDataProvider inspectorDataProvider)
         {
-            Debug.Log(ToString());
             this.calibrationService = calibrationService;
             this.inspectorDataProvider = inspectorDataProvider;
             

@@ -12,10 +12,7 @@ namespace LoLRunes.Infra
         private static readonly string CALIBRATION_FILE_NAME = "calibration.txt";
 
         [Inject]
-        public CalibrationRepository()
-        {
-            Debug.Log(ToString());
-        }
+        public CalibrationRepository() { }
 
         public void SaveCalibrationPoint(Point2D point)
         {

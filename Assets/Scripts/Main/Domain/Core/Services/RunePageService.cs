@@ -16,7 +16,6 @@ namespace LoLRunes.Domain.Services
         [Inject]
         public RunePageService(IRunePageRepository runePageRepository)
         {
-            Debug.Log(ToString());
             this.runePageRepository = runePageRepository;
         }
 

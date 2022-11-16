@@ -19,7 +19,6 @@ namespace LoLRunes.Infra.Core
 
         public RunePageRepository()
         {
-            Debug.Log(ToString());
             CheckFilesExistance();
             CalculeNextID();
         }

@@ -17,8 +17,6 @@ namespace LoLRunes.Infra
 
         private void Awake()
         {
-            Debug.Log(ToString());
-
             if (instance)
             {
                 Destroy(this);

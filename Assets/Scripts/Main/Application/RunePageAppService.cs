@@ -18,7 +18,6 @@ namespace LoLRunes.Application.Services
 
         public RunePageAppService(IRuneService runeService, RunePageService runePageService, ILeagueWindowInteractionService leagueWindowInteractionService)
         {
-            Debug.Log(ToString());
             this.runeService = runeService;
             this.runePageService = runePageService;
             this.windowInteraction = leagueWindowInteractionService;

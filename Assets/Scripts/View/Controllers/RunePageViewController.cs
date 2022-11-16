@@ -12,6 +12,7 @@ using UnityEngine.UI;
 using LoLRunes.Program.Managers;
 using System;
 using LolRunes.Domain.Core.Exceptions;
+using Zenject;
 
 namespace LoLRunes.View.Controllers
 {
@@ -31,17 +32,19 @@ namespace LoLRunes.View.Controllers
         [SerializeField] private TMP_InputField pageNameInput;
         [SerializeField] private TMP_InputField buildLinkInput;
 
-        private bool ignoreNextOnSearchble = false;
         private RuneViewModel lastAssignedSidePathRune = null;
         private RunePageViewModel loadedRunePage;
-        private List<RunePageViewModel> runePages;
-
+        private List<RunePageViewModel> runePages;        
         private RunePageAppService runePageAppService;
+
+        [Inject]
+        private void Constructor(RunePageAppService runePageAppService)
+        {
+            this.runePageAppService = runePageAppService;
+        }
 
         private void Start()
         {
-            runePageAppService = new RunePageAppService();
-
             runePages = runePageAppService.ReadAllRunePages();
 
             SetSearchableOption();

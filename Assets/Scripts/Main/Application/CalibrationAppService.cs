@@ -9,9 +9,9 @@ namespace LoLRunes.Application.Services
     {
         private CalibrationService calibrationService;
 
-        public CalibrationAppService()
+        public CalibrationAppService(CalibrationService calibrationService)
         {
-            calibrationService = new CalibrationService();
+            this.calibrationService = calibrationService;
         }
 
         public void StartCalibration()

@@ -1,52 +1,38 @@
-﻿using System;
-using System.Drawing;
-using System.Collections.Generic;
-using LoLRunes.Domain.Commands;
-using LoLRunes.Domain.Models;
+﻿using LoLRunes.CustumData;
+using LoLRunes.Domain.Interfaces;
 using LoLRunes.Enumerators;
+using LoLRunes.Infra;
 using LoLRunes.ScriptableObjects;
-using LoLRunes.Program.Managers;
-using System.Linq;
 using LoLRunes.Utils.Math;
-using LoLRunes.CustumData;
-using LoLRunes.Domain.Services;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using UnityEngine;
+using Zenject;
 
-namespace LoLRunes.Domain.WindowInteraction.Services
+namespace LoLRunes.Domain.Services
 {
-    public class RunePagePositionService
+    public class RunePagePositionService : IRunePagePositionService
     {
-        #region Singleton
-        public static RunePagePositionService _instance;
-
-        public static RunePagePositionService instance
-        {
-            get
-            {
-                if(_instance == null)
-                    _instance = new RunePagePositionService();
-
-                return _instance;
-            }
-        }
-        #endregion
-
-        private static bool fisrtInitDone = false;
         private static RunePositionReferenceEnum[] mainPathRunesOrder;
         private static RunePositionReferenceEnum[] sidePathRunesOrder;
         private static ResolutionRunePositionConfig resolutionRunePositionConfig;
         private static Dictionary<Tuple<RunePositionReferenceEnum, PathTypeEnum>, Point> runePositionDict;
 
-        private CalibrationService calibrationService;
+        private ICalibrationService calibrationService;
+        private IInspectorDataProvider inspectorDataProvider;
 
-        private RunePagePositionService()
+        [Inject]
+        public RunePagePositionService(ICalibrationService calibrationService, IInspectorDataProvider inspectorDataProvider)
         {
-            calibrationService = new CalibrationService();
-
-            if (!fisrtInitDone)
-                FirstInit();
+            this.calibrationService = calibrationService;
+            this.inspectorDataProvider = inspectorDataProvider;
+            
+            SetRuneOrder();            
         }
 
-        public void FirstInit()
+        private void SetRuneOrder()
         {
             mainPathRunesOrder = new RunePositionReferenceEnum[5]
             {
@@ -64,11 +50,9 @@ namespace LoLRunes.Domain.WindowInteraction.Services
                 RunePositionReferenceEnum.PATH_03,
                 RunePositionReferenceEnum.PATH_04
             };
-
-            fisrtInitDone = true;
         }
 
-        public void MapPositionConfig(ResolutionRunePositionConfig resolutionRunePositionConfig)
+        private void MapPositionConfig(ResolutionRunePositionConfig resolutionRunePositionConfig)
         {
             RunePagePositionService.resolutionRunePositionConfig = resolutionRunePositionConfig;
 
@@ -396,7 +380,7 @@ namespace LoLRunes.Domain.WindowInteraction.Services
         public bool GetRunePosition(RunePositionReferenceEnum runePositionReference, PathTypeEnum pathType, out Point point)
         {
             if (runePositionDict == null)
-                throw new NullReferenceException("Rune position not mapped!");            
+                MapPositionConfig(inspectorDataProvider.activeResolutionRunePositionConfig);
 
             if (!runePositionDict.TryGetValue(new Tuple<RunePositionReferenceEnum, PathTypeEnum>(runePositionReference, pathType), out point))
                 return false;
@@ -410,7 +394,7 @@ namespace LoLRunes.Domain.WindowInteraction.Services
             point.X = (int)(point.X * x_proportion);
             point.Y = (int)(point.Y * y_proportion);
 
-            if (ProgramManager.instance.runeMenu == RuneMenuEnum.CHAMPION_SELECTION_SCREEN)
+            if (inspectorDataProvider.runeMenu == RuneMenuEnum.CHAMPION_SELECTION_SCREEN)
             {
                 Point offSet = Point.Empty;
 
@@ -419,7 +403,7 @@ namespace LoLRunes.Domain.WindowInteraction.Services
 
                 point += (Size)offSet;
             }
-            
+
             return true;
         }
 

@@ -2,31 +2,33 @@
 using LoLRunes.Domain.Commands;
 using LoLRunes.Domain.Services;
 using LoLRunes.Domain.Models;
+using LoLRunes.Domain.Interfaces;
+using UnityEngine;
 
 namespace LoLRunes.Application.Services
 {   
     public class CalibrationAppService
     {
-        private CalibrationService calibrationService;
+        private IWindowCalibrationService windowCalibrationService;
 
-        public CalibrationAppService(CalibrationService calibrationService)
+        public CalibrationAppService(IWindowCalibrationService windowCalibrationService)
         {
-            this.calibrationService = calibrationService;
+            this.windowCalibrationService = windowCalibrationService;
         }
 
         public void StartCalibration()
         {
-            calibrationService.StartCalibration();
+            windowCalibrationService.StartCalibration();
         }
 
         public void StartPositionCalibration()
         {
-            calibrationService.StartPositionCalibration();
+            windowCalibrationService.StartPositionCalibration();
         }
 
         public void CompletePositionCalibration()
         {
-            calibrationService.CompletePositionCalibration();
+            windowCalibrationService.CompletePositionCalibration();
         }
     }
 }

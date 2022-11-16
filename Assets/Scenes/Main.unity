@@ -1181,28 +1181,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 258674957}
-  - component: {fileID: 258674956}
+  - component: {fileID: 258674959}
+  - component: {fileID: 258674958}
   m_Layer: 0
-  m_Name: ProgramManager
+  m_Name: ProgramManagement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &258674956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 258674955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cdd300b47e5e444f952437c87df4efd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _resolutionRunePositionConfig_01: {fileID: 11400000, guid: d27d5a7beb34c7e4a9063f2263a19edd,
-    type: 2}
 --- !u!4 &258674957
 Transform:
   m_ObjectHideFlags: 0
@@ -1218,6 +1205,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &258674958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258674955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070c1ebb624d8074eb1bd4ee613a76f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resolutionRunePositionConfig_01: {fileID: 11400000, guid: d27d5a7beb34c7e4a9063f2263a19edd,
+    type: 2}
+--- !u!114 &258674959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258674955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2697431a7aa00314ea3fd374989f53af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &279250776
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,7 +2042,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7836,6 +7849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831bafcda9363374fbe4776f4a8f25b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorDataProvider: {fileID: 258674958}
 --- !u!1 &1940668737
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,25 +1,27 @@
 ﻿using LoLRunes.CustumData;
+using LoLRunes.Domain.Interfaces;
 using LoLRunes.Domain.Models;
-using LoLRunes.Domain.WindowInteraction.Services;
 using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
-using LoLRunes.Program.Managers;
-using LoLRunes.ScriptableObjects;
+using LoLRunes.Shared.Utils;
 using LoLRunes.Utils.User32;
 using System.Collections;
 using System.Drawing;
 using UnityEngine;
+using Zenject;
 
 namespace LoLRunes.Domain.Services
 {
-    public class LeagueWindowInteractionService
+    public class LeagueWindowInteractionService : ILeagueWindowInteractionService
     {
-        private static readonly string LOL_WINDOW_NAME = "League of Legends";
-        private static readonly string LOL_PROCESS_NAME = "LeagueClientUx";
+        private readonly string LOL_WINDOW_NAME = "League of Legends";
+        private readonly string LOL_PROCESS_NAME = "LeagueClientUx";
+        private IRunePagePositionService runePagePositionService;
 
-        public LeagueWindowInteractionService()
+        [Inject]
+        public LeagueWindowInteractionService(IRunePagePositionService runePagePositionService)
         {
-
+            this.runePagePositionService = runePagePositionService;
         }
 
         public void SetFrontWindow()
@@ -41,10 +43,10 @@ namespace LoLRunes.Domain.Services
         {
             SetFrontWindow();
 
-            ProgramManager.instance.RunAsync(SelectRunes(runePage));
+            AssyncOperationProvider.instance.RunAsync(SelectRunes(runePage));
         }
 
-        public IEnumerator SelectRunes(RunePage runePage)
+        private IEnumerator SelectRunes(RunePage runePage)
         {
             Point point;
             Size windowReferencePosition;
@@ -54,30 +56,30 @@ namespace LoLRunes.Domain.Services
             windowReferencePosition = new Size(windowTopLeftPoint.x, windowTopLeftPoint.y);
 
             #region MainPath
-            if (RunePagePositionService.instance.GetRunePosition(runePage.MainPath.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
+            if (runePagePositionService.GetRunePosition(runePage.MainPath.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
 
             yield return new WaitForSeconds(0.2f);
             #endregion
 
             #region KeyStone
-            if (RunePagePositionService.instance.GetRunePosition(runePage.KeyStone.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
+            if (runePagePositionService.GetRunePosition(runePage.KeyStone.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
             #endregion
 
             #region MainRunes
-            if (RunePagePositionService.instance.GetRunePosition(runePage.MainPathRune_01.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
+            if (runePagePositionService.GetRunePosition(runePage.MainPathRune_01.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
 
-            if (RunePagePositionService.instance.GetRunePosition(runePage.MainPathRune_02.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
+            if (runePagePositionService.GetRunePosition(runePage.MainPathRune_02.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
 
-            if (RunePagePositionService.instance.GetRunePosition(runePage.MainPathRune_03.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
+            if (runePagePositionService.GetRunePosition(runePage.MainPathRune_03.RuneType.GetPositionReference(), PathTypeEnum.MAIN, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
             #endregion
 
             #region SidePath
-            if (RunePagePositionService.instance.GetSidePathRunePosition(
+            if (runePagePositionService.GetSidePathRunePosition(
                     runePage.SidePath.RuneType.GetPositionReference(),
                     runePage.MainPath.RuneType.GetPositionReference(),
                     out point))
@@ -87,21 +89,21 @@ namespace LoLRunes.Domain.Services
             #endregion
 
             #region SideRunes
-            if (RunePagePositionService.instance.GetRunePosition(runePage.SidePathRune_01.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+            if (runePagePositionService.GetRunePosition(runePage.SidePathRune_01.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
 
-            if (RunePagePositionService.instance.GetRunePosition(runePage.SidePathRune_02.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+            if (runePagePositionService.GetRunePosition(runePage.SidePathRune_02.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
             #endregion
 
             #region Shards
-            if (RunePagePositionService.instance.GetRunePosition(runePage.RuneShardAttack.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+            if (runePagePositionService.GetRunePosition(runePage.RuneShardAttack.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
 
-            if (RunePagePositionService.instance.GetRunePosition(runePage.RuneShardFlex.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+            if (runePagePositionService.GetRunePosition(runePage.RuneShardFlex.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
 
-            if (RunePagePositionService.instance.GetRunePosition(runePage.RuneShardDefence.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
+            if (runePagePositionService.GetRunePosition(runePage.RuneShardDefence.RuneType.GetPositionReference(), PathTypeEnum.SIDE, out point))
                 MouseController.LeftClick(point + windowReferencePosition);
             #endregion
         }

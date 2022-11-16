@@ -1,21 +1,23 @@
-﻿using LoLRunes.View.ViewModel;
-using LoLRunes.Domain.Commands;
-using LoLRunes.Domain.Services;
+﻿using LoLRunes.Domain.Commands;
+using LoLRunes.Domain.Interfaces;
 using LoLRunes.Domain.Models;
+using LoLRunes.Domain.Services;
+using LoLRunes.View.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+using UnityEngine;
 
 namespace LoLRunes.Application.Services
-{   
+{
     public class RunePageAppService
     {
         private IRuneService runeService;
         private RunePageService runePageService;
-        private LeagueWindowInteractionService windowInteraction;
+        private ILeagueWindowInteractionService windowInteraction;
 
-        public RunePageAppService(IRuneService runeService, RunePageService runePageService, LeagueWindowInteractionService leagueWindowInteractionService)
-        {           
+        public RunePageAppService(IRuneService runeService, RunePageService runePageService, ILeagueWindowInteractionService leagueWindowInteractionService)
+        {
             this.runeService = runeService;
             this.runePageService = runePageService;
             this.windowInteraction = leagueWindowInteractionService;

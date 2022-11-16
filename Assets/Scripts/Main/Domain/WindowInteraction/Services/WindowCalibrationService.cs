@@ -1,38 +1,31 @@
-﻿using LoLRunes.Domain.Models;
-using LoLRunes.Domain.Commands;
-using LoLRunes.ScriptableObjects;
-using LoLRunes.Program.Managers;
-using LoLRunes.Utils.User32;
+﻿using Gma.UserActivityMonitor;
 using LoLRunes.CustumData;
-using System.Collections;
-using UnityEngine;
-using System.Collections.Generic;
-using Gma.UserActivityMonitor;
-using System.Linq;
+using LoLRunes.Domain.Interfaces;
+using LoLRunes.Domain.Repositories;
+using LoLRunes.Utils.User32;
 using System;
-using LoLRunes.Infra.WindowInteraction;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Zenject;
 
 namespace LoLRunes.Domain.Services
 {
-    public class CalibrationService
+    public class WindowCalibrationService : IWindowCalibrationService
     {
         private bool isCalibrating = false;
         private Point2D calibrationPoint;
         private Point2D windowTopLeft;
         private List<Point2D> calibrationPositionPoints;
 
-        private LeagueWindowInteractionService windowInteractionService;
-        private CalibrationRepository calibrationRepository;
+        private ILeagueWindowInteractionService windowInteractionService;
+        private ICalibrationService calibrationService;
 
-        public CalibrationService()
+        [Inject]
+        public WindowCalibrationService(ICalibrationService calibrationService, ILeagueWindowInteractionService leagueWindowInteractionService)
         {
-            windowInteractionService = new LeagueWindowInteractionService();
-            calibrationRepository = new CalibrationRepository();
-        }
-
-        public Point2D ReadCalibrationPoint()
-        {
-            return calibrationRepository.ReadCalibrationPoint();
+            this.windowInteractionService = leagueWindowInteractionService;
+            this.calibrationService = calibrationService;
         }
 
         public void StartCalibration()
@@ -58,7 +51,7 @@ namespace LoLRunes.Domain.Services
 
             calibrationPoint -= windowTopLeft;
 
-            calibrationRepository.SaveCalibrationPoint(calibrationPoint);
+            calibrationService.SaveCalibrationPoint(calibrationPoint);
 
             isCalibrating = false;
         }
@@ -79,7 +72,7 @@ namespace LoLRunes.Domain.Services
 
         public void CompletePositionCalibration()
         {
-            if(!isCalibrating) return;
+            if (!isCalibrating) return;
 
             MSWindowsEventManager.instance.Unsubscribe_MouseDown(CalibrationPositionClick_HookManager);
 
@@ -92,7 +85,7 @@ namespace LoLRunes.Domain.Services
         private void Calibration_HookManager(object sender, MouseEventExtArgs e)
         {
             calibrationPoint.x = e.X;
-            calibrationPoint.y = e.Y;   
+            calibrationPoint.y = e.Y;
 
             CompleteCalibration();
         }

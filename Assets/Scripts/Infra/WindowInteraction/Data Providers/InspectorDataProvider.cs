@@ -1,15 +1,13 @@
-﻿using LoLRunes.Domain.WindowInteraction.Services;
-using LoLRunes.Enumerators;
+﻿using LoLRunes.Enumerators;
 using LoLRunes.ScriptableObjects;
-using System.Collections;
 using UnityEngine;
 
-namespace LoLRunes.Program.Managers
+namespace LoLRunes.Infra
 {
-    public class ProgramManager : MonoBehaviour
+    public class InspectorDataProvider : MonoBehaviour, IInspectorDataProvider
     {
         #region Static
-        public static ProgramManager instance { get; private set; }
+        public static InspectorDataProvider instance { get; private set; }
         #endregion
 
         [SerializeField] private ResolutionRunePositionConfig _resolutionRunePositionConfig_01;
@@ -19,7 +17,7 @@ namespace LoLRunes.Program.Managers
 
         private void Awake()
         {
-            if(instance)
+            if (instance)
             {
                 Destroy(this);
                 return;
@@ -29,16 +27,9 @@ namespace LoLRunes.Program.Managers
         }
 
         private void Start()
-        {           
+        {
             runeMenu = RuneMenuEnum.CHAMPION_SELECTION_SCREEN;
             activeResolutionRunePositionConfig = _resolutionRunePositionConfig_01;
-
-            RunePagePositionService.instance.MapPositionConfig(activeResolutionRunePositionConfig);
-        }
-
-        public Coroutine RunAsync(IEnumerator enumerator)
-        {
-            return StartCoroutine(enumerator);
         }
     }
 }

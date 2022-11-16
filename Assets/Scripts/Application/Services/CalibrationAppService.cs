@@ -1,5 +1,5 @@
 ﻿using LoLRunes.Application.Services.Interfaces;
-using LoLRunes.Domain.Interfaces;
+using LoLRunes.Domain.Services.Interfaces;
 
 namespace LoLRunes.Application.Services
 {

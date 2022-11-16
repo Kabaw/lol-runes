@@ -1,5 +1,5 @@
 ﻿using LolRunes.Domain.Core.Exceptions;
-using LoLRunes.Application.Services;
+using LoLRunes.Application.Services.Interfaces;
 using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
 using LoLRunes.Infra;

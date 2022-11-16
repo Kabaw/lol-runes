@@ -1,8 +1,7 @@
 ﻿using LoLRunes.Application.Services.Interfaces;
-using LoLRunes.Domain.Commands;
-using LoLRunes.Domain.Interfaces;
 using LoLRunes.Domain.Models;
-using LoLRunes.Domain.Services;
+using LoLRunes.Domain.Services.Commands;
+using LoLRunes.Domain.Services.Interfaces;
 using LoLRunes.View.ViewModel;
 using System;
 using System.Collections.Generic;

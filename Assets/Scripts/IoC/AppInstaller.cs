@@ -1,7 +1,8 @@
 using LoLRunes.Application.Services;
-using LoLRunes.Domain.Interfaces;
+using LoLRunes.Application.Services.Interfaces;
 using LoLRunes.Domain.Repositories;
 using LoLRunes.Domain.Services;
+using LoLRunes.Domain.Services.Interfaces;
 using LoLRunes.Infra;
 using LoLRunes.Infra.Core;
 using UnityEngine;
@@ -29,7 +30,7 @@ public class AppInstaller : MonoInstaller<AppInstaller>
         Container.Bind<IWindowCalibrationService>().To<WindowCalibrationService>().AsSingle();
         
         //Aplication
-        Container.Bind<CalibrationAppService>().AsSingle();
-        Container.Bind<RunePageAppService>().AsSingle();
+        Container.Bind<ICalibrationAppService>().To<CalibrationAppService>().AsSingle();
+        Container.Bind<IRunePageAppService>().To<RunePageAppService>().AsSingle();
     }
 }

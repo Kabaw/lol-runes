@@ -2,7 +2,7 @@
 using System.Drawing;
 using UnityEngine;
 
-namespace LoLRunes.ScriptableObjects
+namespace LoLRunes.Domain.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "ResolutionRunePositionConfig_xx", menuName = "Scriptable Objects/Positioning/ResolutionRunePositionConfig")]
     public class ResolutionRunePositionConfig : ScriptableObject

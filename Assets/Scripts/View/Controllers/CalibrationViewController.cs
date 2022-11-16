@@ -1,4 +1,4 @@
-﻿using LoLRunes.Application.Services;
+﻿using LoLRunes.Application.Services.Interfaces;
 using UnityEngine;
 using Zenject;
 

@@ -1,7 +1,6 @@
 ﻿using Gma.UserActivityMonitor;
 using LoLRunes.CustumData;
-using LoLRunes.Domain.Interfaces;
-using LoLRunes.Domain.Repositories;
+using LoLRunes.Domain.Services.Interfaces;
 using LoLRunes.Utils.User32;
 using System;
 using System.Collections.Generic;

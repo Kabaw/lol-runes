@@ -1,6 +1,6 @@
 ﻿using LoLRunes.CustumData;
-using LoLRunes.Domain.Interfaces;
 using LoLRunes.Domain.Models;
+using LoLRunes.Domain.Services.Interfaces;
 using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
 using LoLRunes.Shared.Utils;

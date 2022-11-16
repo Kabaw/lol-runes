@@ -1,17 +1,14 @@
-﻿using LoLRunes.Application.Services;
+﻿using LolRunes.Domain.Core.Exceptions;
+using LoLRunes.Application.Services;
 using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
+using LoLRunes.Infra;
 using LoLRunes.View.UI;
 using LoLRunes.View.ViewModel;
-using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
 using TMPro;
-using UnityEngine.UI;
-using LoLRunes.Program.Managers;
-using System;
-using LolRunes.Domain.Core.Exceptions;
+using UnityEngine;
 using Zenject;
 
 namespace LoLRunes.View.Controllers
@@ -36,11 +33,13 @@ namespace LoLRunes.View.Controllers
         private RunePageViewModel loadedRunePage;
         private List<RunePageViewModel> runePages;        
         private RunePageAppService runePageAppService;
+        private IInspectorDataProvider inspectorDataProvider;
 
         [Inject]
-        private void Constructor(RunePageAppService runePageAppService)
+        private void Constructor(RunePageAppService runePageAppService, IInspectorDataProvider inspectorDataProvider)
         {
             this.runePageAppService = runePageAppService;
+            this.inspectorDataProvider = inspectorDataProvider;
         }
 
         private void Start()
@@ -120,7 +119,7 @@ namespace LoLRunes.View.Controllers
 
         public void SetRuneMenu(int runeMenu)
         {
-            ProgramManager.instance.runeMenu = (RuneMenuEnum)runeMenu;
+            inspectorDataProvider.runeMenu = (RuneMenuEnum)runeMenu;
         }
 
         private void LoadRunePage(RunePageViewModel runePage)

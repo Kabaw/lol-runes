@@ -2,14 +2,15 @@
 using LoLRunes.Domain.Commands;
 using LoLRunes.Domain.Services;
 using LoLRunes.Domain.Models;
+using LoLRunes.Domain.Interfaces;
 
 namespace LoLRunes.Application.Services
 {   
     public class CalibrationAppService
     {
-        private CalibrationService calibrationService;
+        private ICalibrationService calibrationService;
 
-        public CalibrationAppService(CalibrationService calibrationService)
+        public CalibrationAppService(ICalibrationService calibrationService)
         {
             this.calibrationService = calibrationService;
         }

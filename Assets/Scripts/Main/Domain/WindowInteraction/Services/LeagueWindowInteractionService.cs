@@ -1,10 +1,9 @@
 ﻿using LoLRunes.CustumData;
 using LoLRunes.Domain.Interfaces;
 using LoLRunes.Domain.Models;
-using LoLRunes.Domain.WindowInteraction.Services;
 using LoLRunes.Enumerators;
 using LoLRunes.Enumerators.Extensions;
-using LoLRunes.Program.Managers;
+using LoLRunes.Shared.Utils;
 using LoLRunes.Utils.User32;
 using System.Collections;
 using System.Drawing;
@@ -42,10 +41,10 @@ namespace LoLRunes.Domain.Services
         {
             SetFrontWindow();
 
-            ProgramManager.instance.RunAsync(SelectRunes(runePage));
+            AssyncOperationProvider.instance.RunAsync(SelectRunes(runePage));
         }
 
-        public IEnumerator SelectRunes(RunePage runePage)
+        private IEnumerator SelectRunes(RunePage runePage)
         {
             Point point;
             Size windowReferencePosition;

@@ -8,7 +8,6 @@ namespace LoLRunes.Domain.Interfaces
     {
         void ApplyRunePage(RunePage runePage);
         Point2D GetWindowTopLeftPoint();
-        IEnumerator SelectRunes(RunePage runePage);
         void SetFrontWindow();
     }
 }

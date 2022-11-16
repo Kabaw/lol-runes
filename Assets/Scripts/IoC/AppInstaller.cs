@@ -11,11 +11,14 @@ public class AppInstaller : MonoInstaller<AppInstaller>
 
     public override void InstallBindings()
     {
-        //Domain
+        //Domain Core
         Container.Bind<IRuneService>().To<RuneService>().AsSingle();
         Container.Bind<RunePageService>().AsSingle();
-        Container.Bind<LeagueWindowInteractionService>().AsSingle();
-        Container.Bind<CalibrationService>().AsSingle();
+
+        //Domain WindowInteraction
+        Container.Bind<IRunePagePositionService>().To<RunePagePositionService>().AsSingle();     
+        Container.Bind<ILeagueWindowInteractionService>().To<LeagueWindowInteractionService>().AsSingle();
+        Container.Bind<ICalibrationService>().To<CalibrationService>().AsSingle();
         
         //Aplication
         Container.Bind<CalibrationAppService>().AsSingle();

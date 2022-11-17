@@ -1,5 +1,5 @@
 ﻿using LoLRunes.Application.Services.Interfaces;
-using LoLRunes.Domain.Services.Interfaces;
+using LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services.Interfaces;
 
 namespace LoLRunes.Application.Services
 {

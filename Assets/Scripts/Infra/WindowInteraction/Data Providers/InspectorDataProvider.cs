@@ -1,5 +1,5 @@
-﻿using LoLRunes.Domain.ScriptableObjects;
-using LoLRunes.Shared.Enums;
+﻿using LoLRunes.Shared.Enums;
+using LoLRunes.Shared.ScriptableObjects;
 using UnityEngine;
 
 namespace LoLRunes.Infra

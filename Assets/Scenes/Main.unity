@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070c1ebb624d8074eb1bd4ee613a76f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resolutionRunePositionConfig_01: {fileID: 11400000, guid: d27d5a7beb34c7e4a9063f2263a19edd,
+  _resolutionRunePositionConfig_01: {fileID: 11400000, guid: 0d0e30dae77540247968660f9c874e2d,
     type: 2}
 --- !u!114 &258674959
 MonoBehaviour:

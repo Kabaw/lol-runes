@@ -1,5 +1,5 @@
-﻿using LoLRunes.Domain.ScriptableObjects;
-using LoLRunes.Shared.Enums;
+﻿using LoLRunes.Shared.Enums;
+using LoLRunes.Shared.ScriptableObjects;
 
 namespace LoLRunes.Infra
 {

@@ -5,6 +5,8 @@ using LoLRunes.Domain.Services;
 using LoLRunes.Domain.Services.Interfaces;
 using LoLRunes.Infra;
 using LoLRunes.Infra.Core;
+using LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services;
+using LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services.Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -25,7 +27,7 @@ public class AppInstaller : MonoInstaller<AppInstaller>
 
         //Domain WindowInteraction
         Container.Bind<ICalibrationService>().To<CalibrationService>().AsSingle();
-        Container.Bind<IRunePagePositionService>().To<RunePagePositionService>().AsSingle();     
+        Container.Bind<IRunePagePositionService>().To<RunePagePositionService>().AsSingle();
         Container.Bind<ILeagueWindowInteractionService>().To<LeagueWindowInteractionService>().AsSingle();
         Container.Bind<IWindowCalibrationService>().To<WindowCalibrationService>().AsSingle();
         

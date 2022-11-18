@@ -1,4 +1,5 @@
 ﻿using LoLRunes.Domain.Models;
+using LoLRunes.LeagueClienteCommunication.Strategies.Interfaces;
 using LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services.Interfaces;
 using LoLRunes.Shared.CustumData;
 using LoLRunes.Shared.Enums;
@@ -12,7 +13,7 @@ using Zenject;
 
 namespace LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services
 {
-    public class LeagueWindowInteractionService : ILeagueWindowInteractionService
+    public class LeagueWindowInteractionService : ILeagueWindowInteractionService, ILccRuneStrategy
     {
         private readonly string LOL_WINDOW_NAME = "League of Legends";
         private readonly string LOL_PROCESS_NAME = "LeagueClientUx";
@@ -21,6 +22,7 @@ namespace LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Servi
         [Inject]
         public LeagueWindowInteractionService(IRunePagePositionService runePagePositionService)
         {
+            Debug.Log("Alright");
             this.runePagePositionService = runePagePositionService;
         }
 

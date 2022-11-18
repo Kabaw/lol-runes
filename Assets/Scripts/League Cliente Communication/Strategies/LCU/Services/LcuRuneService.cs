@@ -1,17 +1,18 @@
+using LoLRunes.Domain.Models;
+using LoLRunes.LeagueClienteCommunication.Strategies.Interfaces;
 using UnityEngine;
 
 namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
 {
-    public class LcuRuneService : MonoBehaviour
+    public class LcuRuneService : ILccRuneStrategy
     {
         // Start is called before the first frame update
-        void Start()
+        public LcuRuneService()
         {
-
+            
         }
 
-        // Update is called once per frame
-        void Update()
+        public void ApplyRunePage(RunePage runePage)
         {
 
         }

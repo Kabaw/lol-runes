@@ -2,7 +2,7 @@
 using LoLRunes.Domain.Models;
 using LoLRunes.Domain.Services.Commands;
 using LoLRunes.Domain.Services.Interfaces;
-using LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services.Interfaces;
+using LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services;
 using LoLRunes.View.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -14,13 +14,13 @@ namespace LoLRunes.Application.Services
     {
         private IRuneService runeService;
         private IRunePageService runePageService;
-        private ILeagueWindowInteractionService windowInteraction;
+        private ILccRuneService lccRuneService;
 
-        public RunePageAppService(IRuneService runeService, IRunePageService runePageService, ILeagueWindowInteractionService leagueWindowInteractionService)
+        public RunePageAppService(IRuneService runeService, IRunePageService runePageService, ILccRuneService lccRuneService)
         {
             this.runeService = runeService;
             this.runePageService = runePageService;
-            this.windowInteraction = leagueWindowInteractionService;
+            this.lccRuneService = lccRuneService;
         }
 
         public void ApplyRunePage(RunePageViewModel runePageViewModel)
@@ -31,7 +31,7 @@ namespace LoLRunes.Application.Services
 
             RunePage runePage = runePageService.Instantiate(command);
 
-            windowInteraction.ApplyRunePage(runePage);
+            lccRuneService.ApplyRunePage(runePage);
         }
 
         public RunePageViewModel SaveRunePage(RunePageViewModel runePageViewModel)

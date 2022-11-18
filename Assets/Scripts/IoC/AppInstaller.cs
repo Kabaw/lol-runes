@@ -5,6 +5,7 @@ using LoLRunes.Domain.Services;
 using LoLRunes.Domain.Services.Interfaces;
 using LoLRunes.Infra;
 using LoLRunes.Infra.Core;
+using LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services;
 using LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services;
 using LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services.Interfaces;
 using UnityEngine;
@@ -25,12 +26,26 @@ public class AppInstaller : MonoInstaller<AppInstaller>
         Container.Bind<IRuneService>().To<RuneService>().AsSingle();
         Container.Bind<IRunePageService>().To<RunePageService>().AsSingle();
 
-        //Domain WindowInteraction
+        #region Window Interaction
+        //Window Interaction - Interfaces
         Container.Bind<ICalibrationService>().To<CalibrationService>().AsSingle();
         Container.Bind<IRunePagePositionService>().To<RunePagePositionService>().AsSingle();
-        Container.Bind<ILeagueWindowInteractionService>().To<LeagueWindowInteractionService>().AsSingle();
+
+        var windowInteractionService = Container.Instantiate<LeagueWindowInteractionService>();
+        Container.Bind<ILeagueWindowInteractionService>().FromInstance(windowInteractionService);
+
         Container.Bind<IWindowCalibrationService>().To<WindowCalibrationService>().AsSingle();
-        
+
+        //Window Interaction - Implementations
+        Container.Bind<LeagueWindowInteractionService>().FromInstance(windowInteractionService);
+        #endregion
+
+        //LCU - Implementations
+        Container.Bind<LcuRuneService>().AsSingle();
+
+        //LCC - Implementations
+        Container.Bind<ILccRuneService>().To<LccRuneService>().AsSingle();
+
         //Aplication
         Container.Bind<ICalibrationAppService>().To<CalibrationAppService>().AsSingle();
         Container.Bind<IRunePageAppService>().To<RunePageAppService>().AsSingle();

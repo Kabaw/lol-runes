@@ -5,7 +5,6 @@ namespace LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Servi
 {
     public interface ILeagueWindowInteractionService
     {
-        void ApplyRunePage(RunePage runePage);
         Point2D GetWindowTopLeftPoint();
         void SetFrontWindow();
     }

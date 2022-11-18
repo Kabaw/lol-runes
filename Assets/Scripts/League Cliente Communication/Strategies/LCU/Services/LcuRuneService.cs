@@ -91,9 +91,20 @@ namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
             var body = JsonConvert.SerializeObject(new
             {
                 name = RUNE_PAGE_NAME,
-                primaryStyleId = 8300,
-                subStyleId = 8400,
-                selectedPerkIds = new int[] { 8351, 8313, 8345, 8347, 8451, 8444, 5007, 5002, 5001 },
+                primaryStyleId = (int)runePage.MainPath.RuneType,
+                subStyleId = (int)runePage.SidePath.RuneType,
+                selectedPerkIds = new int[]
+                {
+                    (int)runePage.KeyStone.RuneType,
+                    (int)runePage.MainPathRune_01.RuneType,
+                    (int)runePage.MainPathRune_02.RuneType,
+                    (int)runePage.MainPathRune_03.RuneType,
+                    (int)runePage.SidePathRune_01.RuneType,
+                    (int)runePage.SidePathRune_02.RuneType,
+                    (int)runePage.RuneShardAttack.RuneType,
+                    (int)runePage.RuneShardDefence.RuneType,
+                    (int)runePage.RuneShardFlex.RuneType
+                },
                 current = true
             });
 

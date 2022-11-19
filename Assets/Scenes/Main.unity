@@ -6407,11 +6407,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: LoLRunes.View.UI.RuneButton, View
       objectReference: {fileID: 0}
-    - target: {fileID: 1530085503796634378, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
-        type: 3}
-      propertyPath: _runeType
-      value: 8000
-      objectReference: {fileID: 0}
     - target: {fileID: 1700802484000950976, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}
       propertyPath: m_text
@@ -8886,11 +8881,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: LoLRunes.View.UI.RuneButton, View
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530085503796634378, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
-        type: 3}
-      propertyPath: _runeType
-      value: 8000
       objectReference: {fileID: 0}
     - target: {fileID: 1700802485460774209, guid: faa5eb6e8a34c9d44b5e6559a02cf9a7,
         type: 3}

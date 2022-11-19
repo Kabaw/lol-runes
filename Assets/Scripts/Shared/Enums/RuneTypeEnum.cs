@@ -7,331 +7,331 @@ namespace LoLRunes.Shared.Enums
         #region Precision
         [RuneGroup(RuneGroupEnum.PATH)]
         [RunePositionReference(RunePositionReferenceEnum.PATH_01)]
-        PRECISION_PATH = 8000,
+        PRECISION_PATH,
 
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_01_01)]
-        PRECISION_KEYSTONE_01 = 8005,
+        PRECISION_KEYSTONE_01,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_01_02)]
-        PRECISION_KEYSTONE_02 = 8008,
+        PRECISION_KEYSTONE_02,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_01_03)]
-        PRECISION_KEYSTONE_03 = 8021,
+        PRECISION_KEYSTONE_03,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_01_04)]
-        PRECISION_KEYSTONE_04 = 8010,
+        PRECISION_KEYSTONE_04,
 
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_01)]
-        PRECISION_RUNE_SLOT_01 = 9101,
+        PRECISION_RUNE_SLOT_01,
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_02)]
-        PRECISION_RUNE_SLOT_02 = 1,
+        PRECISION_RUNE_SLOT_02,
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_03)]
-        PRECISION_RUNE_SLOT_03 = 2,
+        PRECISION_RUNE_SLOT_03,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_01)]
-        PRECISION_RUNE_SLOT_04 = 9104,
+        PRECISION_RUNE_SLOT_04,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_02)]
-        PRECISION_RUNE_SLOT_05 = 3,
+        PRECISION_RUNE_SLOT_05,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_03)]
-        PRECISION_RUNE_SLOT_06 = 4,
+        PRECISION_RUNE_SLOT_06,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_01)]
-        PRECISION_RUNE_SLOT_07 = 8014,
+        PRECISION_RUNE_SLOT_07,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_02)]
-        PRECISION_RUNE_SLOT_08 = 5,
+        PRECISION_RUNE_SLOT_08,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_03)]
-        PRECISION_RUNE_SLOT_09 = 6,
+        PRECISION_RUNE_SLOT_09,
         #endregion
 
         #region Domination
         [RuneGroup(RuneGroupEnum.PATH)]
         [RunePositionReference(RunePositionReferenceEnum.PATH_02)]
-        DOMINATION_PATH = 8100,
+        DOMINATION_PATH,
 
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_01_01)]
-        DOMINATION_KEYSTONE_01 = 8112,
+        DOMINATION_KEYSTONE_01,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_01_02)]
-        DOMINATION_KEYSTONE_02 = 7,
+        DOMINATION_KEYSTONE_02,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_01_03)]
-        DOMINATION_KEYSTONE_03 = 8,
+        DOMINATION_KEYSTONE_03,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_01_04)]
-        DOMINATION_KEYSTONE_04 = 9,
+        DOMINATION_KEYSTONE_04,
 
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_01)]
-        DOMINATION_RUNE_SLOT_01 = 8126,
+        DOMINATION_RUNE_SLOT_01,
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_02)]
-        DOMINATION_RUNE_SLOT_02 = 10,
+        DOMINATION_RUNE_SLOT_02,
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_03)]
-        DOMINATION_RUNE_SLOT_03 = 11,
+        DOMINATION_RUNE_SLOT_03,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_01)]
-        DOMINATION_RUNE_SLOT_04 = 8136,
+        DOMINATION_RUNE_SLOT_04,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_02)]
-        DOMINATION_RUNE_SLOT_05 = 12,
+        DOMINATION_RUNE_SLOT_05,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_03)]
-        DOMINATION_RUNE_SLOT_06 = 13,
+        DOMINATION_RUNE_SLOT_06,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_04_01)]
-        DOMINATION_RUNE_SLOT_07 = 8135,
+        DOMINATION_RUNE_SLOT_07,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_04_02)]
-        DOMINATION_RUNE_SLOT_08 = 14,
+        DOMINATION_RUNE_SLOT_08,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_04_03)]
-        DOMINATION_RUNE_SLOT_09 = 15,
+        DOMINATION_RUNE_SLOT_09,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_04_04)]
-        DOMINATION_RUNE_SLOT_10 = 16,
+        DOMINATION_RUNE_SLOT_10,
         #endregion
 
         #region Sorcery
         [RuneGroup(RuneGroupEnum.PATH)]
         [RunePositionReference(RunePositionReferenceEnum.PATH_03)]
-        SORCERY_PATH = 17,
+        SORCERY_PATH,
 
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_02_01)]
-        SORCERY_KEYSTONE_01 = 18,
+        SORCERY_KEYSTONE_01,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_02_02)]
-        SORCERY_KEYSTONE_02 = 19,
+        SORCERY_KEYSTONE_02,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_02_03)]
-        SORCERY_KEYSTONE_03 = 20,
+        SORCERY_KEYSTONE_03,
 
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_01)]
-        SORCERY_RUNE_SLOT_01 = 21,
+        SORCERY_RUNE_SLOT_01,
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_02)]
-        SORCERY_RUNE_SLOT_02 = 22,
+        SORCERY_RUNE_SLOT_02,
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_03)]
-        SORCERY_RUNE_SLOT_03 = 23,
+        SORCERY_RUNE_SLOT_03,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_01)]
-        SORCERY_RUNE_SLOT_04 = 24,
+        SORCERY_RUNE_SLOT_04,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_02)]
-        SORCERY_RUNE_SLOT_05 = 25,
+        SORCERY_RUNE_SLOT_05,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_03)]
-        SORCERY_RUNE_SLOT_06 = 26,
+        SORCERY_RUNE_SLOT_06,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_01)]
-        SORCERY_RUNE_SLOT_07 = 27,
+        SORCERY_RUNE_SLOT_07,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_02)]
-        SORCERY_RUNE_SLOT_08 = 28,
+        SORCERY_RUNE_SLOT_08,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_03)]
-        SORCERY_RUNE_SLOT_09 = 29,
+        SORCERY_RUNE_SLOT_09,
         #endregion
 
         #region Resolve
         [RuneGroup(RuneGroupEnum.PATH)]
         [RunePositionReference(RunePositionReferenceEnum.PATH_04)]
-        RESOLVE_PATH = 30,
+        RESOLVE_PATH,
 
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_02_01)]
-        RESOLVE_KEYSTONE_01 = 31,
+        RESOLVE_KEYSTONE_01,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_02_02)]
-        RESOLVE_KEYSTONE_02 = 32,
+        RESOLVE_KEYSTONE_02,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_02_03)]
-        RESOLVE_KEYSTONE_03 = 33,
+        RESOLVE_KEYSTONE_03,
 
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_01)]
-        RESOLVE_RUNE_SLOT_01 = 34,
+        RESOLVE_RUNE_SLOT_01,
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_02)]
-        RESOLVE_RUNE_SLOT_02 = 35,
+        RESOLVE_RUNE_SLOT_02,
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_03)]
-        RESOLVE_RUNE_SLOT_03 = 36,
+        RESOLVE_RUNE_SLOT_03,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_01)]
-        RESOLVE_RUNE_SLOT_04 = 37,
+        RESOLVE_RUNE_SLOT_04,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_02)]
-        RESOLVE_RUNE_SLOT_05 = 38,
+        RESOLVE_RUNE_SLOT_05,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_03)]
-        RESOLVE_RUNE_SLOT_06 = 39,
+        RESOLVE_RUNE_SLOT_06,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_01)]
-        RESOLVE_RUNE_SLOT_07 = 40,
+        RESOLVE_RUNE_SLOT_07,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_02)]
-        RESOLVE_RUNE_SLOT_08 = 41,
+        RESOLVE_RUNE_SLOT_08,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_03)]
-        RESOLVE_RUNE_SLOT_09 = 42,
+        RESOLVE_RUNE_SLOT_09,
         #endregion
 
         #region Inspiration
         [RuneGroup(RuneGroupEnum.PATH)]
         [RunePositionReference(RunePositionReferenceEnum.PATH_05)]
-        INPIRATION_PATH = 43,
+        INPIRATION_PATH,
 
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_02_01)]
-        INPIRATION_KEYSTONE_01 = 44,
+        INPIRATION_KEYSTONE_01,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_02_02)]
-        INPIRATION_KEYSTONE_02 = 45,
+        INPIRATION_KEYSTONE_02,
 
         [RuneGroup(RuneGroupEnum.KEYSTONE)]
         [RunePositionReference(RunePositionReferenceEnum.KEYSTONE_02_03)]
-        INPIRATION_KEYSTONE_03 = 46,
+        INPIRATION_KEYSTONE_03,
 
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_01)]
-        INPIRATION_RUNE_SLOT_01 = 47,
+        INPIRATION_RUNE_SLOT_01,
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_02)]
-        INPIRATION_RUNE_SLOT_02 = 48,
+        INPIRATION_RUNE_SLOT_02,
 
         [RuneGroup(RuneGroupEnum.RUNE_01)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_01_03)]
-        INPIRATION_RUNE_SLOT_03 = 49,
+        INPIRATION_RUNE_SLOT_03,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_01)]
-        INPIRATION_RUNE_SLOT_04 = 50,
+        INPIRATION_RUNE_SLOT_04,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_02)]
-        INPIRATION_RUNE_SLOT_05 = 51,
+        INPIRATION_RUNE_SLOT_05,
 
         [RuneGroup(RuneGroupEnum.RUNE_02)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_02_03)]
-        INPIRATION_RUNE_SLOT_06 = 52,
+        INPIRATION_RUNE_SLOT_06,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_01)]
-        INPIRATION_RUNE_SLOT_07 = 53,
+        INPIRATION_RUNE_SLOT_07,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_02)]
-        INPIRATION_RUNE_SLOT_08 = 54,
+        INPIRATION_RUNE_SLOT_08,
 
         [RuneGroup(RuneGroupEnum.RUNE_03)]
         [RunePositionReference(RunePositionReferenceEnum.RUNE_SLOT_03_03)]
-        INPIRATION_RUNE_SLOT_09 = 55,
+        INPIRATION_RUNE_SLOT_09,
         #endregion
 
         #region Rune Shards
         [RuneGroup(RuneGroupEnum.SHARDS_ATTACK)]
         [RunePositionReference(RunePositionReferenceEnum.SHARDS_SLOT_01_01)]
-        SHARD_SLOT_01 = 5008,
+        SHARD_SLOT_01,
 
         [RuneGroup(RuneGroupEnum.SHARDS_ATTACK)]
         [RunePositionReference(RunePositionReferenceEnum.SHARDS_SLOT_01_02)]
-        SHARD_SLOT_02 = 5005,
+        SHARD_SLOT_02,
 
         [RuneGroup(RuneGroupEnum.SHARDS_ATTACK)]
         [RunePositionReference(RunePositionReferenceEnum.SHARDS_SLOT_01_03)]
-        SHARD_SLOT_03 = 5007,
+        SHARD_SLOT_03,
 
         [RuneGroup(RuneGroupEnum.SHARDS_FLEX)]
         [RunePositionReference(RunePositionReferenceEnum.SHARDS_SLOT_02_01)]
-        SHARD_SLOT_04 = 5008,
+        SHARD_SLOT_04,
 
         [RuneGroup(RuneGroupEnum.SHARDS_FLEX)]
         [RunePositionReference(RunePositionReferenceEnum.SHARDS_SLOT_02_02)]
-        SHARD_SLOT_05 = 5002,
+        SHARD_SLOT_05,
 
         [RuneGroup(RuneGroupEnum.SHARDS_FLEX)]
         [RunePositionReference(RunePositionReferenceEnum.SHARDS_SLOT_02_03)]
-        SHARD_SLOT_06 = 5003,
+        SHARD_SLOT_06,
 
         [RuneGroup(RuneGroupEnum.SHARDS_DEFENCE)]
         [RunePositionReference(RunePositionReferenceEnum.SHARDS_SLOT_03_01)]
-        SHARD_SLOT_07 = 5001,
+        SHARD_SLOT_07,
 
         [RuneGroup(RuneGroupEnum.SHARDS_DEFENCE)]
         [RunePositionReference(RunePositionReferenceEnum.SHARDS_SLOT_03_02)]
-        SHARD_SLOT_08 = 5002,
+        SHARD_SLOT_08,
 
         [RuneGroup(RuneGroupEnum.SHARDS_DEFENCE)]
         [RunePositionReference(RunePositionReferenceEnum.SHARDS_SLOT_03_03)]
-        SHARD_SLOT_09 = 5003,
+        SHARD_SLOT_09,
         #endregion
     }
 }

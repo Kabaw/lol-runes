@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ff5cd56fda0ca4a93740dd71bbbfe0, type: 3}
+  m_Name: LcuRuneIdConfig_01
+  m_EditorClassIdentifier: 
+  precision:
+    id: 8000
+    runeType: 0
+  domination:
+    id: 8100
+    runeType: 0
+  sorcery:
+    id: 
+    runeType: 0
+  resolve:
+    id: 
+    runeType: 0
+  inspiration:
+    id: 
+    runeType: 0
+  precisionKeyStone_01:
+    id: 8005
+    runeType: 0
+  precisionKeyStone_02:
+    id: 
+    runeType: 0
+  precisionKeyStone_03:
+    id: 
+    runeType: 0
+  precisionKeyStone_04:
+    id: 
+    runeType: 0
+  precisionRuneSlot_01:
+    id: 9101
+    runeType: 0
+  precisionRuneSlot_02:
+    id: 
+    runeType: 0
+  precisionRuneSlot_03:
+    id: 
+    runeType: 0
+  precisionRuneSlot_04:
+    id: 9104
+    runeType: 0
+  precisionRuneSlot_05:
+    id: 
+    runeType: 0
+  precisionRuneSlot_06:
+    id: 
+    runeType: 0
+  precisionRuneSlot_07:
+    id: 8014
+    runeType: 0
+  precisionRuneSlot_08:
+    id: 
+    runeType: 0
+  precisionRuneSlot_09:
+    id: 
+    runeType: 0
+  dominationKeyStone_01:
+    id: 8112
+    runeType: 0
+  dominationKeyStone_02:
+    id: 
+    runeType: 0
+  dominationKeyStone_03:
+    id: 
+    runeType: 0
+  dominationKeyStone_04:
+    id: 
+    runeType: 0
+  dominationRuneSlot_01:
+    id: 8126
+    runeType: 0
+  dominationRuneSlot_02:
+    id: 
+    runeType: 0
+  dominationRuneSlot_03:
+    id: 
+    runeType: 0
+  dominationRuneSlot_04:
+    id: 8136
+    runeType: 0
+  dominationRuneSlot_05:
+    id: 
+    runeType: 0
+  dominationRuneSlot_06:
+    id: 
+    runeType: 0
+  dominationRuneSlot_07:
+    id: 8135
+    runeType: 0
+  dominationRuneSlot_08:
+    id: 
+    runeType: 0
+  dominationRuneSlot_09:
+    id: 
+    runeType: 0
+  dominationRuneSlot_10:
+    id: 
+    runeType: 0
+  sorceryKeyStone_01:
+    id: 
+    runeType: 0
+  sorceryKeyStone_02:
+    id: 
+    runeType: 0
+  sorceryKeyStone_03:
+    id: 
+    runeType: 0
+  sorceryRuneSlot_01:
+    id: 
+    runeType: 0
+  sorceryRuneSlot_02:
+    id: 
+    runeType: 0
+  sorceryRuneSlot_03:
+    id: 
+    runeType: 0
+  sorceryRuneSlot_04:
+    id: 
+    runeType: 0
+  sorceryRuneSlot_05:
+    id: 
+    runeType: 0
+  sorceryRuneSlot_06:
+    id: 
+    runeType: 0
+  sorceryRuneSlot_07:
+    id: 
+    runeType: 0
+  sorceryRuneSlot_08:
+    id: 
+    runeType: 0
+  sorceryRuneSlot_09:
+    id: 
+    runeType: 0
+  resolveKeyStone_01:
+    id: 
+    runeType: 0
+  resolveKeyStone_02:
+    id: 
+    runeType: 0
+  resolveKeyStone_03:
+    id: 
+    runeType: 0
+  resolveRuneSlot_01:
+    id: 
+    runeType: 0
+  resolveRuneSlot_02:
+    id: 
+    runeType: 0
+  resolveRuneSlot_03:
+    id: 
+    runeType: 0
+  resolveRuneSlot_04:
+    id: 
+    runeType: 0
+  resolveRuneSlot_05:
+    id: 
+    runeType: 0
+  resolveRuneSlot_06:
+    id: 
+    runeType: 0
+  resolveRuneSlot_07:
+    id: 
+    runeType: 0
+  resolveRuneSlot_08:
+    id: 
+    runeType: 0
+  resolveRuneSlot_09:
+    id: 
+    runeType: 0
+  inspirationKeyStone_01:
+    id: 
+    runeType: 0
+  inspirationKeyStone_02:
+    id: 
+    runeType: 0
+  inspirationKeyStone_03:
+    id: 
+    runeType: 0
+  inspirationRuneSlot_01:
+    id: 
+    runeType: 0
+  inspirationRuneSlot_02:
+    id: 
+    runeType: 0
+  inspirationRuneSlot_03:
+    id: 
+    runeType: 0
+  inspirationRuneSlot_04:
+    id: 
+    runeType: 0
+  inspirationRuneSlot_05:
+    id: 
+    runeType: 0
+  inspirationRuneSlot_06:
+    id: 
+    runeType: 0
+  inspirationRuneSlot_07:
+    id: 
+    runeType: 0
+  inspirationRuneSlot_08:
+    id: 
+    runeType: 0
+  inspirationRuneSlot_09:
+    id: 
+    runeType: 0
+  shardSlot_01:
+    id: 5008
+    runeType: 0
+  shardSlot_02:
+    id: 
+    runeType: 0
+  shardSlot_03:
+    id: 
+    runeType: 0
+  shardSlot_04:
+    id: 5008
+    runeType: 0
+  shardSlot_05:
+    id: 
+    runeType: 0
+  shardSlot_06:
+    id: 
+    runeType: 0
+  shardSlot_07:
+    id: 5001
+    runeType: 0
+  shardSlot_08:
+    id: 
+    runeType: 0
+  shardSlot_09:
+    id: 
+    runeType: 0

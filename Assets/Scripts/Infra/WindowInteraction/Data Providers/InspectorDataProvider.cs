@@ -11,9 +11,11 @@ namespace LoLRunes.Infra
         #endregion
 
         [SerializeField] private ResolutionRunePositionConfig _resolutionRunePositionConfig_01;
+        [SerializeField] LcuRuneIdConfig lcuRuneIdConfig_01;
 
         public RuneMenuEnum runeMenu { get; set; }
         public ResolutionRunePositionConfig activeResolutionRunePositionConfig { get; private set; }
+        public LcuRuneIdConfig lcuRuneIdConfig { get; private set; }
 
         private void Awake()
         {
@@ -30,6 +32,7 @@ namespace LoLRunes.Infra
         {
             runeMenu = RuneMenuEnum.CHAMPION_SELECTION_SCREEN;
             activeResolutionRunePositionConfig = _resolutionRunePositionConfig_01;
+            lcuRuneIdConfig = lcuRuneIdConfig_01;
         }
     }
 }

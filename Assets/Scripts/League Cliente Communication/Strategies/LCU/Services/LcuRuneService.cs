@@ -7,6 +7,9 @@ using System.Collections;
 using System.Threading.Tasks;
 using PoniLCU;
 using static PoniLCU.LeagueClient;
+using LoLRunes.Shared.Dtos;
+using LoLRunes.Infra;
+using LoLRunes.Shared.ScriptableObjects;
 
 namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
 {
@@ -15,10 +18,12 @@ namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
         private readonly string RUNE_PAGE_NAME = "LolRunes";
 
         private LeagueClient leagueClient;
+        private LcuRuneIdConfig lcuRuneIdConfig;
 
-        public LcuRuneService()
+        public LcuRuneService(IInspectorDataProvider inspectorDataProvider)
         {
             leagueClient = new LeagueClient(credentials.cmd);
+            lcuRuneIdConfig = inspectorDataProvider.lcuRuneIdConfig;
         }
 
         public void ApplyRunePage(RunePage runePage)
@@ -49,8 +54,6 @@ namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
 
             data = await leagueClient.Request(requestMethod.GET, "/lol-perks/v1/pages");
             var pages = JArray.Parse(data);
-
-            //Console.WriteLine($"Pages used {pages.Count}. Pages owned: {invertoryInfo["ownedPageCount"]}");
 
             var pageIndex = -1;
 
@@ -88,6 +91,8 @@ namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
 
         private async Task ApplyRunesToPage(RunePage runePage)
         {
+            var lcuRunePage = ExtractLcuRunePage(runePage);
+
             var body = JsonConvert.SerializeObject(new
             {
                 name = RUNE_PAGE_NAME,
@@ -95,20 +100,36 @@ namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
                 subStyleId = (int)runePage.SidePath.RuneType,
                 selectedPerkIds = new int[]
                 {
-                    (int)runePage.KeyStone.RuneType,
-                    (int)runePage.MainPathRune_01.RuneType,
-                    (int)runePage.MainPathRune_02.RuneType,
-                    (int)runePage.MainPathRune_03.RuneType,
-                    (int)runePage.SidePathRune_01.RuneType,
-                    (int)runePage.SidePathRune_02.RuneType,
-                    (int)runePage.RuneShardAttack.RuneType,
-                    (int)runePage.RuneShardDefence.RuneType,
-                    (int)runePage.RuneShardFlex.RuneType
+                    lcuRunePage.KeyStone,
+                    lcuRunePage.MainPathRune_01,
+                    lcuRunePage.MainPathRune_02,
+                    lcuRunePage.MainPathRune_03,
+                    lcuRunePage.SidePathRune_01,
+                    lcuRunePage.SidePathRune_02,
+                    lcuRunePage.RuneShardAttack,
+                    lcuRunePage.RuneShardDefence,
+                    lcuRunePage.RuneShardFlex
                 },
                 current = true
             });
 
             var request = await leagueClient.Request(requestMethod.POST, "lol-perks/v1/pages", body);
+        }
+
+        public LcuRunePage ExtractLcuRunePage(RunePage runePage)
+        {
+            return new LcuRunePage(runePage.Name,
+                lcuRuneIdConfig.lcuIdMapping[runePage.MainPath.RuneType],
+                lcuRuneIdConfig.lcuIdMapping[runePage.SidePath.RuneType],
+                lcuRuneIdConfig.lcuIdMapping[runePage.KeyStone.RuneType],
+                lcuRuneIdConfig.lcuIdMapping[runePage.MainPathRune_01.RuneType],
+                lcuRuneIdConfig.lcuIdMapping[runePage.MainPathRune_02.RuneType],
+                lcuRuneIdConfig.lcuIdMapping[runePage.MainPathRune_03.RuneType],
+                lcuRuneIdConfig.lcuIdMapping[runePage.SidePathRune_01.RuneType],
+                lcuRuneIdConfig.lcuIdMapping[runePage.SidePathRune_02.RuneType],
+                lcuRuneIdConfig.lcuIdMapping[runePage.RuneShardAttack.RuneType],
+                lcuRuneIdConfig.lcuIdMapping[runePage.RuneShardDefence.RuneType],
+                lcuRuneIdConfig.lcuIdMapping[runePage.RuneShardFlex.RuneType]);
         }
     }
 }

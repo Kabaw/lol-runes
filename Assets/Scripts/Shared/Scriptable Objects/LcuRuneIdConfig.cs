@@ -214,13 +214,13 @@ namespace LoLRunes.Shared.ScriptableObjects
             #endregion
 
             #region Shards
-            //lcuIdMapping.Add(shardSlot_01.runeType, shardSlot_01.id);
+            lcuIdMapping.Add(shardSlot_01.runeType, shardSlot_01.id);
             //lcuIdMapping.Add(shardSlot_02.runeType, shardSlot_02.id);
             //lcuIdMapping.Add(shardSlot_03.runeType, shardSlot_03.id);
-            //lcuIdMapping.Add(shardSlot_04.runeType, shardSlot_04.id);
+            lcuIdMapping.Add(shardSlot_04.runeType, shardSlot_04.id);
             //lcuIdMapping.Add(shardSlot_05.runeType, shardSlot_05.id);
             //lcuIdMapping.Add(shardSlot_06.runeType, shardSlot_06.id);
-            //lcuIdMapping.Add(shardSlot_07.runeType, shardSlot_07.id);
+            lcuIdMapping.Add(shardSlot_07.runeType, shardSlot_07.id);
             //lcuIdMapping.Add(shardSlot_08.runeType, shardSlot_08.id);
             //lcuIdMapping.Add(shardSlot_09.runeType, shardSlot_09.id);
             #endregion

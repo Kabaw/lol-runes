@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lcuEnginePath: D:/Git/Lcu-Engine/Lcu-Engine/bin/Debug/net6.0
   _lcuEngineFileName: Lcu-Engine.exe
-  lcuRuneIdConfig: {fileID: 11400000, guid: aa9021620d3c7b94e90499e4925540a7, type: 2}
+  lcuRuneIdConfig: {fileID: 11400000, guid: 23ad85690dd1b494789d75faaf7cc766, type: 2}
   resolutionRunePositionConfig_01: {fileID: 11400000, guid: 0d0e30dae77540247968660f9c874e2d,
     type: 2}
 --- !u!114 &258674959

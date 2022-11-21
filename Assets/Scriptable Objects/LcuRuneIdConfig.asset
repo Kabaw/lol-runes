@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9ff5cd56fda0ca4a93740dd71bbbfe0, type: 3}
-  m_Name: LcuRuneIdConfig_01
+  m_Name: LcuRuneIdConfig
   m_EditorClassIdentifier: 
   precision:
     id: 8000
     runeType: 0
   domination:
     id: 8100
-    runeType: 0
+    runeType: 14
   sorcery:
     id: 
     runeType: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
     runeType: 0
   precisionKeyStone_01:
     id: 8005
-    runeType: 0
+    runeType: 1
   precisionKeyStone_02:
     id: 
     runeType: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     runeType: 0
   precisionRuneSlot_01:
     id: 9101
-    runeType: 0
+    runeType: 5
   precisionRuneSlot_02:
     id: 
     runeType: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
     runeType: 0
   precisionRuneSlot_04:
     id: 9104
-    runeType: 0
+    runeType: 8
   precisionRuneSlot_05:
     id: 
     runeType: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     runeType: 0
   precisionRuneSlot_07:
     id: 8014
-    runeType: 0
+    runeType: 11
   precisionRuneSlot_08:
     id: 
     runeType: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
     runeType: 0
   dominationKeyStone_01:
     id: 8112
-    runeType: 0
+    runeType: 15
   dominationKeyStone_02:
     id: 
     runeType: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
     runeType: 0
   dominationRuneSlot_01:
     id: 8126
-    runeType: 0
+    runeType: 19
   dominationRuneSlot_02:
     id: 
     runeType: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
     runeType: 0
   dominationRuneSlot_04:
     id: 8136
-    runeType: 0
+    runeType: 22
   dominationRuneSlot_05:
     id: 
     runeType: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
     runeType: 0
   dominationRuneSlot_07:
     id: 8135
-    runeType: 0
+    runeType: 25
   dominationRuneSlot_08:
     id: 
     runeType: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
     runeType: 0
   shardSlot_01:
     id: 5008
-    runeType: 0
+    runeType: 68
   shardSlot_02:
     id: 
     runeType: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
     runeType: 0
   shardSlot_04:
     id: 5008
-    runeType: 0
+    runeType: 71
   shardSlot_05:
     id: 
     runeType: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
     runeType: 0
   shardSlot_07:
     id: 5001
-    runeType: 0
+    runeType: 74
   shardSlot_08:
     id: 
     runeType: 0

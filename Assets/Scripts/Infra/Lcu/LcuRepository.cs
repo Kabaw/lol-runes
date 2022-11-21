@@ -3,6 +3,8 @@ using LoLRunes.Infra;
 using LoLRunes.LeagueClienteCommunication.Strategies.LCU.Repositories;
 using LoLRunes.Shared.Dtos;
 using System.Diagnostics;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Assets.Scripts.Infra.Lcu
 {
@@ -19,9 +21,21 @@ namespace Assets.Scripts.Infra.Lcu
         {
             using(var process = new Process())
             {
-                process.StartInfo.FileName = inspectorDataProvider.lcuEnginePath;
+                var port = GetFreeTcpPort();
+
+                process.StartInfo.FileName = inspectorDataProvider.lcuEnginePath + "/" + inspectorDataProvider.lcuEngineFileName;
+                //process.StartInfo.Arguments
                 process.Start();
             }            
+        }
+
+        private int GetFreeTcpPort()
+        {
+            TcpListener listener = new TcpListener(IPAddress.Loopback, 0);
+            listener.Start();
+            int port = ((IPEndPoint)listener.LocalEndpoint).Port;
+            listener.Stop();
+            return port;
         }
     }
 }

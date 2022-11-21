@@ -1,13 +1,15 @@
 ﻿using LoLRunes.Shared.Enums;
 using LoLRunes.Shared.ScriptableObjects;
+using System.Collections.Generic;
 
 namespace LoLRunes.Infra
 {
     public interface IInspectorDataProvider
     {
-        public string lcuEnginePath { get; }
+        string lcuEnginePath { get; }
+        string lcuEngineFileName { get; }
         RuneMenuEnum runeMenu { get; set; }
-        LcuRuneIdConfig lcuRuneIdConfig { get; }
+        Dictionary<RuneTypeEnum, string> lcuIdMapping { get; }
         ResolutionRunePositionConfig activeResolutionRunePositionConfig { get; }
     }
 }   

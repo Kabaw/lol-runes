@@ -17,7 +17,7 @@ namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
             this.lcuRuneService = lcuRuneService;
             this.leagueWindowInteractionService = leagueWindowInteractionService;
 
-            currentStrategy = leagueWindowInteractionService;
+            currentStrategy = this.lcuRuneService;
         }
 
         public void ApplyRunePage(RunePage runePage)

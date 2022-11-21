@@ -16,12 +16,12 @@ namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
     {
         private readonly string RUNE_PAGE_NAME = "LolRunes";
         private ILcuRepository lcuRepository;
-        private LcuRuneIdConfig lcuRuneIdConfig;
+        private IInspectorDataProvider inspectorDataProvider;
 
         public LcuRuneService(ILcuRepository lcuRepository, IInspectorDataProvider inspectorDataProvider)
         {
-            lcuRuneIdConfig = inspectorDataProvider.lcuRuneIdConfig;
             this.lcuRepository = lcuRepository;
+            this.inspectorDataProvider = inspectorDataProvider;
         }
 
         public void ApplyRunePage(RunePage runePage)
@@ -32,17 +32,17 @@ namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
         public LcuRunePage ExtractLcuRunePage(RunePage runePage)
         {
             return new LcuRunePage(runePage.Name,
-                lcuRuneIdConfig.lcuIdMapping[runePage.MainPath.RuneType],
-                lcuRuneIdConfig.lcuIdMapping[runePage.SidePath.RuneType],
-                lcuRuneIdConfig.lcuIdMapping[runePage.KeyStone.RuneType],
-                lcuRuneIdConfig.lcuIdMapping[runePage.MainPathRune_01.RuneType],
-                lcuRuneIdConfig.lcuIdMapping[runePage.MainPathRune_02.RuneType],
-                lcuRuneIdConfig.lcuIdMapping[runePage.MainPathRune_03.RuneType],
-                lcuRuneIdConfig.lcuIdMapping[runePage.SidePathRune_01.RuneType],
-                lcuRuneIdConfig.lcuIdMapping[runePage.SidePathRune_02.RuneType],
-                lcuRuneIdConfig.lcuIdMapping[runePage.RuneShardAttack.RuneType],
-                lcuRuneIdConfig.lcuIdMapping[runePage.RuneShardDefence.RuneType],
-                lcuRuneIdConfig.lcuIdMapping[runePage.RuneShardFlex.RuneType]);
+                inspectorDataProvider.lcuIdMapping[runePage.MainPath.RuneType],
+                inspectorDataProvider.lcuIdMapping[runePage.SidePath.RuneType],
+                inspectorDataProvider.lcuIdMapping[runePage.KeyStone.RuneType],
+                inspectorDataProvider.lcuIdMapping[runePage.MainPathRune_01.RuneType],
+                inspectorDataProvider.lcuIdMapping[runePage.MainPathRune_02.RuneType],
+                inspectorDataProvider.lcuIdMapping[runePage.MainPathRune_03.RuneType],
+                inspectorDataProvider.lcuIdMapping[runePage.SidePathRune_01.RuneType],
+                inspectorDataProvider.lcuIdMapping[runePage.SidePathRune_02.RuneType],
+                inspectorDataProvider.lcuIdMapping[runePage.RuneShardAttack.RuneType],
+                inspectorDataProvider.lcuIdMapping[runePage.RuneShardDefence.RuneType],
+                inspectorDataProvider.lcuIdMapping[runePage.RuneShardFlex.RuneType]);
         }
 
         private IEnumerator ApplyRunePageProcess(RunePage runePage)

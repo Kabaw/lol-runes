@@ -11,7 +11,7 @@ namespace LoLRunes.Shared.ScriptableObjects
         #region Paths
         [Header("Path Runes")]
         [SerializeField] public LcuRune precision = new LcuRune("8000", RuneTypeEnum.PRECISION_PATH);
-        [SerializeField] public LcuRune domination = new LcuRune("8100", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune domination = new LcuRune("8100", RuneTypeEnum.DOMINATION_PATH);
         [SerializeField] public LcuRune sorcery;
         [SerializeField] public LcuRune resolve;
         [SerializeField] public LcuRune inspiration;
@@ -19,36 +19,36 @@ namespace LoLRunes.Shared.ScriptableObjects
 
         #region Precision
         [Header("Precision")]
-        [SerializeField] public LcuRune precisionKeyStone_01 = new LcuRune("8005", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune precisionKeyStone_01 = new LcuRune("8005", RuneTypeEnum.PRECISION_KEYSTONE_01);
         [SerializeField] public LcuRune precisionKeyStone_02;
         [SerializeField] public LcuRune precisionKeyStone_03;
         [SerializeField] public LcuRune precisionKeyStone_04;
 
-        [SerializeField] public LcuRune precisionRuneSlot_01 = new LcuRune("9101", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune precisionRuneSlot_01 = new LcuRune("9101", RuneTypeEnum.PRECISION_RUNE_SLOT_01);
         [SerializeField] public LcuRune precisionRuneSlot_02;
         [SerializeField] public LcuRune precisionRuneSlot_03;
-        [SerializeField] public LcuRune precisionRuneSlot_04 = new LcuRune("9104", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune precisionRuneSlot_04 = new LcuRune("9104", RuneTypeEnum.PRECISION_RUNE_SLOT_04);
         [SerializeField] public LcuRune precisionRuneSlot_05;
         [SerializeField] public LcuRune precisionRuneSlot_06;
-        [SerializeField] public LcuRune precisionRuneSlot_07 = new LcuRune("8014", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune precisionRuneSlot_07 = new LcuRune("8014", RuneTypeEnum.PRECISION_RUNE_SLOT_07);
         [SerializeField] public LcuRune precisionRuneSlot_08;
         [SerializeField] public LcuRune precisionRuneSlot_09;
         #endregion
 
         #region Domination
         [Header("Domination")]
-        [SerializeField] public LcuRune dominationKeyStone_01 = new LcuRune("8112", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune dominationKeyStone_01 = new LcuRune("8112", RuneTypeEnum.DOMINATION_KEYSTONE_01);
         [SerializeField] public LcuRune dominationKeyStone_02;
         [SerializeField] public LcuRune dominationKeyStone_03;
         [SerializeField] public LcuRune dominationKeyStone_04;
 
-        [SerializeField] public LcuRune dominationRuneSlot_01 = new LcuRune("8126", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune dominationRuneSlot_01 = new LcuRune("8126", RuneTypeEnum.DOMINATION_RUNE_SLOT_01);
         [SerializeField] public LcuRune dominationRuneSlot_02;
         [SerializeField] public LcuRune dominationRuneSlot_03;
-        [SerializeField] public LcuRune dominationRuneSlot_04 = new LcuRune("8136", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune dominationRuneSlot_04 = new LcuRune("8136", RuneTypeEnum.DOMINATION_RUNE_SLOT_04);
         [SerializeField] public LcuRune dominationRuneSlot_05;
         [SerializeField] public LcuRune dominationRuneSlot_06;
-        [SerializeField] public LcuRune dominationRuneSlot_07 = new LcuRune("8135", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune dominationRuneSlot_07 = new LcuRune("8135", RuneTypeEnum.DOMINATION_RUNE_SLOT_07);
         [SerializeField] public LcuRune dominationRuneSlot_08;
         [SerializeField] public LcuRune dominationRuneSlot_09;
         [SerializeField] public LcuRune dominationRuneSlot_10;
@@ -107,13 +107,13 @@ namespace LoLRunes.Shared.ScriptableObjects
 
         #region Rune Shards
         [Header("Rune Shards")]
-        [SerializeField] public LcuRune shardSlot_01 = new LcuRune("5008", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune shardSlot_01 = new LcuRune("5008", RuneTypeEnum.SHARD_SLOT_01);
         [SerializeField] public LcuRune shardSlot_02;
         [SerializeField] public LcuRune shardSlot_03;
-        [SerializeField] public LcuRune shardSlot_04 = new LcuRune("5008", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune shardSlot_04 = new LcuRune("5008", RuneTypeEnum.SHARD_SLOT_04);
         [SerializeField] public LcuRune shardSlot_05;
         [SerializeField] public LcuRune shardSlot_06;
-        [SerializeField] public LcuRune shardSlot_07 = new LcuRune("5001", RuneTypeEnum.PRECISION_PATH);
+        [SerializeField] public LcuRune shardSlot_07 = new LcuRune("5001", RuneTypeEnum.SHARD_SLOT_07);
         [SerializeField] public LcuRune shardSlot_08;
         [SerializeField] public LcuRune shardSlot_09;
         #endregion

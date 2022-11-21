@@ -1,3 +1,4 @@
+using Assets.Scripts.Infra.Lcu;
 using LoLRunes.Application.Services;
 using LoLRunes.Application.Services.Interfaces;
 using LoLRunes.Domain.Repositories;
@@ -5,6 +6,8 @@ using LoLRunes.Domain.Services;
 using LoLRunes.Domain.Services.Interfaces;
 using LoLRunes.Infra;
 using LoLRunes.Infra.Core;
+using LoLRunes.LeagueClienteCommunication.Interfaces;
+using LoLRunes.LeagueClienteCommunication.Strategies.LCU.Repositories;
 using LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services;
 using LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services;
 using LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services.Interfaces;
@@ -40,8 +43,13 @@ public class AppInstaller : MonoInstaller<AppInstaller>
         Container.Bind<LeagueWindowInteractionService>().FromInstance(windowInteractionService);
         #endregion
 
+        #region Lcu
+        //LCU - Interfaces
+        Container.Bind<ILcuRepository>().To<LcuRepository>().AsSingle();
+
         //LCU - Implementations
         Container.Bind<LcuRuneService>().AsSingle();
+        #endregion
 
         //LCC - Implementations
         Container.Bind<ILccRuneService>().To<LccRuneService>().AsSingle();

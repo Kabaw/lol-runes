@@ -4,7 +4,7 @@ namespace LoLRunes.Shared.Dtos
 {
     public class LcuRunePage
     {
-        public int Name { get; internal set; }
+        public string Name { get; internal set; }
 
         public int MainPath { get; internal set; }
         public int SidePath { get; internal set; }
@@ -25,7 +25,7 @@ namespace LoLRunes.Shared.Dtos
         public LcuRunePage(string name, string mainPath, string sidePath, string keyStone, string mainPathRune_01, string mainPathRune_02, string mainPathRune_03,
             string sidePathRune_01,string sidePathRune_02, string runeShardAttack, string runeShardFlex, string runeShardDefence)
         {
-            Name = int.Parse(name);
+            Name = name;
             MainPath = int.Parse(mainPath);
             SidePath = int.Parse(sidePath);
             KeyStone = int.Parse(keyStone);

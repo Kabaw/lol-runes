@@ -5,8 +5,9 @@ namespace LoLRunes.Infra
 {
     public interface IInspectorDataProvider
     {
-        ResolutionRunePositionConfig activeResolutionRunePositionConfig { get; }
-        LcuRuneIdConfig lcuRuneIdConfig { get; }
+        public string lcuEnginePath { get; }
         RuneMenuEnum runeMenu { get; set; }
+        LcuRuneIdConfig lcuRuneIdConfig { get; }
+        ResolutionRunePositionConfig activeResolutionRunePositionConfig { get; }
     }
 }   

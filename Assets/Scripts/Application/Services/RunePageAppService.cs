@@ -2,7 +2,7 @@
 using LoLRunes.Domain.Models;
 using LoLRunes.Domain.Services.Commands;
 using LoLRunes.Domain.Services.Interfaces;
-using LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services;
+using LoLRunes.LeagueClienteCommunication.Interfaces;
 using LoLRunes.View.ViewModel;
 using System;
 using System.Collections.Generic;

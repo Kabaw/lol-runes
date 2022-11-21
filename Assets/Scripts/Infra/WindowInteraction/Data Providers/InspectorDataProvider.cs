@@ -10,12 +10,14 @@ namespace LoLRunes.Infra
         public static InspectorDataProvider instance { get; private set; }
         #endregion
 
-        [SerializeField] private ResolutionRunePositionConfig _resolutionRunePositionConfig_01;
-        [SerializeField] LcuRuneIdConfig lcuRuneIdConfig_01;
+        [SerializeField] string _lcuEnginePath;
+        [SerializeField] private LcuRuneIdConfig lcuRuneIdConfig_01;
+        [SerializeField] private ResolutionRunePositionConfig resolutionRunePositionConfig_01;
 
+        public string lcuEnginePath => _lcuEnginePath;
         public RuneMenuEnum runeMenu { get; set; }
-        public ResolutionRunePositionConfig activeResolutionRunePositionConfig { get; private set; }
         public LcuRuneIdConfig lcuRuneIdConfig { get; private set; }
+        public ResolutionRunePositionConfig activeResolutionRunePositionConfig { get; private set; }
 
         private void Awake()
         {
@@ -31,7 +33,7 @@ namespace LoLRunes.Infra
         private void Start()
         {
             runeMenu = RuneMenuEnum.CHAMPION_SELECTION_SCREEN;
-            activeResolutionRunePositionConfig = _resolutionRunePositionConfig_01;
+            activeResolutionRunePositionConfig = resolutionRunePositionConfig_01;
             lcuRuneIdConfig = lcuRuneIdConfig_01;
         }
     }

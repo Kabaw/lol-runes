@@ -1,6 +1,6 @@
 ﻿using LoLRunes.Domain.Models;
 
-namespace LoLRunes.LeagueClienteCommunication.Strategies.LCU.Services
+namespace LoLRunes.LeagueClienteCommunication.Interfaces
 {
     public interface ILccRuneService
     {

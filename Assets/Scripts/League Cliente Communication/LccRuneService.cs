@@ -1,4 +1,5 @@
 using LoLRunes.Domain.Models;
+using LoLRunes.LeagueClienteCommunication.Interfaces;
 using LoLRunes.LeagueClienteCommunication.Strategies.Interfaces;
 using LoLRunes.LeagueClienteCommunication.Strategies.WindowInteraction.Services;
 
